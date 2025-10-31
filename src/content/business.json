@@ -1,0 +1,32 @@
+{
+  "name": "CodaPixel",
+  "location": "Ayr, United Kingdom",
+  "phone": "+44 7792 145328",
+  "phoneVerified": false,
+  "email": "dorward.connor@gmail.com",
+  "tagline": "Web design and local SEO that generate clients.",
+  "services": [
+    "Web design",
+    "Website redesigns",
+    "Local SEO (Google Business Profile)",
+    "On-page SEO",
+    "Landing pages & CRO",
+    "Analytics & conversion tracking",
+    "Speed optimization",
+    "Ongoing support & updates"
+  ],
+  "pricing": [
+    {
+      "label": "Starter Website",
+      "from": 79,
+      "currency": "GBP",
+      "note": "Starting from"
+    },
+    {
+      "label": "Business Website",
+      "from": 149,
+      "currency": "GBP",
+      "note": "Starting from"
+    }
+  ]
+} 

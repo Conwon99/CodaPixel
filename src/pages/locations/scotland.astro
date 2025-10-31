@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LocationScotlandPage from '../../components/pages/LocationScotlandPage';
+---
+
+<Layout
+  title="Web Design Scotland | Professional Website Design & Development Services | CodaPixel"
+  description="Professional web design and web development services for businesses across Scotland. Custom websites, local SEO, social media management, and conversion tracking. Serving Glasgow, Edinburgh, Aberdeen, Dundee, Ayrshire, and all of Scotland."
+  canonical="/locations/scotland"
+  ogImage="/C logo.webp"
+>
+  <LocationScotlandPage client:visible />
+</Layout>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://codapixel.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://codapixel.com/locations" },
+    { "@type": "ListItem", "position": 3, "name": "Scotland", "item": "https://codapixel.com/locations/scotland" }
+  ]
+})} />
+

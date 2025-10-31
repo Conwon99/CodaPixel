@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://codapixel.com/sitemap.xml
+
+# Disallow admin or private areas
+Disallow: /admin/
+Disallow: /private/

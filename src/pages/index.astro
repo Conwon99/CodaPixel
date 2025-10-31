@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero';
+import HomeContact from '../components/HomeContact';
+---
+
+<Layout
+  title="Web Design Ayrshire | Professional Website Design & Development Services | CodaPixel"
+  description="Professional web design and web development services for Ayrshire businesses. Custom websites, local SEO, social media management, and conversion tracking. Serving Ayr, Prestwick, Troon, and all of Ayrshire."
+  canonical="/"
+  ogImage="/C logo.webp"
+>
+  <Hero client:visible />
+  <HomeContact client:idle />
+</Layout>
+
+<script is:inline>
+  // Track page view - will be handled by analytics script in Layout
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'page_view', {
+      event_category: 'Navigation',
+      event_label: 'Home Page',
+      timestamp: new Date().toISOString()
+    });
+  }
+</script>
+
