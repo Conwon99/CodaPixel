@@ -7,9 +7,10 @@ interface Props {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  robots?: string;
 }
 
-const { title, description = "Web design and SEO that generate clients. Fast websites, lead-focused design, Google Business Profile optimization, and transparent analytics.", canonical, ogImage = "/C logo.webp" } = Astro.props;
+const { title, description = "Web design and SEO that generate clients. Fast websites, lead-focused design, Google Business Profile optimization, and transparent analytics.", canonical, ogImage = "/C logo.webp", robots = "index, follow" } = Astro.props;
 const currentUrl = canonical || Astro.url.pathname;
 const fullUrl = `https://codapixel.com${currentUrl}`;
 ---
@@ -22,6 +23,7 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
     <link rel="canonical" href={fullUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
     <meta name="author" content="CodaPixel" />
     
     <!-- Preconnect to external resources for faster loading - Early hints -->
@@ -226,15 +228,31 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
       }
     })} />
 
-    <link rel="icon" type="image/webp" href="/C logo.webp" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
   </head>
 
-  <body class="font-inter">
+  <body class="font-inter" style="overflow-x: hidden; overflow-y: auto;">
     <Header client:visible />
-    <main>
+    <main style="min-height: 100vh; overflow-x: hidden;">
       <slot />
     </main>
     <Footer client:visible />
+
+    <!-- Tawk.to chat widget -->
+    <script is:inline>
+      var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement("script"),
+          s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = "https://embed.tawk.to/690fbc88edad88195eb785cc/1j9ingtla";
+        s1.charset = "UTF-8";
+        s1.setAttribute("crossorigin", "*");
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script>
   </body>
 </html>
 

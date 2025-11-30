@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
+# Disallow assets and build artifacts
+Disallow: /assets/
+Disallow: /_astro/
+
 # Sitemap
 Sitemap: https://codapixel.com/sitemap.xml
 

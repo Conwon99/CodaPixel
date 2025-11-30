@@ -1,1 +1,3 @@
-/*    /index.html   200
+# Redirect trailing slashes for consistency
+/locations    /locations/    301
+/services    /services/    301

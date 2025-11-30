@@ -77,8 +77,16 @@ const HomeContact = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-thicccboi font-bold text-gray-900 mb-6 leading-tight">
                 Book your <span className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent">free</span> website demo.
               </h1>
+              <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
+                No pressure, no sales pitch. I'll show you what a website for your business would look like, talk through what you actually need (not what I want to sell you), and answer any questions. Takes about 30 minutes.
+              </p>
+              <p className="text-base text-gray-600 mb-4 font-figtree leading-relaxed">
+                I usually ask a few things upfront - what's working with your current site (if you have one), what isn't, and what you want to achieve. Then I'll mock up a quick preview based on that. You can see exactly what you'd get before committing to anything.
+              </p>
+              <p className="text-base text-gray-600 font-figtree leading-relaxed">
+                Most people book a call because they're either starting from scratch or their current site isn't bringing in leads. Either way works - we figure it out together.
+              </p>
             </div>
-            {/* Benefits removed per request */}
 
             {/* Contact Preferences */}
             <div className="mt-6">

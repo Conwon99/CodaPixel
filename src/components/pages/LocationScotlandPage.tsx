@@ -21,13 +21,13 @@ const LocationScotlandPage = () => {
               Web Design Services Across Scotland
             </h2>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              Scottish businesses face unique challenges - whether you're competing with national chains in Glasgow, targeting tourists in Edinburgh, or serving local communities in Aberdeen. Your website needs to connect with Scottish customers while standing out online.
+              Running a business in Scotland means different challenges depending where you are - competing with big chains in Glasgow, attracting tourists in Edinburgh, or serving local communities in Aberdeen. Your website needs to connect with Scottish customers while standing out from everyone else online.
             </p>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              We build websites that work for Scottish businesses. Fast-loading, mobile-friendly sites with clear messaging that converts visitors into customers. We also handle the essentials: local SEO so you show up in local searches, Google Business Profile optimization, and social media management to keep your online presence active.
+              I build websites that work for Scottish businesses. Fast, mobile-friendly sites with clear messaging that actually convert visitors into customers. I'll also handle the basics: local SEO so you show up when people search locally, Google Business Profile, and social media to keep your online presence going.
             </p>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              From Glasgow to Edinburgh, Aberdeen to Inverness, and everywhere in between - we work with businesses across Scotland to create websites that drive real results. Serving Glasgow, Edinburgh, Aberdeen, Dundee, Inverness, Stirling, Perth, Dunfermline, and all major Scottish cities.
+              From Glasgow to Edinburgh, Aberdeen to Inverness, and everywhere in between - I've worked with businesses all over Scotland. I've done sites in Glasgow, Edinburgh, Aberdeen, Dundee, Inverness, Stirling, Perth, Dunfermline, and loads of other Scottish cities.
             </p>
           </div>
         </div>
@@ -38,7 +38,7 @@ const LocationScotlandPage = () => {
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-3 font-thicccboi">Do you offer web design near me in Scotland?</h3>
-            <p className="text-gray-700 font-figtree">Yes, we work with businesses across Scotland. We create custom websites optimized for local search, handle social media management, and set up everything needed to get found online - including local SEO and Google Business Profile optimization. We serve businesses throughout Scotland, including Glasgow, Edinburgh, Aberdeen, Dundee, Inverness, Stirling, Perth, and Dunfermline.</p>
+            <p className="text-gray-700 font-figtree">Yeah, I work with businesses all over Scotland. I build custom websites optimized for local search, handle social media, and set up everything you need to get found online - local SEO and Google Business Profile stuff. I've worked with businesses in Glasgow, Edinburgh, Aberdeen, Dundee, Inverness, Stirling, Perth, Dunfermline, and plenty of other places around Scotland.</p>
           </div>
         </div>
       </section>
@@ -60,7 +60,7 @@ const LocationScotlandPage = () => {
               Covering All of Scotland
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto font-figtree">
-              From the Highlands to the Lowlands, we help Scottish businesses succeed online with professional web design and SEO services.
+              From the Highlands to the Lowlands - I've helped Scottish businesses all over the country get online and start getting customers.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">

@@ -41,7 +41,7 @@ const LocationArgyllPage = () => {
               Serving All of Argyll
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto font-figtree">
-              From Oban and Campbeltown to Dunoon and Rothesay, we help Argyll businesses succeed online with professional web design and SEO.
+              From Oban and Campbeltown to Dunoon and Rothesay - I've helped businesses all over Argyll get online and start bringing in customers.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -69,13 +69,13 @@ const LocationArgyllPage = () => {
               Web Design Services for Argyll Businesses
             </h2>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              Argyll and Bute businesses often juggle two audiences: locals who need your services year-round, and tourists visiting during peak season. Your website needs to speak to both - whether you're a café in Oban, a hotel in Campbeltown, or a service provider in Dunoon.
+              Argyll businesses often have two different audiences: locals who need you all year round, and tourists who visit during peak season. Your website needs to work for both - whether you're a café in Oban, a hotel in Campbeltown, or a service provider in Dunoon.
             </p>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              We build websites that work for Argyll businesses. Fast, mobile-friendly sites that showcase what makes your business special - whether that's stunning photography for tourist attractions or clear service pages for local customers. Plus the essentials: local SEO, Google Business Profile optimization, and social media management.
+              I build websites that work for Argyll businesses. Fast, mobile-friendly sites that show off what makes your business special - whether that's great photos for tourists or clear service pages for locals. Plus I'll handle the basics: local SEO, Google Business Profile, and social media.
             </p>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              From Oban to Campbeltown, Dunoon to Rothesay, and everywhere in between - we understand what Argyll businesses need online. Serving businesses across the region, including Oban, Campbeltown, Dunoon, Rothesay, Helensburgh, and all of Argyll and Bute.
+              From Oban to Campbeltown, Dunoon to Rothesay, and everywhere in between - I get what Argyll businesses need online. I work with businesses across the region, including Oban, Campbeltown, Dunoon, Rothesay, Helensburgh, and all over Argyll and Bute.
             </p>
           </motion.div>
         </div>
@@ -92,7 +92,7 @@ const LocationArgyllPage = () => {
             className="bg-white rounded-2xl p-6 shadow-md border border-gray-200"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-3 font-thicccboi">Do you offer web design near me in Argyll?</h3>
-            <p className="text-gray-700 font-figtree">Yes, we work with businesses throughout Argyll and Bute. We create custom websites optimized for local search, handle social media management, and set up everything needed to get found online - including local SEO and Google Business Profile optimization. We serve businesses across Argyll, including Oban, Campbeltown, Dunoon, Rothesay, Helensburgh, and more.</p>
+            <p className="text-gray-700 font-figtree">Yeah, I work with businesses throughout Argyll and Bute. I build custom websites optimized for local search, handle social media, and set up everything you need to get found online - local SEO and Google Business Profile stuff. I've worked with businesses in Oban, Campbeltown, Dunoon, Rothesay, Helensburgh, and loads of other places around Argyll.</p>
           </motion.div>
         </div>
       </section>

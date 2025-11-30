@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 font-figtree mb-4">
-              Professional website design and development services. We build beautiful, fast websites that generate clients for your business.
+              I build websites for local businesses - fast, good-looking sites that actually bring in customers. No nonsense, just results.
             </p>
             <div className="flex items-center space-x-4">
               <a 
@@ -117,7 +117,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-300 font-figtree text-sm">
               <p>© {currentYear} CodaPixel. All rights reserved.</p>
-              <p className="mt-1">Professional Website Design & Development</p>
+              <p className="mt-1">Website Design & Development</p>
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <a href="/privacy" className="text-gray-300 hover:text-white transition-colors">

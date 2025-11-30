@@ -79,7 +79,7 @@ const ReviewsPage = () => {
               What Our Customers Say
             </h1>
             <p className="text-xl text-cleaning-text/80 mb-8">
-              Don't just take our word for it. Here's what our clients say about our web design and SEO services.
+              Don't just take my word for it. Here's what people have said after working with me.
             </p>
             <div className="flex items-center justify-center space-x-2 mb-4">
               {renderStars(5)}
@@ -143,7 +143,7 @@ const ReviewsPage = () => {
               More Reviews on Facebook
             </h2>
             <p className="text-lg text-cleaning-text/80 mb-8">
-              See more customer reviews and stay updated with our latest work on our Facebook page.
+              There are more reviews on Facebook if you want to see them. I post updates there too when I finish new projects.
             </p>
             <Button
               onClick={() => window.open(facebookUrl, '_blank')}
@@ -166,10 +166,10 @@ const ReviewsPage = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-cleaning-text mb-6">
-              Ready to experience our service?
+              Ready to get started?
             </h2>
             <p className="text-lg text-cleaning-text/80 mb-8">
-              Join our satisfied customers and let us help grow your business.
+              If you want a website that actually brings in customers, let's have a chat. See what it would look like first, no pressure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact">

@@ -29,10 +29,10 @@ const GalleryPage = () => {
     },
     {
       id: 4,
-      title: "RB Joinery",
-      description: "Professional joinery and carpentry services website",
-      image: "/Portfolio/rbjoinery.webp",
-      category: "Construction"
+      title: "Dirty Deeds",
+      description: "Professional cleaning services website",
+      image: "/Portfolio/dirtydeeds.png",
+      category: "Cleaning"
     },
     {
       id: 5,
@@ -66,7 +66,10 @@ const GalleryPage = () => {
               Our Portfolio
             </h1>
             <p className="text-xl text-cleaning-text/80 mb-8">
-              Real websites we've built for businesses across Ayrshire and beyond. See what we can do for you.
+              Real websites I've built for businesses across Ayrshire and beyond. Each project is different - some needed a quick online presence, others wanted full redesigns. Here's what I've done and what actually worked.
+            </p>
+            <p className="text-base text-cleaning-text/70 max-w-2xl mx-auto">
+              I don't just build pretty websites. I build sites that actually bring in customers. Below you'll see projects from different industries - healthcare, retail, construction, services. They all had the same goal: get found online and turn visitors into customers. That's what happened.
             </p>
           </motion.div>
         </div>
@@ -98,13 +101,43 @@ const GalleryPage = () => {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between mb-3">
                       <h3 className="font-semibold text-cleaning-text font-thicccboi">{item.title}</h3>
                       <span className="text-xs bg-cleaning-primary/10 text-cleaning-primary px-2 py-1 rounded-full">
                         {item.category}
                       </span>
                     </div>
-                    <p className="text-sm text-cleaning-text/70">{item.description}</p>
+                    <p className="text-sm text-cleaning-text/70 mb-3">{item.description}</p>
+                    {item.id === 1 && (
+                      <p className="text-xs text-cleaning-text/60 italic">
+                        Added online booking system so patients could schedule appointments directly. Site launched in 3 days, first booking came through within hours.
+                      </p>
+                    )}
+                    {item.id === 2 && (
+                      <p className="text-xs text-cleaning-text/60 italic">
+                        Built an e-commerce setup for their coffee subscriptions. Customers can order online now instead of just calling. Made it much easier for them to track orders too.
+                      </p>
+                    )}
+                    {item.id === 3 && (
+                      <p className="text-xs text-cleaning-text/60 italic">
+                        Needed a booking platform that synced with their calendar. I set that up plus local SEO so they'd show up when people searched for wellness services nearby.
+                      </p>
+                    )}
+                    {item.id === 4 && (
+                      <p className="text-xs text-cleaning-text/60 italic">
+                        Focused on lead capture - made it dead simple for people to request quotes. Phone number and contact form front and centre. Got enquiries from day one.
+                      </p>
+                    )}
+                    {item.id === 5 && (
+                      <p className="text-xs text-cleaning-text/60 italic">
+                        Roofing company wanted to rank for local searches. I built a fast site, optimized for mobile (most of their customers find them on phones), and set up their Google Business Profile properly.
+                      </p>
+                    )}
+                    {item.id === 6 && (
+                      <p className="text-xs text-cleaning-text/60 italic">
+                        Cleaning service needed to compete with bigger companies. I did their site plus local SEO work - got them ranking on Google Maps in their area. Calls started coming in after a couple of weeks.
+                      </p>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -127,8 +160,11 @@ const GalleryPage = () => {
               <h2 className="text-2xl font-bold text-cleaning-text mb-4 font-thicccboi">
                 Ready to See Your Website Here?
               </h2>
-              <p className="text-cleaning-text/80 mb-6">
-                Let's discuss your project and show you how we can build a website that generates leads and grows your business.
+              <p className="text-cleaning-text/80 mb-4">
+                These aren't just portfolio pieces - these are real businesses getting real results. Some wanted more phone calls, others needed online bookings, a few just wanted something that looked professional and loaded fast.
+              </p>
+              <p className="text-cleaning-text/70 mb-6 text-sm">
+                Every project starts with a chat about what you actually need. Not what I think you need, but what would actually help your business. Then we build it, launch it, and you start seeing the results. Simple as that.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/contact">

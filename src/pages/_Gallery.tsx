@@ -33,10 +33,10 @@ const Gallery = () => {
     },
     {
       id: 4,
-      title: "RB Joinery",
-      description: "Professional joinery and carpentry services website",
-      image: "/Portfolio/rbjoinery.webp",
-      category: "Construction"
+      title: "Dirty Deeds",
+      description: "Professional cleaning services website",
+      image: "/Portfolio/dirtydeeds.png",
+      category: "Cleaning"
     },
     {
       id: 5,

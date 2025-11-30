@@ -83,8 +83,7 @@ const LocationsPage = () => {
               Service Locations
             </h1>
             <p className="text-xl text-gray-700 mb-8 font-figtree">
-              Professional web design and local SEO services across the UK, Ireland, North America, and beyond. 
-              Our global team ensures rapid response times and expert support.
+              I build websites for businesses across the UK, Ireland, North America, and beyond. I've worked with companies in all sorts of places - the goal is the same wherever you are: get found online and start bringing in customers.
             </p>
           </motion.div>
         </div>
@@ -182,29 +181,27 @@ const LocationsPage = () => {
               <div>
                 <MapPin className="w-16 h-16 text-blue-600 mb-6" />
                 <h2 className="text-3xl font-bold text-gray-900 mb-6 font-thicccboi">
-                  Comprehensive Coverage Area
+                  Where I Work
                 </h2>
                 <p className="text-gray-700 mb-8 leading-relaxed font-figtree">
-                  We serve businesses across multiple countries with expert web design and local SEO services. 
-                  Whether you're a local business in Ayrshire or expanding across borders, we have the expertise 
-                  to help you succeed online.
+                  I've built sites for businesses in loads of different places - Scotland, England, Ireland, even North America. Doesn't really matter where you are, the goal is the same: get you found online and bring in customers.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                    <span className="text-gray-900 font-figtree">Global expertise, local understanding</span>
+                    <span className="text-gray-900 font-figtree">I understand local markets</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                    <span className="text-gray-900 font-figtree">Fast 48-hour setup in all locations</span>
+                    <span className="text-gray-900 font-figtree">Usually up and running within 48 hours</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                    <span className="text-gray-900 font-figtree">24/7 support across all time zones</span>
+                    <span className="text-gray-900 font-figtree">I'll reply quickly when you need something</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                    <span className="text-gray-900 font-figtree">SEO tailored to local markets</span>
+                    <span className="text-gray-900 font-figtree">SEO that works for where you are</span>
                   </li>
                 </ul>
               </div>
@@ -226,10 +223,10 @@ const LocationsPage = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-thicccboi">
-              Ready to Get Started in Your Location?
+              Ready to Get Started?
             </h2>
             <p className="text-lg text-gray-700 mb-8 font-figtree">
-              Contact us to discuss your project and find out how we can help your business succeed online in your market.
+              Wherever you're based, let's have a chat about your website. I'll show you what it would look like and how we can get you more customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/contact">
