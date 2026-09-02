@@ -42,7 +42,7 @@ const caseStudies = [
     url: "chrisyourmanwithavan.com",
     category: "SEO",
     description:
-      "Local SEO campaign for a man-with-a-van removals business near Mauchline, Ayrshire - turned a rank map full of dead zones into full area-wide page-1 coverage.",
+      "Local SEO campaign for a man-with-a-van removals business near Mauchline, Ayrshire - grew organic clicks 700% and turned search visibility into real bookings.",
     image: "/case-studies/chris-gsc-graph.png",
     imageAlt: "Chris - Your Man With A Van Google Search Console organic traffic growth chart",
     stats: [
