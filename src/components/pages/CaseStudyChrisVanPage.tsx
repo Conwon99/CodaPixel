@@ -157,8 +157,9 @@ const CaseStudyChrisVanPage = () => {
                       Extending Google Business Profile reach
                     </h3>
                     <p className="text-cleaning-text/70 text-sm">
-                      Expanded the Google Business Profile service area and citations so the map pack picked Chris up
-                      in the outlying villages that were previously blank on the rank map, not just next door.
+                      Expanded the Google Business Profile service area and citations so Chris showed up in local
+                      search results across the outlying villages that were previously blank on the rank map, not
+                      just next door.
                     </p>
                   </div>
                 </div>
