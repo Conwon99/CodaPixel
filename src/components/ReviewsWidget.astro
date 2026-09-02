@@ -1,0 +1,14 @@
+---
+interface Props {
+  bordered?: boolean;
+}
+
+const { bordered = true } = Astro.props;
+---
+<section class={`py-12 bg-white ${bordered ? 'border-t border-cleaning-border' : ''}`}>
+  <div class="container mx-auto max-w-7xl px-4">
+    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+    <script src="https://elfsightcdn.com/platform.js" async is:inline></script>
+    <div class="elfsight-app-6d611b9b-92e1-4dd6-8023-d1abe744c5bb" data-elfsight-app-lazy></div>
+  </div>
+</section>

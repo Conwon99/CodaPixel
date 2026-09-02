@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CaseStudyChrisVanPage from '../../components/pages/CaseStudyChrisVanPage';
+import ReviewsWidget from '../../components/ReviewsWidget.astro';
 ---
 
 <Layout
@@ -10,6 +11,7 @@ import CaseStudyChrisVanPage from '../../components/pages/CaseStudyChrisVanPage'
   ogImage="/case-studies/chris-rankmap-after.png"
 >
   <CaseStudyChrisVanPage client:visible />
+  <ReviewsWidget />
 </Layout>
 
 <script type="application/ld+json" is:inline set:html={JSON.stringify({

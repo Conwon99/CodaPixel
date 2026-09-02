@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CaseStudyRBJoineryPage from '../../components/pages/CaseStudyRBJoineryPage';
+import ReviewsWidget from '../../components/ReviewsWidget.astro';
 ---
 
 <Layout
@@ -10,6 +11,7 @@ import CaseStudyRBJoineryPage from '../../components/pages/CaseStudyRBJoineryPag
   ogImage="/case-studies/rbjoinery-rankmap-after.png"
 >
   <CaseStudyRBJoineryPage client:visible />
+  <ReviewsWidget />
 </Layout>
 
 <script type="application/ld+json" is:inline set:html={JSON.stringify({

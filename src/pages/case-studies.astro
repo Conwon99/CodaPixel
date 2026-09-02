@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CaseStudiesPage from '../components/pages/CaseStudiesPage';
+import ReviewsWidget from '../components/ReviewsWidget.astro';
 ---
 
 <Layout
@@ -10,4 +11,5 @@ import CaseStudiesPage from '../components/pages/CaseStudiesPage';
   ogImage="/case-studies/jimbos-gsc-graph.png"
 >
   <CaseStudiesPage client:visible />
+  <ReviewsWidget />
 </Layout>
