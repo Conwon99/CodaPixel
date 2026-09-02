@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyChrisVanPage from '../../components/pages/CaseStudyChrisVanPage';
+---
+
+<Layout
+  title="Chris - Your Man With A Van SEO Case Study | 700% More Clicks | CodaPixel"
+  description="How CodaPixel grew organic clicks 700% for Chris - Your Man With A Van and closed every local rank map dead zone across the Mauchline, Ayrshire service area."
+  canonical="/case-studies/chris-your-man-with-a-van"
+  ogImage="/case-studies/chris-rankmap-after.png"
+>
+  <CaseStudyChrisVanPage client:visible />
+</Layout>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chris - Your Man With A Van SEO Case Study",
+  "description": "How CodaPixel grew organic clicks 700% for Chris - Your Man With A Van and closed every local rank map dead zone across the Mauchline, Ayrshire service area.",
+  "author": {
+    "@type": "Organization",
+    "name": "CodaPixel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CodaPixel",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://codapixel.com/C%20logo.webp"
+    }
+  },
+  "about": {
+    "@type": "LocalBusiness",
+    "name": "Chris - Your Man With A Van",
+    "url": "https://chrisyourmanwithavan.com/"
+  }
+})} />

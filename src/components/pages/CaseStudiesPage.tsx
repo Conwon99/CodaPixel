@@ -33,6 +33,20 @@ const caseStudies = [
       { label: "Google ranking", value: "#1" },
     ],
   },
+  {
+    id: 3,
+    slug: "chris-your-man-with-a-van",
+    title: "Chris - Your Man With A Van",
+    url: "chrisyourmanwithavan.com",
+    category: "SEO",
+    description:
+      "Local SEO campaign for a man-with-a-van removals business near Mauchline, Ayrshire - turned a rank map full of dead zones into full area-wide page-1 coverage.",
+    image: "/case-studies/chris-rankmap-after.png",
+    stats: [
+      { label: "Clicks", value: "+700%" },
+      { label: "Impressions", value: "36k" },
+    ],
+  },
 ];
 
 const CaseStudiesPage = () => {
@@ -62,7 +76,7 @@ const CaseStudiesPage = () => {
         {/* Case Studies Grid */}
         <section className="py-16">
           <div className="container mx-auto max-w-7xl px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {caseStudies.map((study, index) => (
                 <motion.div
                   key={study.id}
