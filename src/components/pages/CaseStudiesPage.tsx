@@ -13,7 +13,8 @@ const caseStudies = [
     category: "SEO",
     description:
       "Local SEO campaign for an exterior cleaning company in Irvine, Ayrshire - built to win the map pack and organic rankings for high-intent cleaning searches.",
-    image: "/case-studies/jimbos-gsc-graph.png",
+    image: "/case-studies/jimbos-rank-map.png",
+    imageAlt: "Jimbo's Exterior Cleaning local search rank map",
     stats: [
       { label: "Organic traffic", value: "12x" },
       { label: "Google ranking", value: "#1" },
@@ -27,7 +28,8 @@ const caseStudies = [
     category: "SEO",
     description:
       "Local SEO campaign for a joinery and carpentry business in Kilmarnock, Ayrshire - ranked #1 for \"joiner near me\" within three months.",
-    image: "/case-studies/rbjoinery-rankmap-after.png",
+    image: "/case-studies/rbjoinery-gsc-graph.png",
+    imageAlt: "RB Joinery Google Search Console organic traffic growth chart",
     stats: [
       { label: "Organic traffic", value: "5x" },
       { label: "Google ranking", value: "#1" },
@@ -41,7 +43,8 @@ const caseStudies = [
     category: "SEO",
     description:
       "Local SEO campaign for a man-with-a-van removals business near Mauchline, Ayrshire - turned a rank map full of dead zones into full area-wide page-1 coverage.",
-    image: "/case-studies/chris-rankmap-after.png",
+    image: "/case-studies/chris-gsc-graph.png",
+    imageAlt: "Chris - Your Man With A Van Google Search Console organic traffic growth chart",
     stats: [
       { label: "Clicks", value: "+700%" },
       { label: "Impressions", value: "36k" },
@@ -90,7 +93,7 @@ const CaseStudiesPage = () => {
                       <div className="relative bg-cleaning-text aspect-[16/10] overflow-hidden">
                         <img
                           src={study.image}
-                          alt={`${study.title} organic traffic growth chart`}
+                          alt={study.imageAlt}
                           width="1200"
                           height="750"
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
