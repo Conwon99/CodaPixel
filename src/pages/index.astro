@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
 import HomeContact from '../components/HomeContact';
+import ReviewsWidget from '../components/ReviewsWidget.astro';
 ---
 
 <Layout
@@ -12,13 +13,7 @@ import HomeContact from '../components/HomeContact';
 >
   <Hero client:visible />
 
-  <section class="py-12 bg-white">
-    <div class="container mx-auto max-w-7xl px-4">
-      <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-      <script src="https://elfsightcdn.com/platform.js" async is:inline></script>
-      <div class="elfsight-app-6d611b9b-92e1-4dd6-8023-d1abe744c5bb" data-elfsight-app-lazy></div>
-    </div>
-  </section>
+  <ReviewsWidget bordered={false} />
 
   <HomeContact client:idle />
 </Layout>

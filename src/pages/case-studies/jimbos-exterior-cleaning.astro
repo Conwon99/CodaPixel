@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CaseStudyJimbosPage from '../../components/pages/CaseStudyJimbosPage';
+import ReviewsWidget from '../../components/ReviewsWidget.astro';
 ---
 
 <Layout
@@ -10,6 +11,7 @@ import CaseStudyJimbosPage from '../../components/pages/CaseStudyJimbosPage';
   ogImage="/case-studies/jimbos-gsc-graph.png"
 >
   <CaseStudyJimbosPage client:visible />
+  <ReviewsWidget />
 </Layout>
 
 <script type="application/ld+json" is:inline set:html={JSON.stringify({
