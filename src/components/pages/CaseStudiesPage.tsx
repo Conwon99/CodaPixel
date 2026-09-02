@@ -19,6 +19,20 @@ const caseStudies = [
       { label: "Google ranking", value: "#1" },
     ],
   },
+  {
+    id: 2,
+    slug: "rb-joinery",
+    title: "RB Joinery",
+    url: "rbjoinery.com",
+    category: "SEO",
+    description:
+      "Local SEO campaign for a joinery and carpentry business in Kilmarnock, Ayrshire - turned a site that barely ranked anywhere into one covering the whole local area.",
+    image: "/case-studies/rbjoinery-rankmap-after.png",
+    stats: [
+      { label: "Organic traffic", value: "5x" },
+      { label: "Local coverage", value: "3 months" },
+    ],
+  },
 ];
 
 const CaseStudiesPage = () => {

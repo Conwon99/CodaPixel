@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyRBJoineryPage from '../../components/pages/CaseStudyRBJoineryPage';
+---
+
+<Layout
+  title="RB Joinery SEO Case Study | 5x Organic Traffic | CodaPixel"
+  description="How CodaPixel grew RB Joinery's organic traffic 5x and took local rankings across Kilmarnock from unranked to area-wide coverage in 3 months."
+  canonical="/case-studies/rb-joinery"
+  ogImage="/case-studies/rbjoinery-rankmap-after.png"
+>
+  <CaseStudyRBJoineryPage client:visible />
+</Layout>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RB Joinery SEO Case Study",
+  "description": "How CodaPixel grew RB Joinery's organic traffic 5x and took local rankings across Kilmarnock from unranked to area-wide coverage in 3 months.",
+  "author": {
+    "@type": "Organization",
+    "name": "CodaPixel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CodaPixel",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://codapixel.com/C%20logo.webp"
+    }
+  },
+  "about": {
+    "@type": "LocalBusiness",
+    "name": "RB Joinery",
+    "url": "https://rbjoinery.com/"
+  }
+})} />
