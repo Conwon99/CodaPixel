@@ -1,7 +1,7 @@
 // Page content component for the RB Joinery case study
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { TrendingUp, MapPin, ExternalLink, ArrowLeft, Search, Hammer } from "lucide-react";
+import { TrendingUp, MapPin, ExternalLink, ArrowLeft, Search, Trophy } from "lucide-react";
 
 const CaseStudyRBJoineryPage = () => {
   return (
@@ -86,9 +86,9 @@ const CaseStudyRBJoineryPage = () => {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <Hammer className="w-8 h-8 text-cleaning-primary mx-auto mb-2" />
-                <div className="text-4xl font-bold text-cleaning-text font-thicccboi mb-1">Joinery</div>
-                <p className="text-sm text-cleaning-text/70">Local trade business, Kilmarnock area</p>
+                <Trophy className="w-8 h-8 text-cleaning-primary mx-auto mb-2" />
+                <div className="text-4xl font-bold text-cleaning-text font-thicccboi mb-1">#1</div>
+                <p className="text-sm text-cleaning-text/70">Ranking for "joiner near me"</p>
               </motion.div>
             </div>
           </div>
@@ -113,9 +113,10 @@ const CaseStudyRBJoineryPage = () => {
                 with the business only visible right on its own doorstep.
               </p>
               <p className="text-cleaning-text/80">
-                For a trade business that depends on local homeowners searching for a joiner nearby, that's the
-                difference between the phone ringing and it staying silent. The goal was to turn that map red-to-green
-                across the whole service area, not just improve one or two keywords.
+                For a trade business, that's the difference between the phone ringing and it staying silent -
+                especially for a term like "joiner near me", which is exactly what homeowners type when they need
+                work done now. The goal was to turn that map red-to-green across the whole service area, with
+                "joiner near me" ranking #1 as the benchmark.
               </p>
             </motion.div>
           </div>
@@ -144,8 +145,8 @@ const CaseStudyRBJoineryPage = () => {
                     </h3>
                     <p className="text-cleaning-text/70 text-sm">
                       Built out dedicated, keyword-targeted pages around the joinery and carpentry services people
-                      actually search for locally, instead of one generic "services" page trying to rank for
-                      everything.
+                      actually search for locally - with "joiner near me" as the primary target - instead of one
+                      generic "services" page trying to rank for everything.
                     </p>
                   </div>
                 </div>
@@ -194,9 +195,9 @@ const CaseStudyRBJoineryPage = () => {
             >
               <h2 className="text-2xl md:text-3xl font-bold text-cleaning-text mb-4 font-thicccboi">The Results</h2>
               <p className="text-cleaning-text/80 mb-10 max-w-3xl">
-                Organic traffic grew 5x, and within three months the local rank map went from almost entirely
-                unranked to solid coverage across Kilmarnock and the surrounding villages. Here's the before and
-                after, straight from the rank tracker, plus the Google Search Console data behind it.
+                Organic traffic grew 5x, and within three months RB Joinery went from nowhere on the map to ranking
+                #1 for "joiner near me" across Kilmarnock and the surrounding villages. Here's the before and after,
+                straight from the rank tracker, plus the Google Search Console data behind it.
               </p>
             </motion.div>
 
@@ -215,7 +216,7 @@ const CaseStudyRBJoineryPage = () => {
                     </span>
                     <img
                       src="/case-studies/rbjoinery-rankmap-before.png"
-                      alt="Local rank map showing RB Joinery ranking outside the top 20 across almost all of Kilmarnock before SEO"
+                      alt="Local rank map showing RB Joinery ranking outside the top 20 for 'joiner near me' across almost all of Kilmarnock before SEO"
                       width="1000"
                       height="1000"
                       className="w-full h-auto"
@@ -226,8 +227,8 @@ const CaseStudyRBJoineryPage = () => {
                   <div className="p-4">
                     <h3 className="font-semibold text-cleaning-text font-thicccboi mb-1">Before: Barely Ranking</h3>
                     <p className="text-sm text-cleaning-text/70">
-                      Almost every point on the map came back 20+ (outside the top 20 results) - only visible right
-                      at the business's own location.
+                      Almost every point on the map came back 20+ for "joiner near me" (outside the top 20 results)
+                      - only visible right at the business's own location.
                     </p>
                   </div>
                 </div>
@@ -246,7 +247,7 @@ const CaseStudyRBJoineryPage = () => {
                     </span>
                     <img
                       src="/case-studies/rbjoinery-rankmap-after.png"
-                      alt="Local rank map showing RB Joinery ranking in the top 8 across Kilmarnock and surrounding villages after three months of SEO"
+                      alt="Local rank map showing RB Joinery ranking #1 for 'joiner near me' across Kilmarnock and surrounding villages after three months of SEO"
                       width="1000"
                       height="1000"
                       className="w-full h-auto"
@@ -259,8 +260,8 @@ const CaseStudyRBJoineryPage = () => {
                       After: Area-Wide Coverage
                     </h3>
                     <p className="text-sm text-cleaning-text/70">
-                      Top-8 rankings across almost the entire grid, with #1-#3 positions right around the core
-                      Kilmarnock service area.
+                      Top-8 rankings for "joiner near me" across almost the entire grid, with #1-#3 positions right
+                      around the core Kilmarnock service area.
                     </p>
                   </div>
                 </div>
