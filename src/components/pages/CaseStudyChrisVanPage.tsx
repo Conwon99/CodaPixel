@@ -38,8 +38,8 @@ const CaseStudyChrisVanPage = () => {
                 Chris - Your Man With A Van
               </h1>
               <p className="text-xl text-cleaning-text/80 mb-4 max-w-2xl">
-                How a man-with-a-van removals business near Mauchline went from big dead zones on the map to
-                ranking on page 1 everywhere across its service area.
+                How a man-with-a-van removals business near Mauchline grew organic search clicks by 700%, turning
+                search visibility into real removals bookings.
               </p>
               <a
                 href="https://chrisyourmanwithavan.com/"
@@ -87,8 +87,8 @@ const CaseStudyChrisVanPage = () => {
                 className="text-center"
               >
                 <MapPin className="w-8 h-8 text-cleaning-primary mx-auto mb-2" />
-                <div className="text-4xl font-bold text-cleaning-text font-thicccboi mb-1">0</div>
-                <p className="text-sm text-cleaning-text/70">Dead zones left on the rank map</p>
+                <div className="text-4xl font-bold text-cleaning-text font-thicccboi mb-1">958</div>
+                <p className="text-sm text-cleaning-text/70">Total organic clicks</p>
               </motion.div>
             </div>
           </div>
@@ -108,14 +108,13 @@ const CaseStudyChrisVanPage = () => {
               </h2>
               <p className="text-cleaning-text/80 mb-4">
                 Chris - Your Man With A Van offers removals and man-with-a-van services around Mauchline and the
-                surrounding East Ayrshire villages. The "before" rank map below shows a business that was ranking
-                well immediately around its own base, but completely invisible - literally outside the top 20 - across
-                a large chunk of the wider service area.
+                surrounding East Ayrshire villages. Before this campaign, the site barely showed up in organic
+                search - Google Search Console recorded only a trickle of clicks and impressions, week after week.
               </p>
               <p className="text-cleaning-text/80">
-                For a removals business, that's a lot of lost jobs: homeowners a few villages over searching for a
-                man with a van would never have found Chris at all. The goal was to close every one of those dead
-                zones and turn the whole area into page-1 coverage.
+                For a removals business, that's a lot of lost jobs: homeowners searching for a man with a van would
+                never have found Chris at all. The goal was to turn that trickle of organic traffic into a steady
+                stream of real enquiries.
               </p>
             </motion.div>
           </div>
@@ -158,8 +157,7 @@ const CaseStudyChrisVanPage = () => {
                     </h3>
                     <p className="text-cleaning-text/70 text-sm">
                       Expanded the Google Business Profile service area and citations so Chris showed up in local
-                      search results across the outlying villages that were previously blank on the rank map, not
-                      just next door.
+                      search results across the outlying villages, not just next door.
                     </p>
                   </div>
                 </div>
@@ -193,78 +191,10 @@ const CaseStudyChrisVanPage = () => {
             >
               <h2 className="text-2xl md:text-3xl font-bold text-cleaning-text mb-4 font-thicccboi">The Results</h2>
               <p className="text-cleaning-text/80 mb-10 max-w-3xl">
-                Organic clicks grew 700%, and every "20+" dead zone on the rank map closed up - the whole grid now
-                ranks within the top 11, with strong page-1 positions right across the core service area. Here's the
-                before and after, plus the Google Search Console data behind it.
+                Organic clicks grew 700%, climbing to 958 total clicks and 36k impressions. Here's the Google Search
+                Console data behind it.
               </p>
             </motion.div>
-
-            {/* Before / After Rank Maps */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <div className="bg-white rounded-lg border border-cleaning-border overflow-hidden shadow-sm">
-                  <div className="relative">
-                    <span className="absolute top-3 left-3 z-10 text-xs font-semibold bg-red-600 text-white px-3 py-1 rounded-full">
-                      Before
-                    </span>
-                    <img
-                      src="/case-studies/chris-rankmap-before.png"
-                      alt="Local rank map showing Chris - Your Man With A Van with a large 20+ unranked dead zone across part of the East Ayrshire service area"
-                      width="1000"
-                      height="1000"
-                      className="w-full h-auto"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-cleaning-text font-thicccboi mb-1">Before: Dead Zones</h3>
-                    <p className="text-sm text-cleaning-text/70">
-                      A cluster of grid points came back "20+" - completely unranked - despite decent rankings right
-                      around the business's own base.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
-              >
-                <div className="bg-white rounded-lg border border-cleaning-border overflow-hidden shadow-sm">
-                  <div className="relative">
-                    <span className="absolute top-3 left-3 z-10 text-xs font-semibold bg-cleaning-primary text-white px-3 py-1 rounded-full">
-                      After
-                    </span>
-                    <img
-                      src="/case-studies/chris-rankmap-after.png"
-                      alt="Local rank map showing Chris - Your Man With A Van ranking within the top 11 across the entire East Ayrshire service area after SEO"
-                      width="1000"
-                      height="1000"
-                      className="w-full h-auto"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-cleaning-text font-thicccboi mb-1">
-                      After: Full Area Coverage
-                    </h3>
-                    <p className="text-sm text-cleaning-text/70">
-                      Every dead zone gone - the entire grid now ranks in the top 11, with the strongest positions
-                      right across the core Mauchline area.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
 
             {/* GSC Graph */}
             <motion.div
@@ -312,8 +242,8 @@ const CaseStudyChrisVanPage = () => {
                   Want To See Results Like Chris's?
                 </h2>
                 <p className="text-cleaning-text/80 mb-6">
-                  If your business only shows up right on its own doorstep and disappears everywhere else, let's fix
-                  that. Book a free chat and I'll show you exactly where you stand.
+                  If your website isn't pulling in the organic clicks it should be, let's fix that. Book a free chat
+                  and I'll show you exactly where you stand.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="/contact">
