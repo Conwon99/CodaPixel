@@ -77,13 +77,19 @@ const Header = () => {
               >
                 Services
               </a>
-              <button 
+              <button
                 onClick={() => handleScrollTo('portfolio')}
                 className="text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
               >
                 Portfolio
               </button>
-              <a 
+              <a
+                href="/case-studies"
+                className="text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
+              >
+                Case Studies
+              </a>
+              <a
                 href="/contact"
                 className="text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
               >
@@ -164,13 +170,20 @@ const Header = () => {
               >
                 Services
               </a>
-              <button 
+              <button
                 onClick={() => handleScrollToOnMobile('portfolio')}
                 className="text-left w-full text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
               >
                 Portfolio
               </button>
-              <a 
+              <a
+                href="/case-studies"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-left w-full text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
+              >
+                Case Studies
+              </a>
+              <a
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-left w-full text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
