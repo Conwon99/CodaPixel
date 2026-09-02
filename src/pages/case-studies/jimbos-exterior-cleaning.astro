@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyJimbosPage from '../../components/pages/CaseStudyJimbosPage';
+---
+
+<Layout
+  title="Jimbo's Exterior Cleaning SEO Case Study | 12x Organic Traffic | CodaPixel"
+  description="How CodaPixel grew Jimbo's Exterior Cleaning's organic traffic 12x and won #1 Google rankings for 'roof cleaner Irvine' and 'gutter cleaner Irvine'."
+  canonical="/case-studies/jimbos-exterior-cleaning"
+  ogImage="/case-studies/jimbos-gsc-graph.png"
+>
+  <CaseStudyJimbosPage client:visible />
+</Layout>
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Jimbo's Exterior Cleaning SEO Case Study",
+  "description": "How CodaPixel grew Jimbo's Exterior Cleaning's organic traffic 12x and won #1 Google rankings for 'roof cleaner Irvine' and 'gutter cleaner Irvine'.",
+  "author": {
+    "@type": "Organization",
+    "name": "CodaPixel"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CodaPixel",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://codapixel.com/C%20logo.webp"
+    }
+  },
+  "about": {
+    "@type": "LocalBusiness",
+    "name": "Jimbo's Exterior Cleaning",
+    "url": "https://jimboscleaning.com/"
+  }
+})} />
