@@ -71,11 +71,17 @@ const Header = () => {
               >
                 Home
               </a>
-              <a 
+              <a
                 href="/services"
                 className="text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
               >
                 Services
+              </a>
+              <a
+                href="/pricing"
+                className="text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
+              >
+                Pricing
               </a>
               <button
                 onClick={() => handleScrollTo('portfolio')}
@@ -163,12 +169,19 @@ const Header = () => {
               >
                 Home
               </a>
-              <a 
+              <a
                 href="/services"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-left w-full text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
               >
                 Services
+              </a>
+              <a
+                href="/pricing"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-left w-full text-gray-800 hover:text-cleaning-primary font-figtree font-medium transition-colors"
+              >
+                Pricing
               </a>
               <button
                 onClick={() => handleScrollToOnMobile('portfolio')}
