@@ -203,11 +203,11 @@ const Hero = ({ location }: HeroProps = {}) => {
               className="mb-8 flex justify-center lg:justify-start"
             >
               <a href="/contact">
-              <Button 
+              <Button
                 onClick={() => trackBookCall('hero')}
-                className="relative bg-gradient-to-r from-[#3b82f6] to-[#2563eb] hover:from-[#1d4ed8] hover:to-[#1e40af] text-white font-inter font-medium text-lg px-8 py-4 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.5),0_0_40px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.7),0_0_60px_rgba(59,130,246,0.4)] transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:rounded-xl before:opacity-60"
+                className="relative bg-gradient-to-r from-[#3b82f6] to-[#2563eb] hover:from-[#1d4ed8] hover:to-[#1e40af] text-white font-inter font-medium text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:rounded-xl before:opacity-60"
               >
-                Get a free preview
+                Message Us
               </Button>
               </a>
             </motion.div>
@@ -385,11 +385,11 @@ const Hero = ({ location }: HeroProps = {}) => {
             className="flex justify-center mt-12"
           >
             <a href="/contact">
-            <Button 
+            <Button
               onClick={() => trackBookCall('video_section')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-figtree font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
-              Get a free preview
+              Message Us
             </Button>
             </a>
           </motion.div>
@@ -783,19 +783,19 @@ const Hero = ({ location }: HeroProps = {}) => {
                   <div className="text-center mb-8 relative z-10">
                     <h3 className="text-white text-2xl font-thicccboi font-semibold mb-4 leading-tight">
                       Ready to Get Started?<br />
-                      Get a free preview
+                      Message us today
                     </h3>
-                    
+
                     {/* Buttons Container */}
                     <div className="flex flex-col gap-4">
                       {/* Button */}
-                      <a 
+                      <a
                         href="/contact"
                         onClick={() => trackBookCall('faq')}
-                        aria-label="Get a free preview from FAQ section"
+                        aria-label="Message us from the FAQ section"
                         className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors"
                       >
-                        Get a free preview
+                        Message Us
                       </a>
                       
                       {/* WhatsApp Button */}
