@@ -770,7 +770,7 @@ const Hero = ({ location }: HeroProps = {}) => {
             </div>
 
       {/* Pricing Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 overflow-visible">
+      <section id="pricing" data-section="Pricing" className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 overflow-visible">
         <div className="container mx-auto max-w-7xl px-4 overflow-visible">
           {/* Black Friday Deal Banner */}
           <motion.div
