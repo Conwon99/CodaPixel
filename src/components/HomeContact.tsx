@@ -1,64 +1,45 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, CheckCircle } from "lucide-react";
-import { useEffect } from "react";
-import { trackBookCall, trackWhatsApp, trackPhoneCall, trackCalendlyEvent } from "@/lib/analytics";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { trackBookCall, trackWhatsApp, trackPhoneCall, trackCTA } from "@/lib/analytics";
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
+const encodeFormData = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join("&");
 
 const HomeContact = () => {
-  // Load Calendly script lazily when section comes into view
-  useEffect(() => {
-    let hasLoaded = false;
-    
-    const loadCalendly = () => {
-      if (hasLoaded || document.querySelector('script[src*="calendly"]')) {
-        hasLoaded = true;
-        return;
-      }
-      
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.head.appendChild(script);
-      hasLoaded = true;
-    };
-    
-    // Load when section comes into view
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            loadCalendly();
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: '100px' }
-    );
-    
-    const section = document.getElementById('contact-section');
-    if (section) {
-      observer.observe(section);
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodeFormData({ "form-name": "contact", ...formData }),
+      });
+      trackCTA("form", "contact_section");
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      setStatus("error");
     }
-    
-    // Set up Calendly event listeners
-    const handleCalendlyEvent = (e: any) => {
-      const eventType = e.data.event;
-      if (eventType === 'calendly.event_scheduled') {
-        trackCalendlyEvent('scheduled', 'Contact Section');
-      } else if (eventType === 'calendly.popup_open') {
-        trackCalendlyEvent('opened', 'Contact Section');
-      } else if (eventType === 'calendly.popup_close') {
-        trackCalendlyEvent('closed', 'Contact Section');
-      }
-    };
-    
-    window.addEventListener('message', handleCalendlyEvent);
-    
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('message', handleCalendlyEvent);
-    };
-  }, []);
+  };
 
   return (
     <section id="contact-section" data-section="Contact" className="pt-40 pb-20 overflow-x-hidden" style={{ backgroundColor: '#eae6e8' }}>
@@ -75,16 +56,16 @@ const HomeContact = () => {
             {/* Section Header */}
             <div className="mb-8">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-thicccboi font-bold text-gray-900 mb-6 leading-tight">
-                Book your <span className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent">free</span> website demo.
+                Get your <span className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent">free</span> website demo.
               </h1>
               <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-                No pressure, no sales pitch. I'll show you what a website for your business would look like, talk through what you actually need (not what I want to sell you), and answer any questions. Takes about 30 minutes.
+                No pressure, no sales pitch. Send us a few details about your business and I'll show you what a website for your business would look like, talk through what you actually need (not what I want to sell you), and answer any questions.
               </p>
               <p className="text-base text-gray-600 mb-4 font-figtree leading-relaxed">
                 I usually ask a few things upfront - what's working with your current site (if you have one), what isn't, and what you want to achieve. Then I'll mock up a quick preview based on that. You can see exactly what you'd get before committing to anything.
               </p>
               <p className="text-base text-gray-600 font-figtree leading-relaxed">
-                Most people book a call because they're either starting from scratch or their current site isn't bringing in leads. Either way works - we figure it out together.
+                Most people reach out because they're either starting from scratch or their current site isn't bringing in leads. Either way works - we figure it out together.
               </p>
             </div>
 
@@ -117,30 +98,114 @@ const HomeContact = () => {
 
           </motion.div>
 
-          {/* Right - Calendly Widget */}
+          {/* Right - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true, amount: 0.3 }}
-            className="p-4 sm:p-8 w-full max-w-md mx-auto lg:mx-0"
+            className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 w-full max-w-md mx-auto lg:mx-0"
           >
             <div className="text-center mb-6">
               <h3 className="text-2xl font-thicccboi font-bold text-gray-900 mb-2">
-                Schedule Your Call
+                Send Us a Message
               </h3>
               <p className="text-gray-600 font-figtree">
-                Choose a time that works for you
+                Tell us about your business and we'll get back to you fast
               </p>
-                  </div>
-            
-            {/* Calendly Inline Widget */}
-            <div 
-              className="calendly-inline-widget w-full" 
-              data-url="https://calendly.com/dorward-connor/website-demo?hide_event_type_details=1&hide_gdpr_banner=1" 
-              style={{ width: '100%', minWidth: 0, height: '650px' }}
-            >
             </div>
+
+            {status === "success" ? (
+              <div className="flex flex-col items-center text-center py-8">
+                <CheckCircle className="w-14 h-14 text-green-600 mb-4" />
+                <h4 className="text-xl font-thicccboi font-bold text-gray-900 mb-2">
+                  Message sent!
+                </h4>
+                <p className="text-gray-600 font-figtree">
+                  Thanks for reaching out - we'll be in touch soon.
+                </p>
+              </div>
+            ) : (
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don't fill this out: <input name="bot-field" />
+                  </label>
+                </p>
+
+                <div>
+                  <Label htmlFor="name" className="text-gray-900 font-figtree">Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="mt-1 bg-white text-gray-900"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="email" className="text-gray-900 font-figtree">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="mt-1 bg-white text-gray-900"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="phone" className="text-gray-900 font-figtree">Phone (optional)</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="mt-1 bg-white text-gray-900"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="message" className="text-gray-900 font-figtree">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="mt-1 bg-white text-gray-900"
+                  />
+                </div>
+
+                {status === "error" && (
+                  <p className="text-sm text-red-600 font-figtree">
+                    Something went wrong sending your message. Please try again, or WhatsApp/call us instead.
+                  </p>
+                )}
+
+                <Button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-figtree font-semibold py-3 rounded-xl transition-all duration-200 disabled:opacity-60"
+                >
+                  {status === "submitting" ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>

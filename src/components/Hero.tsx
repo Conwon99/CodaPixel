@@ -4,7 +4,7 @@ import { CardContent, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { Check, CheckCircle, ChevronRight, Code2, Search, Clock, Home, TrendingUp, Rocket } from "lucide-react";
 import { useBusiness } from "@/hooks/useBusiness";
-import { trackBookCall, trackWhatsApp, trackPhoneCall, trackCalendlyEvent, trackSectionView } from "@/lib/analytics";
+import { trackBookCall, trackWhatsApp, trackPhoneCall, trackSectionView } from "@/lib/analytics";
 import { useState, useEffect } from "react";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 // import LottieLoader from "@/components/LottieLoader"; // Commented out for performance testing
