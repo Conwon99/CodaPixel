@@ -32,56 +32,63 @@ const Hero = ({ location }: HeroProps = {}) => {
   const services = [
     {
       title: "Starter",
-      description: "Perfect for businesses that need a reliable online presence with essential maintenance and hosting. Get your website indexed on Google and keep it running smoothly.",
-      tagline: "\"I need a basic website up and running\"",
+      tagline: "Perfect for businesses that need a professional website without a large upfront cost.",
       icon: Home,
-      price: "£39",
+      price: "£89",
       priceNote: "per month",
+      ctaLabel: "Get Started",
       features: [
-        "Hosting & Maintenance Included",
-        "Critical Security Updates",
-        "Get Found on Google (Indexed)",
-        "SSL Certificate & Regular Backups",
-        "Email Support",
-        "Minor Content Updates (quoted separately)"
+        "Professional, mobile-friendly website",
+        "Hosting included",
+        "Website maintenance",
+        "SSL/security",
+        "Contact forms",
+        "Basic on-page SEO setup",
+        "Up to 1 hour of website updates each month",
+        "Ongoing technical support"
       ],
       popular: false
     },
     {
       title: "Growth",
-      description: "The most popular choice for businesses ready to grow. Enhanced Google visibility, review strategy, and regular updates to help you attract more customers.",
-      tagline: "\"I want more consistent business\"",
+      tagline: "For businesses that want to increase their visibility on Google and generate a consistent flow of enquiries.",
       icon: TrendingUp,
-      price: "£79",
+      price: "£249",
       priceNote: "per month",
+      ctaLabel: "Grow My Business",
       features: [
         "Everything in Starter, plus:",
-        "Enhanced Google Visibility & Local SEO",
-        "Google Business Profile Optimization",
-        "Review Generation Strategy",
-        "Regular Content Updates (up to 5/month)",
-        "Analytics & Monthly Reports",
-        "Priority Email Support"
+        "Local SEO",
+        "Google Business Profile optimisation",
+        "Targeted service and location pages",
+        "Keyword tracking",
+        "Google Search Console monitoring",
+        "Review generation strategy",
+        "Monthly SEO improvements",
+        "Monthly performance reporting",
+        "Unlimited website updates"
       ],
       popular: true
     },
     {
-      title: "Scale",
-      description: "For businesses serious about rapid growth. Active SEO improvements, comprehensive Google Business Profile management, and social media strategy to accelerate your success.",
-      tagline: "\"I need maximum visibility and growth\"",
+      title: "Full Service",
+      tagline: "Our complete lead generation package for businesses that want us to handle their online growth.",
       icon: Rocket,
-      price: "£119",
+      price: "£879",
       priceNote: "per month",
+      extraNote: "Advertising spend is separate.",
+      ctaLabel: "Get More Leads",
       features: [
         "Everything in Growth, plus:",
-        "Active SEO & Ranking Improvements",
-        "Advanced Google Business Profile Management",
-        "Comprehensive Review Strategy & Monitoring",
-        "Social Media Strategy",
-        "Advanced Analytics & Reporting",
-        "Unlimited Content Updates",
-        "Dedicated Account Manager",
-        "Quarterly Strategy Reviews"
+        "Google Ads management",
+        "Campaign setup and optimisation",
+        "Conversion tracking",
+        "Landing page creation",
+        "Call and enquiry tracking",
+        "Ongoing ad testing",
+        "SEO + paid advertising working together",
+        "Priority support",
+        "Complete lead generation strategy"
       ],
       popular: false
     }
@@ -124,8 +131,8 @@ const Hero = ({ location }: HeroProps = {}) => {
       answer: "Usually within 48 hours once you're set up. Sometimes faster, sometimes a day or two longer if it's more complex, but I'll let you know upfront."
     },
     {
-      question: "What's included in the Growth package (£79/month)?",
-      answer: "Everything you need to grow online. Enhanced Google visibility, Google Business Profile optimization, review strategy, regular content updates (up to 5/month), hosting, maintenance, monthly analytics reports, and priority support. All included."
+      question: "What's included in the Growth package (£249/month)?",
+      answer: "Everything you need to grow online. Local SEO, Google Business Profile optimisation, targeted service and location pages, keyword tracking, review generation strategy, monthly SEO improvements, monthly performance reporting, and unlimited website updates. All included."
     },
     {
       question: "How are payments done?",
@@ -802,10 +809,10 @@ const Hero = ({ location }: HeroProps = {}) => {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-figtree">
-              Pricing
+              Simple Pricing. Built to Generate Results.
             </h2>
             <p className="text-xl text-gray-300 font-figtree mb-4 max-w-3xl mx-auto">
-              Choose the package that fits your business needs. From essential hosting and maintenance to comprehensive growth strategies with active SEO, social media, and dedicated support.
+              Choose the package that best fits your business. Whether you need a professional website, want to generate more enquiries through Google, or want us to handle your entire online marketing strategy, we've got you covered.
             </p>
             <p className="text-lg text-blue-400 font-medium font-figtree">
               "{tagline}"
@@ -877,6 +884,11 @@ const Hero = ({ location }: HeroProps = {}) => {
                       <p className={`text-sm font-figtree mt-1 ${service.popular ? 'text-blue-100' : 'text-gray-400'}`}>
                         {service.priceNote}
                       </p>
+                      {service.extraNote && (
+                        <p className={`text-xs font-figtree mt-1 italic ${service.popular ? 'text-blue-100' : 'text-gray-500'}`}>
+                          {service.extraNote}
+                        </p>
+                      )}
                     </div>
 
                     {/* Features List */}
@@ -915,7 +927,7 @@ const Hero = ({ location }: HeroProps = {}) => {
                           ? 'bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 shadow-lg hover:shadow-xl' 
                           : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white hover:scale-105 shadow-lg hover:shadow-xl'
                       }`}>
-                        Get Started
+                        {service.ctaLabel}
                       </Button>
                     </a>
                   </div>
@@ -929,6 +941,30 @@ const Hero = ({ location }: HeroProps = {}) => {
               </motion.div>
             ))}
           </div>
+
+          {/* Not Sure Which Package CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="mt-16 max-w-3xl mx-auto text-center bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-3xl p-8 md:p-12"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-figtree">
+              Not Sure Which Package Is Right for You?
+            </h3>
+            <p className="text-gray-300 font-figtree mb-8 max-w-2xl mx-auto">
+              Tell us about your business and where you want to grow. We'll recommend the package that makes the most sense for you - without trying to sell you services you don't need.
+            </p>
+            <a href="/contact">
+              <Button
+                onClick={() => trackBookCall('pricing_not_sure')}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-figtree font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Book a Free Consultation
+              </Button>
+            </a>
+          </motion.div>
         </div>
       </section>
 
