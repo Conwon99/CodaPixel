@@ -9,10 +9,7 @@ import { trackBookCall, trackWhatsApp, trackPhoneCall, trackCTA } from "@/lib/an
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
-const encodeFormData = (data: Record<string, string>) =>
-  Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join("&");
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzzolqp";
 
 const HomeContact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -25,14 +22,24 @@ const HomeContact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if ((e.target as HTMLFormElement)["_gotcha"]?.value) {
+      return;
+    }
+
     setStatus("submitting");
 
     try {
-      await fetch("/", {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeFormData({ "form-name": "contact", ...formData }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
       trackCTA("form", "contact_section");
       setStatus("success");
       setFormData({ name: "", email: "", phone: "", message: "" });
@@ -127,19 +134,10 @@ const HomeContact = () => {
               </div>
             ) : (
               <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-4"
               >
-                <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>
-                    Don't fill this out: <input name="bot-field" />
-                  </label>
-                </p>
+                <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
                 <div>
                   <Label htmlFor="name" className="text-gray-900 font-figtree">Name</Label>
