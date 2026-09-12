@@ -772,35 +772,6 @@ const Hero = ({ location }: HeroProps = {}) => {
       {/* Pricing Section */}
       <section id="pricing" data-section="Pricing" className="py-20 bg-gradient-to-b from-gray-900 via-gray-900 to-gray-950 overflow-visible">
         <div className="container mx-auto max-w-7xl px-4 overflow-visible">
-          {/* Black Friday Deal Banner */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <div className="bg-gradient-to-r from-black via-gray-900 to-black rounded-2xl p-6 shadow-2xl border-4 border-orange-500 relative overflow-hidden">
-              {/* Decorative elements */}
-              <div className="absolute top-0 left-0 w-20 h-20 bg-orange-500 rounded-full blur-2xl opacity-30"></div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-orange-500 rounded-full blur-3xl opacity-20"></div>
-              
-              <div className="relative z-10 text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white font-figtree">
-                    Black Friday Special Offer
-                  </h3>
-                </div>
-                <p className="text-lg md:text-xl text-white font-figtree font-semibold">
-                  Get <span className="text-orange-400 font-bold">50% OFF</span> your first month when you onboard before December 1st!
-                </p>
-                <p className="text-base md:text-lg text-orange-200 font-figtree mt-2 font-semibold">
-                  Use promo code: <span className="text-orange-400 font-bold text-xl">DECEMBER1</span>
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
