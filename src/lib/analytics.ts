@@ -28,16 +28,6 @@ export const trackWhatsApp = (location: string) => {
   });
 };
 
-// Track Calendly widget interactions
-export const trackCalendlyEvent = (eventType: 'opened' | 'closed' | 'scheduled', details?: string) => {
-  trackEvent('calendly_interaction', {
-    event_category: 'Calendly',
-    event_label: eventType,
-    details: details || '',
-    timestamp: new Date().toISOString()
-  });
-};
-
 // Track phone call clicks
 export const trackPhoneCall = (location: string) => {
   trackEvent('phone_call_click', {
