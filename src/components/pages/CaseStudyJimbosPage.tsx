@@ -65,7 +65,7 @@ const CaseStudyJimbosPage = () => {
                 className="text-center"
               >
                 <TrendingUp className="w-8 h-8 text-cleaning-primary mx-auto mb-2" />
-                <div className="text-4xl font-bold text-cleaning-text font-thicccboi mb-1">12x</div>
+                <div className="text-4xl font-bold text-cleaning-text font-thicccboi mb-1">29x</div>
                 <p className="text-sm text-cleaning-text/70">Increase in organic traffic</p>
               </motion.div>
               <motion.div
@@ -193,7 +193,7 @@ const CaseStudyJimbosPage = () => {
             >
               <h2 className="text-2xl md:text-3xl font-bold text-cleaning-text mb-4 font-thicccboi">The Results</h2>
               <p className="text-cleaning-text/80 mb-10 max-w-3xl">
-                Organic traffic grew 12x, and Jimbo's now ranks #1 on Google for "roof cleaner Irvine" and "gutter
+                Organic traffic grew 29x, and Jimbo's now ranks #1 on Google for "roof cleaner Irvine" and "gutter
                 cleaner Irvine" - the two highest-intent searches in the local market. Here's the data straight from
                 Google Search Console and the local rank tracking.
               </p>
@@ -222,7 +222,7 @@ const CaseStudyJimbosPage = () => {
                     </h3>
                     <p className="text-sm text-cleaning-text/70">
                       Weekly clicks and impressions climbing steadily as rankings improved - clear evidence of the
-                      12x organic traffic increase.
+                      29x organic traffic increase.
                     </p>
                   </div>
                 </div>

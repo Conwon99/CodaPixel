@@ -16,7 +16,7 @@ const caseStudies = [
     image: "/case-studies/jimbos-rank-map.png",
     imageAlt: "Jimbo's Exterior Cleaning local search rank map",
     stats: [
-      { label: "Organic traffic", value: "12x" },
+      { label: "Organic traffic", value: "29x" },
       { label: "Google ranking", value: "#1" },
     ],
   },
