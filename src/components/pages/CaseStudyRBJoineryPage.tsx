@@ -279,8 +279,8 @@ const CaseStudyRBJoineryPage = () => {
                 <img
                   src="/case-studies/rbjoinery-gsc-graph.png"
                   alt="Google Search Console graph showing RB Joinery clicks and impressions growing over time"
-                  width="1200"
-                  height="750"
+                  width="820"
+                  height="334"
                   className="w-full h-auto"
                   loading="lazy"
                   decoding="async"
