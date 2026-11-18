@@ -50,6 +50,21 @@ const caseStudies = [
       { label: "Impressions", value: "36k" },
     ],
   },
+  {
+    id: 4,
+    slug: "double-o-detailing",
+    title: "Double O Detailing",
+    url: "doubleodetailing.co.uk",
+    category: "SEO Audit",
+    description:
+      "Spam update audit and recovery for a car detailing unit in Killearn, Stirlingshire - found and removed the doorway and duplicate pages dragging the site down.",
+    image: "/case-studies/doubleo-gsc-spam-drop.png",
+    imageAlt: "Double O Detailing Google Search Console impressions drop after the August 2026 spam update",
+    stats: [
+      { label: "URLs cleaned up", value: "~280" },
+      { label: "Page weight", value: "-93%" },
+    ],
+  },
 ];
 
 const CaseStudiesPage = () => {
