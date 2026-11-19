@@ -33,7 +33,13 @@ const HomeContact = () => {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(formData),
+        // websiteUrl lets the twilio-webhook handler match this lead to
+        // CodaPixel in LeadTrackerCRM; pageUrl records where it was sent from.
+        body: JSON.stringify({
+          ...formData,
+          websiteUrl: "https://codapixel.com",
+          pageUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
       });
 
       if (!response.ok) {
