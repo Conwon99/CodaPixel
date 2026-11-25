@@ -6,22 +6,9 @@ import { MapPin, ArrowRight, Phone, CheckCircle2 } from "lucide-react";
 const LocationsPage = () => {
   const locations = {
     scotland: [
-      { city: "Ayrshire", link: "/locations/ayrshire", serviceAreas: "Ayr, Prestwick, Troon, Kilmarnock, Irvine, and all of Ayrshire" },
-      { city: "Argyll", link: "/locations/argyll", serviceAreas: "Oban, Campbeltown, Dunoon, Rothesay, Helensburgh, and more" },
-      { city: "Glasgow", link: "/locations/glasgow", serviceAreas: "Glasgow, East Kilbride, Paisley, and more" },
-      { city: "Edinburgh", link: "/locations/edinburgh", serviceAreas: "Edinburgh, Leith, Livingston, and more" },
-      { city: "Aberdeen", link: "/locations/aberdeen", serviceAreas: "Aberdeen and surrounding areas" },
-      { city: "Dundee", link: "/locations/dundee", serviceAreas: "Dundee and surrounding areas" },
-      { city: "Inverness", link: "/locations/inverness", serviceAreas: "Inverness and Highland region" },
-      { city: "Stirling", link: "/locations/stirling", serviceAreas: "Stirling and surrounding areas" },
-      { city: "Perth", link: "/locations/perth", serviceAreas: "Perth and surrounding areas" },
-      { city: "Dunfermline", link: "/locations/dunfermline", serviceAreas: "Dunfermline and Fife" }
-    ],
-    england: [],
-    wales: [],
-    ireland: [],
-    usa: [],
-    canada: []
+      { city: "Ayrshire", link: "/locations/ayrshire/", serviceAreas: "Ayr, Prestwick, Troon, Kilmarnock, Irvine, and all of Ayrshire" },
+      { city: "Rest of Scotland", link: "/locations/scotland/", serviceAreas: "Remote web design and SEO for businesses across Scotland" }
+    ]
   };
 
   const renderLocationCard = (city: string, serviceAreas: string, link?: string | null, index?: number) => {
@@ -83,7 +70,7 @@ const LocationsPage = () => {
               Service Locations
             </h1>
             <p className="text-xl text-gray-700 mb-8 font-figtree">
-              I build websites for businesses across the UK, Ireland, North America, and beyond. I've worked with companies in all sorts of places - the goal is the same wherever you are: get found online and start bringing in customers.
+              Ayrshire is home base, and most of my clients are trades and local service businesses around Ayr, Troon, Kilmarnock and Irvine. I also work remotely with businesses across Scotland - the goal is the same wherever you are: get found online and start bringing in customers.
             </p>
           </motion.div>
         </div>
@@ -109,60 +96,6 @@ const LocationsPage = () => {
             </motion.div>
           )}
 
-          {/* England - Heading only, no cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-thicccboi">England</h2>
-          </motion.div>
-
-          {/* Wales - Heading only, no cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-thicccboi">Wales</h2>
-          </motion.div>
-
-          {/* Ireland - Heading only, no cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-thicccboi">Ireland</h2>
-          </motion.div>
-
-          {/* USA - Heading only, no cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-thicccboi">United States</h2>
-          </motion.div>
-
-          {/* Canada - Heading only, no cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-thicccboi">Canada</h2>
-          </motion.div>
 
         </div>
       </section>
@@ -229,7 +162,7 @@ const LocationsPage = () => {
               Wherever you're based, let's have a chat about your website. I'll show you what it would look like and how we can get you more customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact">
+              <a href="/contact/">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-figtree">
                   Get a Free Quote
                 </Button>

@@ -10,9 +10,10 @@ import YouTubeEmbed from "@/components/YouTubeEmbed";
 
 interface HeroProps {
   location?: string;
+  trustNote?: string;
 }
 
-const Hero = ({ location }: HeroProps = {}) => {
+const Hero = ({ location, trustNote: trustNoteOverride }: HeroProps = {}) => {
   const { phone, facebookUrl, tagline } = useBusiness();
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
@@ -32,9 +33,9 @@ const Hero = ({ location }: HeroProps = {}) => {
     ? <>Web Design & SEO<br />for <span className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent font-bold">{location === 'Scotland' ? 'Scottish Businesses' : `${location} Businesses`}</span></>
     : <>Web Design & SEO<br />That Generate <span className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent font-bold">Real Customers</span></>;
   
-  const trustNote = location 
+  const trustNote = trustNoteOverride ?? (location
     ? `Trusted by ${location === 'Scotland' ? 'Scottish' : location} businesses`
-    : "Used by loads of local businesses";
+    : "Used by loads of local businesses");
 
   // Track section views when they come into viewport
   useEffect(() => {
@@ -202,7 +203,7 @@ const Hero = ({ location }: HeroProps = {}) => {
               viewport={{ once: true, amount: 0.7 }}
               className="mb-8 flex justify-center lg:justify-start"
             >
-              <a href="/contact">
+              <a href="/contact/">
               <Button
                 onClick={() => trackBookCall('hero')}
                 className="relative bg-gradient-to-r from-[#3b82f6] to-[#2563eb] hover:from-[#1d4ed8] hover:to-[#1e40af] text-white font-inter font-medium text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:rounded-xl before:opacity-60"
@@ -223,7 +224,7 @@ const Hero = ({ location }: HeroProps = {}) => {
                 className="relative w-full max-w-3xl sm:max-w-4xl md:max-w-5xl lg:max-w-7xl mx-auto flex items-center justify-center"
               >
                 <img
-                  src="/herocards.png"
+                  src="/herocards.webp"
                   alt="Web design and development showcase"
                   width="800"
                   height="800"
@@ -384,7 +385,7 @@ const Hero = ({ location }: HeroProps = {}) => {
             viewport={{ once: true }}
             className="flex justify-center mt-12"
           >
-            <a href="/contact">
+            <a href="/contact/">
             <Button
               onClick={() => trackBookCall('video_section')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-figtree font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -443,7 +444,7 @@ const Hero = ({ location }: HeroProps = {}) => {
 
                 {/* CTA Button */}
                 <div className="flex justify-start">
-                  <a href="/contact">
+                  <a href="/contact/">
                     <Button 
                       onClick={() => trackBookCall('websites_generate_clients')}
                       className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-figtree font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -627,7 +628,7 @@ const Hero = ({ location }: HeroProps = {}) => {
                 <div className="bg-[#eae6e8] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
                   <div className="bg-white overflow-hidden aspect-[665/388]">
                     <img 
-                      src="/Portfolio/dirtydeeds.png" 
+                      src="/Portfolio/dirtydeeds.webp" 
                       alt="Dirty Deeds Website" 
                       width="665"
                       height="388"
@@ -703,7 +704,7 @@ const Hero = ({ location }: HeroProps = {}) => {
             <p className="text-lg text-gray-300 font-figtree mb-8 max-w-2xl mx-auto">
               Plans starting from £89/month, whatever your business needs - from a professional website to a complete lead generation strategy.
             </p>
-            <a href="/pricing">
+            <a href="/pricing/">
               <Button
                 onClick={() => trackBookCall('homepage_pricing_teaser')}
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-figtree font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
@@ -790,7 +791,7 @@ const Hero = ({ location }: HeroProps = {}) => {
                     <div className="flex flex-col gap-4">
                       {/* Button */}
                       <a
-                        href="/contact"
+                        href="/contact/"
                         onClick={() => trackBookCall('faq')}
                         aria-label="Message us from the FAQ section"
                         className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-colors"

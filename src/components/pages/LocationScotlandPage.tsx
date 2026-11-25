@@ -21,13 +21,13 @@ const LocationScotlandPage = () => {
               Web Design Services Across Scotland
             </h2>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              Running a business in Scotland means different challenges depending where you are - competing with big chains in Glasgow, attracting tourists in Edinburgh, or serving local communities in Aberdeen. Your website needs to connect with Scottish customers while standing out from everyone else online.
+              Most of my clients are trades and local service businesses in Ayrshire, but I work with businesses across Scotland too - the work is done remotely, over the phone and WhatsApp, so where you're based doesn't change much. What matters is that your website and Google Business Profile are built around the area you actually serve.
             </p>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
               I build websites that work for Scottish businesses. Fast, mobile-friendly sites with clear messaging that actually convert visitors into customers. I'll also handle the basics: local SEO so you show up when people search locally, Google Business Profile, and social media to keep your online presence going.
             </p>
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
-              From Glasgow to Edinburgh, Aberdeen to Inverness, and everywhere in between - I've worked with businesses all over Scotland. I've done sites in Glasgow, Edinburgh, Aberdeen, Dundee, Inverness, Stirling, Perth, Dunfermline, and loads of other Scottish cities.
+              Outside Ayrshire, one example is <a href="/case-studies/double-o-detailing/" className="text-blue-700 underline">Double O Detailing</a> in Killearn, Stirlingshire, where I audited the site after the August 2026 spam update and removed around 280 doorway and duplicate pages.
             </p>
           </div>
         </div>
@@ -38,7 +38,7 @@ const LocationScotlandPage = () => {
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-3 font-thicccboi">Do you offer web design near me in Scotland?</h3>
-            <p className="text-gray-700 font-figtree">Yeah, I work with businesses all over Scotland. I build custom websites optimized for local search, handle social media, and set up everything you need to get found online - local SEO and Google Business Profile stuff. I've worked with businesses in Glasgow, Edinburgh, Aberdeen, Dundee, Inverness, Stirling, Perth, Dunfermline, and plenty of other places around Scotland.</p>
+            <p className="text-gray-700 font-figtree">Yeah, I work with businesses all over Scotland. I build custom websites optimized for local search, handle social media, and set up everything you need to get found online - local SEO and Google Business Profile stuff. Wherever you are, I'll focus your site on the towns you really cover rather than spinning up a page for every city.</p>
           </div>
         </div>
       </section>
@@ -60,21 +60,13 @@ const LocationScotlandPage = () => {
               Covering All of Scotland
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto font-figtree">
-              From the Highlands to the Lowlands - I've helped Scottish businesses all over the country get online and start getting customers.
+              Ayrshire is home base. See the Ayrshire page for the towns I cover most, or get in touch wherever you are in Scotland.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 gap-6 max-w-xl mx-auto">
               {[
-                { name: 'Ayrshire', link: '/locations/ayrshire' },
-                { name: 'Argyll', link: '/locations/argyll' },
-                { name: 'Glasgow', link: '/locations/glasgow' },
-                { name: 'Edinburgh', link: '/locations/edinburgh' },
-                { name: 'Aberdeen', link: '/locations/aberdeen' },
-                { name: 'Dundee', link: '/locations/dundee' },
-                { name: 'Inverness', link: '/locations/inverness' },
-                { name: 'Stirling', link: '/locations/stirling' },
-                { name: 'Perth', link: '/locations/perth' },
-                { name: 'Dunfermline', link: '/locations/dunfermline' }
+                { name: 'Ayrshire', link: '/locations/ayrshire/' },
+                { name: 'Case studies', link: '/case-studies/' }
               ].map((city) => (
                 <a key={city.name} href={city.link} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                   <p className="font-semibold text-gray-900 font-figtree">{city.name}</p>

@@ -11,8 +11,12 @@ interface Props {
 }
 
 const { title, description = "Web design and SEO that generate clients. Fast websites, lead-focused design, Google Business Profile optimization, and transparent analytics.", canonical, ogImage = "/C logo.webp", robots = "index, follow" } = Astro.props;
-const currentUrl = canonical || Astro.url.pathname;
+// Every page is served at a trailing-slash URL, so canonicals must match it
+// (a slashless canonical points at a 301 and Google ignores it).
+const rawPath = canonical || Astro.url.pathname;
+const currentUrl = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
 const fullUrl = `https://codapixel.com${currentUrl}`;
+const ogImageUrl = new URL(ogImage, 'https://codapixel.com').href;
 ---
 
 <!DOCTYPE html>
@@ -110,22 +114,25 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
     <meta property="og:url" content={fullUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageUrl} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={fullUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:image" content={ogImageUrl} />
 
     <!-- Professional Service Schema -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
+      "@id": "https://codapixel.com/#business",
       "name": "CodaPixel",
+      "logo": "https://codapixel.com/C%20logo.webp",
+      "image": "https://codapixel.com/C%20logo.webp",
       "description": "Professional web design and SEO services in the UK. Fast websites that generate clients, Google Business Profile optimization, and transparent analytics.",
-      "url": "https://codapixel.com",
+      "url": "https://codapixel.com/",
       "telephone": "+44 7792 145328",
       "email": "dorward.connor@gmail.com",
       "priceRange": "££",
@@ -134,11 +141,6 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
           "@type": "City",
           "name": "Ayr",
           "sameAs": "https://en.wikipedia.org/wiki/Ayr"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Argyll and Bute",
-          "sameAs": "https://en.wikipedia.org/wiki/Argyll_and_Bute"
         },
         {
           "@type": "City",
@@ -161,9 +163,9 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
           "sameAs": "https://en.wikipedia.org/wiki/Irvine,_North_Ayrshire"
         },
         {
-          "@type": "City",
-          "name": "Glasgow",
-          "sameAs": "https://en.wikipedia.org/wiki/Glasgow"
+          "@type": "AdministrativeArea",
+          "name": "Ayrshire",
+          "sameAs": "https://en.wikipedia.org/wiki/Ayrshire"
         }
       ],
       "address": {

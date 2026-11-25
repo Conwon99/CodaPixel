@@ -58,8 +58,8 @@ const caseStudies = [
     category: "SEO Audit",
     description:
       "Spam update audit and recovery for a car detailing unit in Killearn, Stirlingshire - found and removed the doorway and duplicate pages dragging the site down.",
-    image: "/case-studies/doubleo-gsc-spam-drop.png",
-    imageAlt: "Double O Detailing Google Search Console impressions drop after the August 2026 spam update",
+    image: "",
+    imageAlt: "",
     stats: [
       { label: "URLs cleaned up", value: "~280" },
       { label: "Page weight", value: "-93%" },
@@ -103,9 +103,10 @@ const CaseStudiesPage = () => {
                   transition={{ duration: 0.7, delay: index * 0.1 }}
                   viewport={{ once: true, amount: 0.3 }}
                 >
-                  <a href={`/case-studies/${study.slug}`} className="block group">
+                  <a href={`/case-studies/${study.slug}/`} className="block group">
                     <Card className="overflow-hidden hover:shadow-lg transition-shadow border-cleaning-border h-full">
                       <div className="relative bg-cleaning-text aspect-[16/10] overflow-hidden">
+                        {study.image ? (
                         <img
                           src={study.image}
                           alt={study.imageAlt}
@@ -116,6 +117,11 @@ const CaseStudiesPage = () => {
                           sizes="(max-width: 768px) 100vw, 50vw"
                           decoding="async"
                         />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center p-6">
+                            <p className="text-white text-2xl font-bold font-thicccboi text-center">{study.stats[0].value} {study.stats[0].label.toLowerCase()}</p>
+                          </div>
+                        )}
                       </div>
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-3">
@@ -168,12 +174,12 @@ const CaseStudiesPage = () => {
                   same spot, let's talk about what SEO could actually do for you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="/contact">
+                  <a href="/contact/">
                     <Button className="bg-cleaning-primary hover:bg-cleaning-primary/90 text-white px-8 py-3">
                       Get Started
                     </Button>
                   </a>
-                  <a href="/services">
+                  <a href="/services/">
                     <Button
                       variant="outline"
                       className="border-cleaning-primary text-cleaning-primary hover:bg-cleaning-primary hover:text-white px-8 py-3"
