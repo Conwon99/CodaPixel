@@ -68,32 +68,32 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/services" className="hover:text-white transition-colors">
+                <a href="/services/" className="hover:text-white transition-colors">
                   Services
                 </a>
               </li>
               <li>
-                <a href="/pricing" className="hover:text-white transition-colors">
+                <a href="/pricing/" className="hover:text-white transition-colors">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="/reviews" className="hover:text-white transition-colors">
+                <a href="/reviews/" className="hover:text-white transition-colors">
                   Reviews
                 </a>
               </li>
               <li>
-                <a href="/gallery" className="hover:text-white transition-colors">
+                <a href="/gallery/" className="hover:text-white transition-colors">
                   Portfolio
                 </a>
               </li>
               <li>
-                <a href="/case-studies" className="hover:text-white transition-colors">
+                <a href="/case-studies/" className="hover:text-white transition-colors">
                   Case Studies
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-white transition-colors">
+                <a href="/contact/" className="hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
@@ -105,7 +105,7 @@ const Footer = () => {
             <h4 className="text-lg font-thicccboi font-semibold mb-4">Locations</h4>
             <ul className="space-y-2 text-gray-300 font-figtree">
               <li>
-                <a href="/locations/scotland" className="hover:text-white transition-colors">
+                <a href="/locations/scotland/" className="hover:text-white transition-colors">
                   Scotland
                 </a>
               </li>
@@ -115,7 +115,7 @@ const Footer = () => {
               <li>USA</li>
               <li>Canada</li>
               <li>
-                <a href="/locations" className="hover:text-white transition-colors font-semibold">
+                <a href="/locations/" className="hover:text-white transition-colors font-semibold">
                   All Locations →
                 </a>
               </li>
@@ -130,7 +130,7 @@ const Footer = () => {
               <p className="mt-1">Website Design & Development</p>
             </div>
             <div className="flex items-center space-x-6 text-sm">
-              <a href="/privacy" className="text-gray-300 hover:text-white transition-colors">
+              <a href="/privacy/" className="text-gray-300 hover:text-white transition-colors">
                 Privacy Policy
               </a>
               <a 

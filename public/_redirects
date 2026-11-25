@@ -1,3 +1,58 @@
-# Redirect trailing slashes for consistency
+# Trailing-slash consistency (Netlify serves /page/ for /page)
 /locations    /locations/    301
 /services    /services/    301
+
+# Legacy /digital-marketing/ URLs (still had impressions in GSC, Nov 2026)
+/locations/kilmarnock/digital-marketing/*    /locations/kilmarnock/    301
+/locations/ayr/digital-marketing/*    /locations/ayr/    301
+/locations/troon/digital-marketing/*    /locations/troon/    301
+/locations/prestwick/digital-marketing/*    /locations/prestwick/    301
+/locations/irvine/digital-marketing/*    /locations/irvine/    301
+/locations/*/digital-marketing/*    /locations/ayrshire/    301
+
+# Templated town pages removed Nov 2026 (doorway pattern). Consolidated into hubs.
+/locations/mauchline    /locations/ayrshire/    301
+/locations/maybole    /locations/ayrshire/    301
+/locations/girvan    /locations/ayrshire/    301
+/locations/mauchline/*    /locations/ayrshire/    301
+/locations/maybole/*    /locations/ayrshire/    301
+/locations/girvan/*    /locations/ayrshire/    301
+/locations/glasgow    /locations/scotland/    301
+/locations/edinburgh    /locations/scotland/    301
+/locations/aberdeen    /locations/scotland/    301
+/locations/dundee    /locations/scotland/    301
+/locations/inverness    /locations/scotland/    301
+/locations/stirling    /locations/scotland/    301
+/locations/perth    /locations/scotland/    301
+/locations/dunfermline    /locations/scotland/    301
+/locations/argyll    /locations/scotland/    301
+/locations/oban    /locations/scotland/    301
+/locations/campbeltown    /locations/scotland/    301
+/locations/dunoon    /locations/scotland/    301
+/locations/rothesay    /locations/scotland/    301
+/locations/helensburgh    /locations/scotland/    301
+/locations/lochgilphead    /locations/scotland/    301
+/locations/inveraray    /locations/scotland/    301
+/locations/tarbert    /locations/scotland/    301
+/locations/tobermory    /locations/scotland/    301
+/locations/glasgow/*    /locations/scotland/    301
+/locations/edinburgh/*    /locations/scotland/    301
+/locations/aberdeen/*    /locations/scotland/    301
+/locations/dundee/*    /locations/scotland/    301
+/locations/inverness/*    /locations/scotland/    301
+/locations/stirling/*    /locations/scotland/    301
+/locations/perth/*    /locations/scotland/    301
+/locations/dunfermline/*    /locations/scotland/    301
+/locations/argyll/*    /locations/scotland/    301
+/locations/oban/*    /locations/scotland/    301
+/locations/campbeltown/*    /locations/scotland/    301
+/locations/dunoon/*    /locations/scotland/    301
+/locations/rothesay/*    /locations/scotland/    301
+/locations/helensburgh/*    /locations/scotland/    301
+/locations/lochgilphead/*    /locations/scotland/    301
+/locations/inveraray/*    /locations/scotland/    301
+/locations/tarbert/*    /locations/scotland/    301
+/locations/tobermory/*    /locations/scotland/    301
+
+# Old sitemap location
+/sitemap.xml    /sitemap-index.xml    301

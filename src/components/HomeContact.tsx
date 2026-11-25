@@ -11,7 +11,13 @@ type FormStatus = "idle" | "submitting" | "success" | "error";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mvzzolqp";
 
-const HomeContact = () => {
+interface HomeContactProps {
+  /** Render the section heading as the page H1 (contact page only). */
+  asPageHeading?: boolean;
+}
+
+const HomeContact = ({ asPageHeading = false }: HomeContactProps = {}) => {
+  const Heading = asPageHeading ? 'h1' : 'h2';
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [status, setStatus] = useState<FormStatus>("idle");
 
@@ -68,9 +74,9 @@ const HomeContact = () => {
           >
             {/* Section Header */}
             <div className="mb-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-thicccboi font-bold text-gray-900 mb-6 leading-tight">
+              <Heading className="text-3xl sm:text-4xl md:text-5xl font-thicccboi font-bold text-gray-900 mb-6 leading-tight">
                 Get your <span className="bg-gradient-to-r from-[#3b82f6] to-[#1d4ed8] bg-clip-text text-transparent">free</span> website demo.
-              </h1>
+              </Heading>
               <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
                 No pressure, no sales pitch. Send us a few details about your business and I'll show you what a website for your business would look like, talk through what you actually need (not what I want to sell you), and answer any questions.
               </p>

@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -9,7 +10,15 @@ const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://codapixel.com',
+  // Pages are served as /page/ (directory format). Keep URLs, canonicals and the
+  // sitemap on the trailing-slash version so nothing points at a redirect.
+  trailingSlash: 'always',
+  build: { format: 'directory' },
   integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/privacy/'),
+    }),
     react(),
     tailwind({
       applyBaseStyles: false,

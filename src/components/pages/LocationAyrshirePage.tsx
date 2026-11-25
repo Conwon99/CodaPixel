@@ -12,7 +12,7 @@ const LocationAyrshirePage = () => {
 
   return (
     <>
-      <Hero location="Ayrshire" />
+      <Hero location="Ayrshire" trustNote="Trusted by Ayrshire businesses" />
       {/* Services Content Section */}
       <section className="py-16 overflow-x-hidden" style={{ backgroundColor: '#eae6e8' }}>
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -29,6 +29,9 @@ const LocationAyrshirePage = () => {
             <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
               Beyond just the website, I'll help with your social media and Google Business Profile - the basic stuff that helps local customers find you online. I work with businesses in Ayr, Prestwick, Troon, Kilmarnock, Irvine, and all over Ayrshire.
             </p>
+            <p className="text-lg text-gray-700 mb-4 font-figtree leading-relaxed">
+              Some recent Ayrshire results: <a href="/case-studies/jimbos-exterior-cleaning/" className="text-blue-700 underline">Jimbo's Exterior Cleaning</a> grew organic traffic 29x and reached #1 for "roof cleaner Irvine"; <a href="/case-studies/rb-joinery/" className="text-blue-700 underline">RB Joinery</a> hit #1 for "joiner near me" across Kilmarnock in three months; and <a href="/case-studies/chris-your-man-with-a-van/" className="text-blue-700 underline">Chris - Your Man With A Van</a>, a removals business near Mauchline, grew organic clicks 700%.
+            </p>
           </div>
         </div>
       </section>
@@ -38,7 +41,7 @@ const LocationAyrshirePage = () => {
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-3 font-thicccboi">Do you offer web design near me in Ayrshire?</h3>
-            <p className="text-gray-700 font-figtree">Yeah, I work with businesses all over Ayrshire. Whether you need your first website, want to redo an existing one, or just need help getting found online - I can help. I've done sites for businesses in Ayr, Prestwick, Troon, Kilmarnock, Irvine, Mauchline, Maybole, Girvan, and loads of other places around here.</p>
+            <p className="text-gray-700 font-figtree">Yeah, I work with businesses all over Ayrshire. Whether you need your first website, want to redo an existing one, or just need help getting found online - I can help. That includes Ayr, Prestwick, Troon, Kilmarnock, Irvine, Mauchline, Maybole, Girvan and the villages in between - your Google Business Profile service area does the heavy lifting for the smaller places, not a separate page for each one.</p>
           </div>
         </div>
       </section>
@@ -61,9 +64,9 @@ const LocationAyrshirePage = () => {
               From the coast at Ayr and Troon to the towns like Kilmarnock and Irvine - I've helped businesses all over Ayrshire get online and start getting customers.
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {['Ayr', 'Prestwick', 'Troon', 'Kilmarnock', 'Irvine', 'Mauchline', 'Maybole', 'Girvan'].map((town) => (
-                <a key={town} href={`/locations/${town.toLowerCase()}`} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+              {['Ayr', 'Prestwick', 'Troon', 'Kilmarnock', 'Irvine'].map((town) => (
+                <a key={town} href={`/locations/${town.toLowerCase()}/`} className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                   <p className="font-semibold text-gray-900 font-figtree">{town}</p>
                 </a>
               ))}
