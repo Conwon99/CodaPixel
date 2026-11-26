@@ -1,10 +1,10 @@
 // Site content for the Everglow-layout CodaPixel site.
 
 export const services = [
-  { n: '01', title: 'Websites', text: 'Fast, mobile-first sites built to get the phone ringing. Free demo before you pay.', href: '/services/websites' },
-  { n: '02', title: 'Local SEO', text: 'Rank in Google Maps and organic results for the searches your customers make.', href: '/services/local-seo' },
-  { n: '03', title: 'Meta Ads', text: 'Facebook and Instagram ads that put your work in front of local homeowners and bring in enquiries fast.', href: '/services/meta-ads' },
-  { n: '04', title: 'Google Ads', text: 'Search campaigns and landing pages that put you at the top of Google when customers are ready to book.', href: '/services/google-ads' },
+  { n: '01', title: 'Websites', text: 'Fast, mobile-first sites built to get the phone ringing. Free demo before you pay.', href: '/services/websites/' },
+  { n: '02', title: 'Local SEO', text: 'Rank in Google Maps and organic results for the searches your customers make.', href: '/services/local-seo/' },
+  { n: '03', title: 'Meta Ads', text: 'Facebook and Instagram ads that put your work in front of local homeowners and bring in enquiries fast.', href: '/services/meta-ads/' },
+  { n: '04', title: 'Google Ads', text: 'Search campaigns and landing pages that put you at the top of Google when customers are ready to book.', href: '/services/google-ads/' },
 ];
 
 export const steps = [
@@ -15,10 +15,10 @@ export const steps = [
 ];
 
 export const work = [
-  { name: "Jimbo's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/jimbos.webp', href: '/case-studies/jimbos-exterior-cleaning' },
+  { name: "Jimbo's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/jimbos.webp', href: '/case-studies/jimbos-exterior-cleaning/' },
   { name: 'Ayrshire Fencing Group', tags: 'Website · Local SEO', image: '/Portfolio/live/ayrshire-fencing.webp' },
-  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/live/rb-joinery.webp', href: '/case-studies/rb-joinery' },
-  { name: 'Double O Detailing', tags: 'Website · SEO audit', image: '/Portfolio/live/double-o.webp', href: '/case-studies/double-o-detailing' },
+  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/live/rb-joinery.webp', href: '/case-studies/rb-joinery/' },
+  { name: 'Double O Detailing', tags: 'Website · SEO audit', image: '/Portfolio/live/double-o.webp', href: '/case-studies/double-o-detailing/' },
   { name: 'EK Power Washing', tags: 'Website · Local SEO', image: '/Portfolio/live/ek-power-washing.webp' },
   { name: "Christie's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/christies.webp' },
   { name: 'Cutting Edge Landscaping', tags: 'Website', image: '/Portfolio/live/cutting-edge.webp' },

@@ -4,21 +4,21 @@ import Section from '../components/site/Section.astro';
 import PageHero from '../components/site/PageHero.astro';
 import { caseStudies, work } from '../content/site';
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const img = (slug: string, fallback: string) => work.find((w) => w.href === `/case-studies/${slug}`)?.image ?? fallback;
+const img = (slug: string, fallback: string) => work.find((w) => w.href === `/case-studies/${slug}/`)?.image ?? fallback;
 ---
-<Layout title="SEO Case Studies | Real Results | CodaPixel" description="Real results for Scottish trade businesses: #1 Google rankings, organic traffic growth and leads tracked in Leadzap." canonical="/case-studies" ogImage="/case-studies/jimbos-gsc-graph.png">
+<Layout title="SEO Case Studies | Real Results | CodaPixel" description="Real results for Scottish trade businesses: #1 Google rankings, organic traffic growth and leads tracked in Leadzap." canonical="/case-studies/" ogImage="/case-studies/jimbos-gsc-graph.png">
   <PageHero title="Real Results For Real Local Businesses" hl="Real Results" lead="Search Console data, rankings and lead counts from the businesses we work with." crumbs={[{ label: 'Results' }]} />
   <section class="cx-sec">
     <div class="cx-wrap" style="display:grid;gap:56px">
       {caseStudies.map((c) => (
         <article class="cx-cs-row">
-          <a class="cx-cs-img" href={`/case-studies/${c.slug}`}>{(img(c.slug, c.image)) ? <img src={img(c.slug, c.image)} alt={`${c.name} website`} loading="lazy" width="1150" height="647" /> : <span>SEO audit</span>}</a>
+          <a class="cx-cs-img" href={`/case-studies/${c.slug}/`}>{(img(c.slug, c.image)) ? <img src={img(c.slug, c.image)} alt={`${c.name} website`} loading="lazy" width="1150" height="647" /> : <span>SEO audit</span>}</a>
           <div class="cx-cs-copy">
             <small>Case Study - {c.name} · {c.place}</small>
             <h2>{c.title}</h2>
             <p>{c.text}</p>
             <div class="cx-results">{c.stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
-            <a class="cx-btn" href={`/case-studies/${c.slug}`}>Read the case study <span class="cx-ab" set:html={arrow} /></a>
+            <a class="cx-btn" href={`/case-studies/${c.slug}/`}>Read the case study <span class="cx-ab" set:html={arrow} /></a>
           </div>
         </article>
       ))}

@@ -13,7 +13,7 @@ interface Props {
 const { title, description = "Web design and SEO that generate clients. Fast websites, lead-focused design, Google Business Profile optimization, and transparent analytics.", canonical, ogImage = "/brand/og-codapixel.jpg", robots = "index, follow" } = Astro.props;
 const currentUrl = canonical || Astro.url.pathname;
 const SITE = 'https://codapixel.com';
-const cleanPath = currentUrl === '/' ? '/' : currentUrl.replace(/\/+$/, '');
+const cleanPath = currentUrl === '/' ? '/' : currentUrl.replace(/\/+$/, '') + '/';
 const fullUrl = `${SITE}${cleanPath}`;
 const ogAbs = (ogImage === '/C logo.webp' ? '/brand/og-codapixel.jpg' : ogImage).startsWith('http') ? ogImage : SITE + encodeURI(ogImage === '/C logo.webp' ? '/brand/og-codapixel.jpg' : ogImage);
 const isHome = cleanPath === '/';
@@ -154,10 +154,10 @@ const isHome = cleanPath === '/';
             "@type": "OfferCatalog",
             "name": "Services",
             "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website design", "url": "https://codapixel.com/services/websites" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO", "url": "https://codapixel.com/services/local-seo" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads", "url": "https://codapixel.com/services/meta-ads" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads", "url": "https://codapixel.com/services/google-ads" } }
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website design", "url": "https://codapixel.com/services/websites/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO", "url": "https://codapixel.com/services/local-seo/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads", "url": "https://codapixel.com/services/meta-ads/" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads", "url": "https://codapixel.com/services/google-ads/" } }
             ]
           }
         },

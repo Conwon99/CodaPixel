@@ -125,7 +125,7 @@ const HomeServicesGrid = () => {
                       ))}
                     </ul>
                   </div>
-                  <a href="/contact" className="mt-auto">
+                  <a href="/contact/" className="mt-auto">
                     <Button className={`w-full ${service.popular ? 'bg-black hover:bg-gray-900' : 'bg-blue-600 hover:bg-blue-700'} text-white rounded-lg py-3 font-figtree`}>
                         Get a Quote
                       </Button>

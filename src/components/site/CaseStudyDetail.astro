@@ -11,11 +11,11 @@ const st = await getLeadStats();
 const leads = 'leadsFor' in c && c.leadsFor ? st.clients.find((x) => x.name === c.leadsFor)?.leads : undefined;
 const stats = [...(leads ? [[leads.toLocaleString('en-GB'), 'Leads generated']] : []), ...c.stats];
 const more = caseStudies.filter((x) => x.slug !== slug).slice(0, 2);
-const moreImg = (s: string) => work.find((w) => w.href === `/case-studies/${s}`)?.image ?? caseStudies.find((x) => x.slug === s)?.image;
+const moreImg = (s: string) => work.find((w) => w.href === `/case-studies/${s}/`)?.image ?? caseStudies.find((x) => x.slug === s)?.image;
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-<Layout title={title} description={description} canonical={`/case-studies/${slug}`} ogImage={ogImage}>
-  <PageHero title={c.h1} lead={c.lead} crumbs={[{ label: 'Results', href: '/case-studies' }, { label: c.name }]} />
+<Layout title={title} description={description} canonical={`/case-studies/${slug}/`} ogImage={ogImage}>
+  <PageHero title={c.h1} lead={c.lead} crumbs={[{ label: 'Results', href: '/case-studies/' }, { label: c.name }]} />
   <section class="cx-sec" style="padding-top:clamp(40px,5vw,64px)">
     <div class="cx-wrap">
       <div class="cx-lead-img" style="max-width:100%">
@@ -32,15 +32,15 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
           {c.figures.map(([src, cap, txt]) => <figure><img src={src} alt={cap} loading="lazy" /><figcaption><b>{cap}</b>{txt}</figcaption></figure>)}
         </article>
         <aside class="cx-side">
-          <div class="cx-sidecard"><h3>Want results like these?</h3><p>Tell us about your business and we'll show you where you stand on Google. Free, no obligation.</p><a class="cx-btn" href="/contact">Get a free quote <span class="cx-ab" set:html={arrow} /></a></div>
+          <div class="cx-sidecard"><h3>Want results like these?</h3><p>Tell us about your business and we'll show you where you stand on Google. Free, no obligation.</p><a class="cx-btn" href="/contact/">Get a free quote <span class="cx-ab" set:html={arrow} /></a></div>
         </aside>
       </div>
     </div>
   </section>
   <section class="cx-sec cx-grey">
     <div class="cx-wrap">
-      <div class="cx-head"><div><div class="cx-eb">More results</div><h2 class="cx-h2">More Case Studies</h2></div><a class="cx-btn-o" href="/case-studies" style="color:var(--cx-ink)">All case studies</a></div>
-      <div class="cx-r1">{more.map((m) => <a class="cx-proj" href={`/case-studies/${m.slug}`}><div class="cx-img">{moreImg(m.slug) && <img src={moreImg(m.slug)} alt={`${m.name}`} loading="lazy" />}</div><div class="cx-meta"><h3>{m.name}</h3><small>{m.place}</small></div></a>)}</div>
+      <div class="cx-head"><div><div class="cx-eb">More results</div><h2 class="cx-h2">More Case Studies</h2></div><a class="cx-btn-o" href="/case-studies/" style="color:var(--cx-ink)">All case studies</a></div>
+      <div class="cx-r1">{more.map((m) => <a class="cx-proj" href={`/case-studies/${m.slug}/`}><div class="cx-img">{moreImg(m.slug) && <img src={moreImg(m.slug)} alt={`${m.name}`} loading="lazy" />}</div><div class="cx-meta"><h3>{m.name}</h3><small>{m.place}</small></div></a>)}</div>
     </div>
   </section>
   <Section name="reviews" />

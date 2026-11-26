@@ -155,7 +155,7 @@ const Services = () => {
                         ))}
                       </ul>
                     </div>
-                    <Link to="/contact" className="mt-auto">
+                    <Link to="/contact/" className="mt-auto">
                       <Button className={`w-full ${service.popular ? 'bg-black hover:bg-gray-900' : 'bg-blue-600 hover:bg-blue-700'} text-white rounded-lg py-3 font-figtree`}>
                           Get a Quote
                         </Button>
@@ -184,7 +184,7 @@ const Services = () => {
               Tell us about your business and goals. We'll provide a personalized proposal and show how we can drive results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
+              <Link to="/contact/">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-figtree">
                   Get a Quote
                 </Button>

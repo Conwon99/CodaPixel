@@ -10,10 +10,10 @@ export interface ClientLeads { name: string; trade: string; place: string; leads
 export interface LeadStats { total: number; clients: ClientLeads[]; live: boolean }
 
 const CLIENTS = [
-  { id: 'c1834a89-cb46-4086-9088-2dc711bf65c3', name: "Jimbo's Cleaning", trade: 'Exterior cleaning', place: 'Irvine', snapshot: 143, caseStudy: '/case-studies/jimbos-exterior-cleaning' },
+  { id: 'c1834a89-cb46-4086-9088-2dc711bf65c3', name: "Jimbo's Cleaning", trade: 'Exterior cleaning', place: 'Irvine', snapshot: 143, caseStudy: '/case-studies/jimbos-exterior-cleaning/' },
   { id: '908da52e-9be9-4eb8-a950-d63a8b182689', name: 'Ayrshire Fencing Group', trade: 'Fencing', place: 'Ayrshire', snapshot: 100 },
-  { id: 'd800b51d-f446-4648-8124-60775c56da8f', name: 'Double O Detailing', trade: 'Car detailing', place: 'Killearn', snapshot: 52, caseStudy: '/case-studies/double-o-detailing' },
-  { id: '571aefb2-4ef3-4a53-bb68-d86d4a7e9e76', name: 'RB Joinery', trade: 'Joinery', place: 'Kilmarnock', snapshot: 50, caseStudy: '/case-studies/rb-joinery' },
+  { id: 'd800b51d-f446-4648-8124-60775c56da8f', name: 'Double O Detailing', trade: 'Car detailing', place: 'Killearn', snapshot: 52, caseStudy: '/case-studies/double-o-detailing/' },
+  { id: '571aefb2-4ef3-4a53-bb68-d86d4a7e9e76', name: 'RB Joinery', trade: 'Joinery', place: 'Kilmarnock', snapshot: 50, caseStudy: '/case-studies/rb-joinery/' },
   { id: '9e3d219d-f24b-4605-8947-3201326a3c42', name: 'EK Power Washing', trade: 'Exterior cleaning', place: 'East Kilbride', snapshot: 32 },
 ];
 

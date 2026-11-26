@@ -8,8 +8,8 @@ const { s } = Astro.props;
 const others = servicePages.filter((o) => o.slug !== s.slug);
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-<Layout title={s.seoTitle} description={s.seoDesc} canonical={`/services/${s.slug}`} ogImage={s.image}>
-  <PageHero title={s.h1} lead={s.lead} crumbs={[{ label: 'Services', href: '/services' }, { label: s.title }]} />
+<Layout title={s.seoTitle} description={s.seoDesc} canonical={`/services/${s.slug}/`} ogImage={s.image}>
+  <PageHero title={s.h1} lead={s.lead} crumbs={[{ label: 'Services', href: '/services/' }, { label: s.title }]} />
   <section class="cx-sec">
     <div class="cx-wrap cx-detail">
       <article class="cx-prose">
@@ -22,15 +22,15 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
         <ul class="cx-ticks">{s.deliverables.map((d) => <li>{d}</li>)}</ul>
       </article>
       <aside class="cx-side">
-        <div class="cx-sidecard"><h3>All services</h3><nav class="cx-sidelinks" aria-label="Services">{servicePages.map((o) => <a href={`/services/${o.slug}`} aria-current={o.slug === s.slug ? 'page' : undefined}>{o.title}<span aria-hidden="true">›</span></a>)}</nav></div>
-        <div class="cx-sidecard"><h3>Get a free quote</h3><p>Tell us about your business and we'll get back to you, usually the same day.</p><a class="cx-btn" href="/contact">Contact us <span class="cx-ab" set:html={arrow} /></a></div>
+        <div class="cx-sidecard"><h3>All services</h3><nav class="cx-sidelinks" aria-label="Services">{servicePages.map((o) => <a href={`/services/${o.slug}/`} aria-current={o.slug === s.slug ? 'page' : undefined}>{o.title}<span aria-hidden="true">›</span></a>)}</nav></div>
+        <div class="cx-sidecard"><h3>Get a free quote</h3><p>Tell us about your business and we'll get back to you, usually the same day.</p><a class="cx-btn" href="/contact/">Contact us <span class="cx-ab" set:html={arrow} /></a></div>
       </aside>
     </div>
   </section>
   <section class="cx-sec cx-grey">
     <div class="cx-wrap">
       <div class="cx-head"><div><div class="cx-eb">More services</div><h2 class="cx-h2">Explore Our Other Services</h2></div></div>
-      <div class="cx-g3">{others.map((o) => <article class="cx-svc"><span class="cx-num">{o.n}</span><h3>{o.title}</h3><p>{o.lead}</p><a href={`/services/${o.slug}`}>View more →</a></article>)}</div>
+      <div class="cx-g3">{others.map((o) => <article class="cx-svc"><span class="cx-num">{o.n}</span><h3>{o.title}</h3><p>{o.lead}</p><a href={`/services/${o.slug}/`}>View more →</a></article>)}</div>
     </div>
   </section>
   <Section name="collab" />

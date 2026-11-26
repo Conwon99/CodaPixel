@@ -15,7 +15,7 @@ const top3 = s.clients.slice(0, 3);
   <section class="cx-collab">
     <div class="cx-wrap">
       <h2>Ready to get more<br /> <span class="cx-hl">calls</span>?</h2>
-      <a class="cx-btn" href="/contact">Get a free quote <span class="cx-ab" set:html={arrow} /></a>
+      <a class="cx-btn" href="/contact/">Get a free quote <span class="cx-ab" set:html={arrow} /></a>
     </div>
   </section>
 )}
@@ -29,7 +29,7 @@ const top3 = s.clients.slice(0, 3);
 {name === 'services' && (
   <section class="cx-sec" id="services">
     <div class="cx-wrap">
-      {head && <div class="cx-head"><div><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2></div><div class="cx-aside"><p>Web design, local SEO and paid ads for trade businesses in Ayrshire and across Scotland, built to take you from invisible to fully booked.</p><a class="cx-btn" href="/contact">Get a free demo <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      {head && <div class="cx-head"><div><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2></div><div class="cx-aside"><p>Web design, local SEO and paid ads for trade businesses in Ayrshire and across Scotland, built to take you from invisible to fully booked.</p><a class="cx-btn" href="/contact/">Get a free demo <span class="cx-ab" set:html={arrow} /></a></div></div>}
       <div class="cx-g4">{services.map((v) => <article class="cx-svc"><span class="cx-num">{v.n}</span><h3>{v.title}</h3><p>{v.text}</p><a href={v.href}>View more →</a></article>)}</div>
     </div>
   </section>
@@ -58,7 +58,7 @@ const top3 = s.clients.slice(0, 3);
 {name === 'steps' && (
   <section class="cx-sec cx-grey">
     <div class="cx-wrap">
-      {head && <div class="cx-head"><div><div class="cx-eb">How it works</div><h2 class="cx-h2">A Simple Process,<br />Built For Results.</h2></div><div class="cx-aside"><p>No jargon and nothing to pay until you've seen what you're getting.</p><a class="cx-btn" href="/contact">Contact us <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      {head && <div class="cx-head"><div><div class="cx-eb">How it works</div><h2 class="cx-h2">A Simple Process,<br />Built For Results.</h2></div><div class="cx-aside"><p>No jargon and nothing to pay until you've seen what you're getting.</p><a class="cx-btn" href="/contact/">Contact us <span class="cx-ab" set:html={arrow} /></a></div></div>}
       <div class="cx-g4">{steps.map((v, i) => <article class="cx-step"><small>Step {i + 1}</small><h3>{v.title}</h3><p>{v.text}</p><div class="cx-pills">{v.tags.map((t) => <span>{t}</span>)}</div></article>)}</div>
     </div>
   </section>
@@ -67,10 +67,10 @@ const top3 = s.clients.slice(0, 3);
 {name === 'work' && (
   <section class="cx-sec" id="work">
     <div class="cx-wrap">
-      {head && <div class="cx-head"><div><div class="cx-eb">Recent work</div><h2 class="cx-h2">Built For Local Businesses.<br />Built To Get Calls.</h2></div><div class="cx-aside"><p>A few of the sites we've designed and built for businesses across Scotland.</p><a class="cx-btn" href="/case-studies">See results <span class="cx-ab" set:html={arrow} /></a></div></div>}
-      <div class="cx-r1">{work.slice(0, 2).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="800" height="550" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
-      <div class="cx-r2">{work.slice(2, 5).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
-      <div class="cx-r2" style="margin-top:40px">{work.slice(5).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
+      {head && <div class="cx-head"><div><div class="cx-eb">Recent work</div><h2 class="cx-h2">Built For Local Businesses.<br />Built To Get Calls.</h2></div><div class="cx-aside"><p>A few of the sites we've designed and built for businesses across Scotland.</p><a class="cx-btn" href="/case-studies/">See results <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      <div class="cx-r1">{work.slice(0, 2).map((w) => <a class="cx-proj" href={w.href ?? '/contact/'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="800" height="550" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
+      <div class="cx-r2">{work.slice(2, 5).map((w) => <a class="cx-proj" href={w.href ?? '/contact/'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
+      <div class="cx-r2" style="margin-top:40px">{work.slice(5).map((w) => <a class="cx-proj" href={w.href ?? '/contact/'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
     </div>
   </section>
 )}
@@ -88,7 +88,7 @@ const top3 = s.clients.slice(0, 3);
               <h3>{c.title}</h3>
               <p class="cx-mute">{c.text}</p>
               <div class="cx-res">{[...(c.leadsFor ? [[fmt(s.clients.find((x) => x.name === c.leadsFor)?.leads ?? 0), 'Leads generated']] : []), ...c.stats].map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
-              <a class="cx-btn" href={`/case-studies/${c.slug}`}>Read the case study <span class="cx-ab" set:html={arrow} /></a>
+              <a class="cx-btn" href={`/case-studies/${c.slug}/`}>Read the case study <span class="cx-ab" set:html={arrow} /></a>
             </div>
           </article>
         ))}
@@ -147,7 +147,7 @@ const top3 = s.clients.slice(0, 3);
             {p.hot && <span class="cx-badge">Most popular</span>}
             <h3>{p.name}</h3><p>{p.blurb}</p>
             <div class="cx-price"><b>£{p.price}</b><span>per month</span></div>
-            <a class="cx-btn" href="/contact">Get started <span class="cx-ab" set:html={arrow} /></a>
+            <a class="cx-btn" href="/contact/">Get started <span class="cx-ab" set:html={arrow} /></a>
             <strong style="font-size:15px">What's included:</strong>
             <ul>{p.features.map((f) => <li>{f}</li>)}</ul>
           </article>
@@ -172,7 +172,7 @@ const top3 = s.clients.slice(0, 3);
 
 {name === 'cta' && (
   <section class="cx-sec">
-    <div class="cx-wrap"><div class="cx-cta"><div><h2 class="cx-h2">See your new site before you pay</h2><p>Send a few details and we'll mock up a free preview of your website.</p></div><a class="cx-btn" href="/contact">Get my free demo <span class="cx-ab" set:html={arrow} /></a></div></div>
+    <div class="cx-wrap"><div class="cx-cta"><div><h2 class="cx-h2">See your new site before you pay</h2><p>Send a few details and we'll mock up a free preview of your website.</p></div><a class="cx-btn" href="/contact/">Get my free demo <span class="cx-ab" set:html={arrow} /></a></div></div>
   </section>
 )}
 
