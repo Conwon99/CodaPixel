@@ -39,22 +39,16 @@ const top3 = s.clients.slice(0, 3);
           <div class="cx-stat"><b>#1</b><strong>Google Rankings</strong><p>We consistently rank businesses #1 on Google and AI.</p></div>
         </div>
       </div>
-      <figure class="cx-lz" aria-label="Leadzap dashboard showing leads by client">
-        <div class="cx-lz-bar"><i></i><i></i><i></i><span>leadzap.co.uk</span></div>
-        <div class="cx-lz-body">
-          <div class="cx-lz-top"><strong>Leadzap</strong><span class="cx-lz-live"><span class="cx-live" aria-hidden="true"></span>Live</span></div>
-          <div class="cx-lz-kpis">
-            <div><small>Total leads</small><b>{fmt(s.total)}</b></div>
-            <div><small>Top client</small><b>{fmt(s.clients[0].leads)}</b><small>{s.clients[0].name}</small></div>
-          </div>
-          <small class="cx-lz-h">Leads by client</small>
-          <div class="cx-lz-rows">
-            {s.clients.map((c) => (
-              <div class="cx-lz-row"><span>{c.name}</span><b>{fmt(c.leads)}</b><div class="cx-lz-track"><i style={`width:${Math.round((c.leads / s.clients[0].leads) * 100)}%`}></i></div></div>
-            ))}
-          </div>
-          <small class="cx-lz-foot">Website enquiries, spam removed.</small>
+      <figure class="cx-phone-wrap" aria-label="Leadzap dashboard for EK Power Washing on a phone, showing 28 enquiries this month">
+        <div class="cx-phone">
+          <div class="cx-phone-notch" aria-hidden="true"></div>
+          <img src="/brand/leadzap-ek-dashboard.webp" alt="Leadzap dashboard for EK Power Washing: 28 inquiries this month, 19 forms and 9 calls" width="750" height="1222" loading="lazy" />
         </div>
+        <figcaption class="cx-anno">
+          <b>28 leads</b>
+          <span>this month for EK Power Washing</span>
+          <svg class="cx-anno-line" viewBox="0 0 120 40" aria-hidden="true"><path d="M2 6 C 50 6, 80 30, 116 34" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="4 4"/><circle cx="116" cy="34" r="4" fill="#93c5fd"/></svg>
+        </figcaption>
       </figure>
     </div>
   </section>
