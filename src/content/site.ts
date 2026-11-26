@@ -205,7 +205,7 @@ export const caseDetails = {
   'anderson-roofing': {
     name: 'Anderson Roofing & Building', h1: 'Top 3 On Google Maps For "New Roof" Across Falkirk.', url: 'https://anderson-roofing.co.uk', urlLabel: 'anderson-roofing.co.uk',
     lead: 'How a Falkirk roofer reached the top 3 on Google Maps at 46 of 49 grid points for new roofs, with 15% of Google visitors becoming an enquiry.',
-    image: '/case-studies/anderson-roofing-mappack.webp',
+    image: '',
     meta: [['Client', 'Anderson Roofing & Building'], ['Location', 'Falkirk'], ['Trade', 'Roofing & building'], ['Services', 'Website · Local SEO']],
     stats: [['46/49', 'Top 3 on Maps: new roof'], ['15%', 'Visits to enquiries'], ['+55%', 'Google visibility']],
     sections: [
