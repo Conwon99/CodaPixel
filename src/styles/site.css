@@ -454,3 +454,8 @@ html{scroll-padding-top:84px}
 .cx-why--noimg{grid-template-columns:minmax(0,1fr);gap:48px}
 .cx-why--noimg .cx-why-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
 @media(max-width:520px){.cx-why--noimg .cx-why-stats{grid-template-columns:minmax(0,1fr)}}
+
+.cx-svccase{margin-top:40px;padding:clamp(22px,3vw,36px);background:#fff;border:1px solid var(--cx-light);border-radius:22px;display:grid;gap:16px}
+.cx-svccase h2{margin:0}
+.cx-svccase video{width:100%;max-height:560px;background:#000;border-radius:14px;object-fit:contain}
+.cx-svccase .cx-btn{justify-self:start}
