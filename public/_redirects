@@ -1,3 +1,4 @@
 # Redirect trailing slashes for consistency
-/locations    /locations/    301
+/locations    /    301
+/locations/*    /    301
 /services    /services/    301

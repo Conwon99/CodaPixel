@@ -1,0 +1,40 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/services', label: 'Services' },
+  { href: '/case-studies', label: 'Results' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/reviews', label: 'Reviews' },
+  { href: '/contact', label: 'Contact' },
+];
+const isCurrent = (href: string) => path === href || path.startsWith(href + '/');
+---
+<header class="cp-header">
+  <div class="cp-wrap">
+    <a class="cp-brand" href="/" aria-label="CodaPixel home">
+      <img src="/brand/logo-lime.png" alt="" width="26" height="31" />
+      CodaPixel
+    </a>
+    <nav class="cp-nav" aria-label="Main">
+      {links.map((l) => <a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a>)}
+    </nav>
+    <a class="cp-btn cp-btn--sm" href="/contact" data-track="header_cta">Free website demo <span class="cp-arrow" aria-hidden="true">↗</span></a>
+    <button class="cp-menu-btn" type="button" aria-expanded="false" aria-controls="cp-mobile" aria-label="Open menu" id="cp-menu-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="cp-mobile" id="cp-mobile" data-open="false">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a class="cp-btn" href="/contact">Free website demo <span class="cp-arrow" aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<script is:inline>
+{
+  const b = document.getElementById('cp-menu-btn'), m = document.getElementById('cp-mobile');
+  if (b && m) b.addEventListener('click', () => {
+    const open = m.dataset.open !== 'true';
+    m.dataset.open = String(open);
+    b.setAttribute('aria-expanded', String(open));
+  });
+}
+</script>

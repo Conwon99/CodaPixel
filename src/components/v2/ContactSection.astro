@@ -1,0 +1,65 @@
+---
+interface Props { h1?: boolean }
+const { h1 = false } = Astro.props;
+const Tag = h1 ? 'h1' : 'h2';
+---
+<section class="cp-band" id="contact-section">
+  <div class="cp-wrap cp-contact">
+    <div>
+      <Tag class={h1 ? 'cp-h1' : 'cp-h2'}>Get your <span class="cp-hl">free</span> website demo</Tag>
+      <p class="cp-lead">Tell us what you do and where you work. We'll mock up a preview of your new site and get back to you, usually the same day.</p>
+      <div class="cp-reach">
+        <a href="https://wa.me/447792145328" data-track="whatsapp">
+          <img src="/whatsapp.svg" alt="" width="26" height="26" />
+          <span>WhatsApp us<small>Quickest way to reach us</small></span>
+        </a>
+        <a href="tel:+447792145328" data-track="phone">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--cp-lime)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.2l-2.26 1.13a11 11 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg>
+          <span>+44 7792 145328<small>Call or text</small></span>
+        </a>
+      </div>
+    </div>
+
+    <form class="cp-form" id="cp-contact-form" novalidate>
+      <input class="cp-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <label>Name<input class="cp-input" id="cp-name" name="name" required autocomplete="name" /></label>
+      <label>Email<input class="cp-input" id="cp-email" name="email" type="email" required autocomplete="email" /></label>
+      <label>Phone (optional)<input class="cp-input" id="cp-phone" name="phone" type="tel" autocomplete="tel" /></label>
+      <label>Your business and what you need<textarea class="cp-input" id="cp-message" name="message" required></textarea></label>
+      <p class="cp-form-msg" id="cp-form-msg" role="status" aria-live="polite"></p>
+      <button class="cp-btn" type="submit" id="cp-submit">Send my details <span class="cp-arrow" aria-hidden="true">↗</span></button>
+    </form>
+  </div>
+</section>
+
+<script is:inline>
+{
+  const form = document.getElementById('cp-contact-form');
+  const msg = document.getElementById('cp-form-msg');
+  const btn = document.getElementById('cp-submit');
+  const track = (name, props) => { try { window.gtag && window.gtag('event', name, props); } catch (e) {} };
+  document.querySelectorAll('[data-track]').forEach((a) => a.addEventListener('click', () => track(a.dataset.track + '_click', { event_category: 'CTA', location: 'contact_section' })));
+  if (form) form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form._gotcha.value) return;
+    if (!form.checkValidity()) { msg.dataset.state = 'error'; msg.textContent = 'Please add your name, a valid email and a short message.'; form.reportValidity(); return; }
+    btn.disabled = true; msg.dataset.state = ''; msg.textContent = 'Sending…';
+    const data = Object.fromEntries(new FormData(form));
+    delete data._gotcha;
+    try {
+      // websiteUrl lets the twilio-webhook handler match this lead to CodaPixel in LeadTrackerCRM.
+      const res = await fetch('https://formspree.io/f/mvzzolqp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...data, websiteUrl: 'https://codapixel.com', pageUrl: location.href }),
+      });
+      if (!res.ok) throw new Error('failed');
+      track('form_submit', { event_category: 'CTA', location: 'contact_section' });
+      form.innerHTML = '<h3 class="cp-h3">Message sent</h3><p style="color:var(--cp-mute);margin:0">Thanks. We will be in touch soon, usually the same day.</p>';
+    } catch (err) {
+      btn.disabled = false; msg.dataset.state = 'error';
+      msg.textContent = 'Something went wrong sending your message. Please try again, or WhatsApp or call us instead.';
+    }
+  });
+}
+</script>

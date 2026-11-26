@@ -1,14 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HomeContact from '../components/HomeContact';
+import ContactSection from '../components/v2/ContactSection.astro';
+import Sections from '../components/v2/Sections.astro';
 ---
-
 <Layout
   title="Contact CodaPixel | Free Website Demo"
-  description="Book your free website demo. Fast replies and transparent pricing."
+  description="Book your free website demo. Tell us about your business and we'll mock up a preview of your new site."
   canonical="/contact"
   ogImage="/C logo.webp"
 >
-  <HomeContact client:idle />
+  <ContactSection h1 />
+  <Sections name="steps" />
 </Layout>
-

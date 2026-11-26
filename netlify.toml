@@ -8,7 +8,12 @@
 # Handle trailing slash redirects
 [[redirects]]
   from = "/locations"
-  to = "/locations/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/locations/*"
+  to = "/"
   status = 301
 
 [[redirects]]

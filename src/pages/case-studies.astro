@@ -1,15 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CaseStudiesPage from '../components/pages/CaseStudiesPage';
-import ReviewsWidget from '../components/ReviewsWidget.astro';
+import Sections from '../components/v2/Sections.astro';
 ---
-
 <Layout
   title="SEO Case Studies | Real Results | CodaPixel"
-  description="See real SEO results for local businesses - organic traffic growth, Google rankings and Search Console data from CodaPixel SEO campaigns."
+  description="Real SEO results for local businesses: organic traffic growth, Google rankings and leads tracked in Leadzap."
   canonical="/case-studies"
   ogImage="/case-studies/jimbos-gsc-graph.png"
 >
-  <CaseStudiesPage client:visible />
-  <ReviewsWidget />
+  <section class="cp-page-hero">
+    <div class="cp-wrap">
+      <ul class="cp-eyebrow"><li>Results</li></ul>
+      <h1 class="cp-h1">Real numbers from <span class="cp-hl">real</span> clients</h1>
+      <p class="cp-lead">Search Console data, rankings and lead counts from the businesses we work with.</p>
+    </div>
+  </section>
+  <Sections name="stats" heading={false} />
+  <Sections name="cases" heading={false} />
+  <Sections name="cta" />
 </Layout>

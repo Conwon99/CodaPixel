@@ -1,0 +1,141 @@
+---
+// Shared homepage/inner-page sections, chosen by `name`.
+import { getLeadStats } from '../../lib/leadStats';
+import { caseStudies, services, steps, plans, faqs } from '../../content/site';
+
+interface Props { name: 'marquee' | 'stats' | 'services' | 'cases' | 'steps' | 'compare' | 'pricing' | 'faq' | 'cta'; heading?: boolean }
+const { name, heading = true } = Astro.props;
+const s = name === 'stats' ? await getLeadStats() : null;
+const fmt = (n: number) => n.toLocaleString('en-GB');
+const words = ['Web design', 'Local SEO', 'Google Business Profile', 'Google Ads', 'Lead tracking', 'Reviews'];
+---
+{name === 'marquee' && (
+  <div class="cp-marquee" aria-hidden="true">
+    <div class="cp-marquee-track">{[...words, ...words, ...words, ...words].map((w) => <span>{w}</span>)}</div>
+  </div>
+)}
+
+{name === 'stats' && s && (
+  <section class="cp-band">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">Results we <span class="cp-hl">count</span></h2><p>Every enquiry from our clients' websites is logged in Leadzap. These numbers come straight from it.</p></div>}
+      <div class="cp-stats">
+        <div class="cp-stat"><div class="cp-big"><em>{fmt(s.total)}</em></div><p>Leads generated for Scottish businesses</p></div>
+        <div class="cp-stat"><div class="cp-big">{fmt(s.jimbos)}</div><p><a href="/case-studies/jimbos-exterior-cleaning">Jimbo's Cleaning</a>, Irvine</p></div>
+        <div class="cp-stat"><div class="cp-big">{fmt(s.ayrshireFencing)}</div><p>Ayrshire Fencing Group</p></div>
+        <div class="cp-stat"><div class="cp-big">{fmt(s.rbJoinery)}</div><p><a href="/case-studies/rb-joinery">RB Joinery</a>, Kilmarnock</p></div>
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'services' && (
+  <section class="cp-band cp-band--alt">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">What we <span class="cp-hl">do</span></h2><p>Three things, done properly, for businesses that live on local enquiries.</p></div>}
+      <div class="cp-grid3">
+        {services.map((sv) => (
+          <article class="cp-card">
+            <span class="cp-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={sv.icon} /></svg></span>
+            <h3 class="cp-h3">{sv.title}</h3>
+            <p>{sv.text}</p>
+            <ul class="cp-ticks">{sv.points.map((p) => <li>{p}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'cases' && (
+  <section class="cp-band">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">Real <span class="cp-hl">results</span></h2><a class="cp-btn cp-btn--ghost" href="/case-studies">All case studies</a></div>}
+      <div class="cp-grid2">
+        {caseStudies.map((c) => (
+          <a class="cp-case" href={`/case-studies/${c.slug}`}>
+            <div class={`cp-case-img${c.image ? '' : ' cp-case-img--empty'}`}>
+              {c.image ? <img src={c.image} alt={`${c.name} results`} loading="lazy" width="800" height="450" /> : <span>SEO audit</span>}
+            </div>
+            <div class="cp-case-body">
+              <small>{c.trade} · {c.place}</small>
+              <h3 class="cp-h3">{c.name}</h3>
+              <p>{c.summary}</p>
+              <div class="cp-case-nums">{c.stats.map((st) => <div><b>{st.value}</b><span>{st.label}</span></div>)}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'steps' && (
+  <section class="cp-band cp-band--alt">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">How it <span class="cp-hl">works</span></h2><p>No pressure and nothing to pay until you have seen what you are getting.</p></div>}
+      <div class="cp-steps">{steps.map((st) => <div class="cp-step"><h3 class="cp-h3">{st.title}</h3><p>{st.text}</p></div>)}</div>
+    </div>
+  </section>
+)}
+
+{name === 'compare' && (
+  <section class="cp-band">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">Not your <span class="cp-hl">typical</span> agency</h2></div>}
+      <div style="overflow-x:auto">
+        <table class="cp-table">
+          <thead><tr><th scope="col"></th><th scope="col">CodaPixel</th><th scope="col">Typical agency</th></tr></thead>
+          <tbody>
+            <tr><td>Upfront cost</td><td>From £89 a month, no big bill</td><td>Large build fee before launch</td></tr>
+            <tr><td>See it first</td><td>Free demo of your site</td><td>Pay, then wait</td></tr>
+            <tr><td>Reporting</td><td>Every lead logged in Leadzap</td><td>Traffic charts</td></tr>
+            <tr><td>Who you talk to</td><td>The person doing the work</td><td>An account manager</td></tr>
+            <tr><td>Focus</td><td>Scottish trades and local services</td><td>Every industry</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'pricing' && (
+  <section class="cp-band cp-band--alt">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">Simple <span class="cp-hl">pricing</span></h2><p>Monthly plans. No long setup fees.</p></div>}
+      <div class="cp-grid3">
+        {plans.map((p) => (
+          <article class={`cp-card cp-price${p.hot ? ' cp-price--hot' : ''}`}>
+            {p.hot && <span class="cp-badge">Most popular</span>}
+            <h3 class="cp-h3">{p.name}</h3>
+            <div class="cp-amt">£{p.price}<small>per month</small></div>
+            <p>{p.blurb}</p>
+            {p.lead && <strong style="font-size:15px">{p.lead}</strong>}
+            <ul class="cp-ticks">{p.features.map((f) => <li>{f}</li>)}</ul>
+            <a class="cp-btn" href="/contact" style="margin-top:12px">{p.cta} <span class="cp-arrow" aria-hidden="true">↗</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'faq' && (
+  <section class="cp-band">
+    <div class="cp-wrap">
+      {heading && <div class="cp-sec-head"><h2 class="cp-h2">Questions</h2></div>}
+      <div class="cp-faq">{faqs.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}</div>
+    </div>
+  </section>
+)}
+
+{name === 'cta' && (
+  <section class="cp-band">
+    <div class="cp-wrap">
+      <div class="cp-cta">
+        <div><h2 class="cp-h2">See your new site before you pay</h2><p>Send a few details and we will mock up a free preview of your website.</p></div>
+        <a class="cp-btn" href="/contact">Get my free demo <span class="cp-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+)}

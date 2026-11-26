@@ -1,31 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero';
-import HomeContact from '../components/HomeContact';
+import LeadFeed from '../components/v2/LeadFeed.astro';
+import Sections from '../components/v2/Sections.astro';
+import ContactSection from '../components/v2/ContactSection.astro';
 import ReviewsWidget from '../components/ReviewsWidget.astro';
+import { getLeadStats } from '../lib/leadStats';
+const s = await getLeadStats();
 ---
-
 <Layout
-  title="Web Design & SEO in Ayrshire | CodaPixel"
-  description="Websites that convert + SEO that ranks. Fast builds, GBP optimization, tracking."
+  title="Web Design & Local SEO for Trades in Scotland | CodaPixel"
+  description="Websites, local SEO and Google Ads for Scottish trade businesses. Every lead tracked. Free website demo before you pay."
   canonical="/"
   ogImage="/C logo.webp"
 >
-  <Hero client:visible />
+  <section class="cp-hero">
+    <div class="cp-wrap">
+      <div>
+        <ul class="cp-eyebrow"><li>Web design</li><li>Local SEO</li><li>Lead generation</li></ul>
+        <h1 class="cp-h1">Websites that get trades <span class="cp-hl">calls</span></h1>
+        <p class="cp-lead">We build fast websites and get Scottish trade businesses found on Google, then track every enquiry so you know exactly what it brings in.</p>
+        <div class="cp-btns">
+          <a class="cp-btn" href="/contact">Get a free demo <span class="cp-arrow" aria-hidden="true">↗</span></a>
+          <a class="cp-btn cp-btn--ghost" href="/case-studies">See our results</a>
+        </div>
+        <div class="cp-trust">
+          <span class="cp-plus" aria-hidden="true">+</span>
+          <span><b>{s.total.toLocaleString('en-GB')} leads generated</b><span>for cleaners, joiners, roofers and fencers</span></span>
+        </div>
+      </div>
+      <LeadFeed />
+    </div>
+  </section>
 
-  <ReviewsWidget bordered={false} />
+  <Sections name="marquee" />
+  <Sections name="stats" />
+  <Sections name="services" />
+  <Sections name="cases" />
+  <Sections name="steps" />
+  <Sections name="compare" />
+  <Sections name="pricing" />
 
-  <HomeContact client:idle />
+  <section class="cp-band cp-band--alt">
+    <div class="cp-wrap">
+      <div class="cp-sec-head"><h2 class="cp-h2">What clients <span class="cp-hl">say</span></h2></div>
+      <div class="cp-reviews"><ReviewsWidget bordered={false} /></div>
+    </div>
+  </section>
+
+  <Sections name="faq" />
+  <ContactSection />
 </Layout>
-
-<script is:inline>
-  // Track page view - will be handled by analytics script in Layout
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'page_view', {
-      event_category: 'Navigation',
-      event_label: 'Home Page',
-      timestamp: new Date().toISOString()
-    });
-  }
-</script>
-

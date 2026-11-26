@@ -1,13 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ServicesPage from '../components/pages/ServicesPage';
+import Sections from '../components/v2/Sections.astro';
 ---
-
 <Layout
-  title="Web Design & SEO Services | Responsive Web Design for Small Business | CodaPixel"
-  description="Professional web design and SEO services. Responsive web design for small businesses, website design and SEO, professional website design company. Fast, mobile-friendly websites that rank on Google."
+  title="Web Design, Local SEO & Google Ads for Trades | CodaPixel"
+  description="Fast websites, local SEO, Google Business Profile optimisation and Google Ads for trade businesses in Scotland, with every lead tracked."
   canonical="/services"
   ogImage="/C logo.webp"
 >
-  <ServicesPage client:visible />
+  <section class="cp-page-hero">
+    <div class="cp-wrap">
+      <ul class="cp-eyebrow"><li>Services</li></ul>
+      <h1 class="cp-h1">Everything you need to get <span class="cp-hl">found</span></h1>
+      <p class="cp-lead">A website that turns visitors into enquiries, the local SEO to bring them in, and ads when you need leads faster.</p>
+    </div>
+  </section>
+  <Sections name="services" heading={false} />
+  <Sections name="steps" />
+  <Sections name="stats" />
+  <Sections name="compare" />
+  <Sections name="cta" />
 </Layout>
