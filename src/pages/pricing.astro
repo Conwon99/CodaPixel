@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sections from '../components/v2/Sections.astro';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
 ---
 <Layout
   title="Pricing | Web Design & SEO Packages | CodaPixel"
@@ -8,14 +9,8 @@ import Sections from '../components/v2/Sections.astro';
   canonical="/pricing"
   ogImage="/C logo.webp"
 >
-  <section class="cp-page-hero">
-    <div class="cp-wrap">
-      <ul class="cp-eyebrow"><li>Pricing</li></ul>
-      <h1 class="cp-h1">Simple <span class="cp-hl">monthly</span> plans</h1>
-      <p class="cp-lead">No big upfront bill. Pick the level of help you need, and move up when you're ready.</p>
-    </div>
-  </section>
-  <Sections name="pricing" heading={false} />
-  <Sections name="faq" />
-  <Sections name="cta" />
+  <PageHero eyebrow="Pricing" before="Simple" hl="monthly" after="plans" lead="No big upfront bill. Pick the level of help you need, and move up when you're ready." />
+  <Section name="pricing" head={false} />
+  <Section name="faq" />
+  <Section name="cta" />
 </Layout>

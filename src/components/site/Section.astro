@@ -1,0 +1,201 @@
+---
+import { getLeadStats } from '../../lib/leadStats';
+import { services, steps, work, caseStudies, reviews, plans, faqs, marquee, GOOGLE_REVIEWS_URL } from '../../content/site';
+
+type Name = 'marquee' | 'services' | 'why' | 'steps' | 'work' | 'cases' | 'leads' | 'reviews' | 'pricing' | 'faq' | 'contact' | 'cta';
+interface Props { name: Name; head?: boolean; h1?: boolean }
+const { name, head = true, h1 = false } = Astro.props;
+const s = await getLeadStats();
+const fmt = (n: number) => n.toLocaleString('en-GB');
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const initials = (n: string) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+const top3 = s.clients.slice(0, 3);
+---
+{name === 'marquee' && (
+  <div class="cx-mq" aria-hidden="true"><div class="cx-mq-t">{[...marquee, ...marquee, ...marquee, ...marquee].map((m) => <span>{m}</span>)}</div></div>
+)}
+
+{name === 'services' && (
+  <section class="cx-sec" id="services">
+    <div class="cx-wrap">
+      {head && <div class="cx-head"><div><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2></div><div class="cx-aside"><p>Four focused services that take a trade business from invisible to fully booked.</p><a class="cx-btn" href="/contact">Get a free demo <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      <div class="cx-g4">{services.map((v) => <article class="cx-svc"><span class="cx-num">{v.n}</span><h3>{v.title}</h3><p>{v.text}</p><a href={v.href}>View more →</a></article>)}</div>
+    </div>
+  </section>
+)}
+
+{name === 'why' && (
+  <section class="cx-sec cx-dark">
+    <div class="cx-wrap">
+      <div class="cx-eb">Why CodaPixel</div>
+      <p class="cx-big">We build websites that bring in <em>leads</em>, then prove it with every enquiry tracked.</p>
+      <div class="cx-g3">
+        <div class="cx-stat"><b>{fmt(s.total)}</b><strong>Leads generated</strong><p>Website enquiries for our clients, logged in Leadzap with spam removed.</p></div>
+        <div class="cx-stat"><b>5.0★</b><strong>Google rating</strong><p>From 12 reviews on Google, every one of them five stars.</p></div>
+        <div class="cx-stat"><b>#1</b><strong>Local rankings</strong><p>Jimbo's and RB Joinery both rank first for their main local searches.</p></div>
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'steps' && (
+  <section class="cx-sec cx-grey">
+    <div class="cx-wrap">
+      {head && <div class="cx-head"><div><div class="cx-eb">How it works</div><h2 class="cx-h2">A Simple Process,<br />Built For Results.</h2></div><div class="cx-aside"><p>No jargon and nothing to pay until you've seen what you're getting.</p><a class="cx-btn" href="/contact">Contact us <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      <div class="cx-g4">{steps.map((v, i) => <article class="cx-step"><small>Step {i + 1}</small><h3>{v.title}</h3><p>{v.text}</p><div class="cx-pills">{v.tags.map((t) => <span>{t}</span>)}</div></article>)}</div>
+    </div>
+  </section>
+)}
+
+{name === 'work' && (
+  <section class="cx-sec" id="work">
+    <div class="cx-wrap">
+      {head && <div class="cx-head"><div><div class="cx-eb">Recent work</div><h2 class="cx-h2">Built For Local Businesses.<br />Built To Get Calls.</h2></div><div class="cx-aside"><p>A few of the sites we've designed and built for businesses across Scotland.</p><a class="cx-btn" href="/case-studies">See results <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      <div class="cx-r1">{work.slice(0, 2).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="800" height="550" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
+      <div class="cx-r2">{work.slice(2).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
+    </div>
+  </section>
+)}
+
+{name === 'cases' && (
+  <section class="cx-sec cx-dark">
+    <div class="cx-wrap">
+      {head && <div class="cx-head"><div><div class="cx-eb">Case studies</div><h2 class="cx-h2">Real Clients.<br />Real Numbers.</h2></div><div class="cx-aside"><p>Search Console data, rankings and leads from the businesses we work with.</p></div></div>}
+      <div class="cx-slider" id="cx-slider" tabindex="0" aria-label="Case studies">
+        {caseStudies.map((c, i) => (
+          <article class="cx-feat" aria-label={`${i + 1} of ${caseStudies.length}`}>
+            {c.image ? <div class="cx-img"><img src={c.image} alt={`${c.name} results`} loading="lazy" width="520" height="420" /></div> : <div class="cx-img cx-img--empty"><span>SEO audit</span></div>}
+            <div>
+              <small>Case study _ 0{i + 1} · {c.place}</small>
+              <h3>{c.title}</h3>
+              <p class="cx-mute">{c.text}</p>
+              <div class="cx-res">{c.stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
+              <a class="cx-btn" href={`/case-studies/${c.slug}`}>Read the case study <span class="cx-ab" set:html={arrow} /></a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="cx-pager">
+        <div class="cx-dots" id="cx-dots">{caseStudies.map((c, i) => <button type="button" aria-label={`Show ${c.name}`} aria-current={i === 0 ? 'true' : 'false'}></button>)}</div>
+        <div class="cx-arrows"><button type="button" id="cx-prev" aria-label="Previous case study">←</button><button type="button" id="cx-next" aria-label="Next case study">→</button></div>
+      </div>
+    </div>
+    <script is:inline>
+    {
+      const sl = document.getElementById('cx-slider'), dots = [...document.querySelectorAll('#cx-dots button')];
+      if (sl) {
+        const go = (i) => { const n = sl.children.length; i = (i + n) % n; sl.children[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' }); };
+        const idx = () => Math.round(sl.scrollLeft / sl.clientWidth);
+        dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+        document.getElementById('cx-prev').addEventListener('click', () => go(idx() - 1));
+        document.getElementById('cx-next').addEventListener('click', () => go(idx() + 1));
+        sl.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') go(idx() + 1); if (e.key === 'ArrowLeft') go(idx() - 1); });
+        sl.addEventListener('scroll', () => { const k = idx(); dots.forEach((d, i) => d.setAttribute('aria-current', String(i === k))); }, { passive: true });
+      }
+    }
+    </script>
+  </section>
+)}
+
+{name === 'leads' && (
+  <section class="cx-sec">
+    <div class="cx-wrap">
+      {head && <div class="cx-head"><div><div class="cx-eb">Results</div><h2 class="cx-h2">Leads We've Delivered.</h2></div><div class="cx-aside"><p>Every enquiry from our clients' websites is logged in Leadzap. These counts come straight from it.</p></div></div>}
+      <ul class="cx-list">
+        {s.clients.map((c) => <li><b>{fmt(c.leads)}</b><strong>{c.caseStudy ? <a href={c.caseStudy}>{c.name}</a> : c.name}<small>leads generated</small></strong><span>{c.trade} · {c.place}</span></li>)}
+      </ul>
+      <p class="cx-note">{fmt(s.total)} leads in total across all clients. Website enquiries, spam removed.</p>
+    </div>
+  </section>
+)}
+
+{name === 'reviews' && (
+  <section class="cx-sec cx-dark">
+    <div class="cx-wrap">
+      {head && <div class="cx-head"><div><div class="cx-eb">Reviews</div><h2 class="cx-h2">Don't Just Take<br />Our Word For It.</h2></div><div class="cx-aside"><p>Real reviews from business owners on Google.</p><a class="cx-btn" href={GOOGLE_REVIEWS_URL}>Read all reviews <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      <div class="cx-g3">{reviews.map((r) => <figure class="cx-tq"><div><div class="cx-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote><p>“{r.text}”</p></blockquote></div><figcaption class="cx-who"><span class="cx-av" aria-hidden="true">{initials(r.name)}</span><span><strong>{r.name}</strong><small>{r.role}</small></span></figcaption></figure>)}</div>
+      <div class="cx-rating"><span class="cx-stars" aria-hidden="true">★★★★★</span> 5.0 from 12 Google reviews · <a href={GOOGLE_REVIEWS_URL}>See them on Google</a></div>
+    </div>
+  </section>
+)}
+
+{name === 'pricing' && (
+  <section class="cx-sec" id="pricing">
+    <div class="cx-wrap">
+      {head && <div class="cx-ph"><div class="cx-eb">Pricing</div><h2 class="cx-h2">Simple Plans</h2><p>Monthly plans with no big upfront bill. Move up when you're ready.</p></div>}
+      <div class="cx-g3">
+        {plans.map((p) => (
+          <article class={`cx-plan${p.hot ? ' hot' : ''}`}>
+            {p.hot && <span class="cx-badge">Most popular</span>}
+            <h3>{p.name}</h3><p>{p.blurb}</p>
+            <div class="cx-price"><b>£{p.price}</b><span>per month</span></div>
+            <a class="cx-btn" href="/contact">Get started <span class="cx-ab" set:html={arrow} /></a>
+            <strong style="font-size:15px">What's included:</strong>
+            <ul>{p.features.map((f) => <li>{f}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+{name === 'faq' && (
+  <section class="cx-sec cx-whitebg" id="faq">
+    <div class="cx-wrap cx-faq">
+      <div class="cx-intro">
+        <div><div class="cx-eb">FAQs</div><h2 class="cx-h2">Answers Before<br />You Even Ask.</h2></div>
+        <p class="cx-mute">Clear answers about how we work and what you get.</p>
+        <div class="cx-help"><strong>Still have questions?</strong><span class="cx-mute">Message us on WhatsApp or call.</span><a class="cx-btn" href="https://wa.me/447792145328">WhatsApp us <span class="cx-ab" set:html={arrow} /></a></div>
+      </div>
+      <div>{faqs.map(([q, a], i) => <details open={i === 0}><summary><span><em>//0{i + 1}.</em>{q}</span></summary><p>{a}</p></details>)}</div>
+    </div>
+  </section>
+)}
+
+{name === 'cta' && (
+  <section class="cx-sec">
+    <div class="cx-wrap"><div class="cx-cta"><div><h2 class="cx-h2">See your new site before you pay</h2><p>Send a few details and we'll mock up a free preview of your website.</p></div><a class="cx-btn" href="/contact">Get my free demo <span class="cx-ab" set:html={arrow} /></a></div></div>
+  </section>
+)}
+
+{name === 'contact' && (
+  <section class="cx-sec cx-dark" id="contact">
+    <div class="cx-wrap cx-contact">
+      <div>
+        <div class="cx-eb">Let's work together</div>
+        {h1 ? <h1 class="cx-big">Get your free website demo.</h1> : <p class="cx-big">Get your free website demo.</p>}
+        <p class="cx-mute" style="max-width:480px;margin-bottom:32px">Tell us what you do and where you work. We'll mock up a preview of your new site and get back to you, usually the same day.</p>
+        <div class="cx-reach"><small>WhatsApp, quickest reply</small><a href="https://wa.me/447792145328" data-track="whatsapp">+44 7792 145328</a></div>
+        <div class="cx-reach"><small>Email us</small><a href="mailto:dorward.connor@gmail.com">dorward.connor@gmail.com</a></div>
+      </div>
+      <form class="cx-form" id="cx-form" novalidate>
+        <input class="cx-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="cx-two"><label>Name *<input name="name" required autocomplete="name" /></label><label>Phone<input name="phone" type="tel" autocomplete="tel" /></label></div>
+        <label>Email *<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Your business and what you need *<textarea name="message" required></textarea></label>
+        <p class="cx-msg" id="cx-msg" role="status" aria-live="polite"></p>
+        <button class="cx-btn" type="submit" id="cx-submit">Send my details <span class="cx-ab" set:html={arrow} /></button>
+      </form>
+    </div>
+    <script is:inline>
+    {
+      const f = document.getElementById('cx-form'), msg = document.getElementById('cx-msg'), btn = document.getElementById('cx-submit');
+      const track = (n, p) => { try { window.gtag && window.gtag('event', n, p); } catch (e) {} };
+      if (f) f.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (f._gotcha.value) return;
+        if (!f.checkValidity()) { msg.dataset.state = 'error'; msg.textContent = 'Please add your name, a valid email and a short message.'; f.reportValidity(); return; }
+        btn.disabled = true; msg.dataset.state = ''; msg.textContent = 'Sending…';
+        const data = Object.fromEntries(new FormData(f)); delete data._gotcha;
+        try {
+          // websiteUrl lets the twilio-webhook handler match this lead to CodaPixel in LeadTrackerCRM.
+          const r = await fetch('https://formspree.io/f/mvzzolqp', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...data, websiteUrl: 'https://codapixel.com', pageUrl: location.href }) });
+          if (!r.ok) throw new Error('failed');
+          track('form_submit', { event_category: 'CTA', location: 'contact_section' });
+          f.innerHTML = '<h3 style="font-size:24px;font-weight:600">Message sent</h3><p style="color:#8f9596">Thanks. We will be in touch soon, usually the same day.</p>';
+        } catch (err) { btn.disabled = false; msg.dataset.state = 'error'; msg.textContent = 'Something went wrong. Please try again, or WhatsApp or call us instead.'; }
+      });
+    }
+    </script>
+  </section>
+)}

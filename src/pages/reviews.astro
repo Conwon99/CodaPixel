@@ -1,14 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ReviewsPage from '../components/pages/ReviewsPage';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
+import { allReviews, GOOGLE_REVIEWS_URL } from '../content/site';
+const initials = (n: string) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 ---
-
 <Layout
   title="Reviews & Testimonials | CodaPixel"
-  description="Read what our clients say about our web design and SEO services."
+  description="Rated 5.0 on Google from 12 reviews. Read what local business owners say about CodaPixel's web design and SEO."
   canonical="/reviews"
   ogImage="/C logo.webp"
 >
-  <ReviewsPage client:visible />
+  <PageHero eyebrow="Reviews" before="Rated" hl="5.0" after="on Google" lead="Twelve reviews, every one five stars. Here's what local business owners say." />
+  <section class="cx-sec cx-dark" style="padding-top:0">
+    <div class="cx-wrap">
+      <div class="cx-g3">{allReviews.map((r) => <figure class="cx-tq"><div><div class="cx-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote><p>“{r.text}”</p></blockquote></div><figcaption class="cx-who"><span class="cx-av" aria-hidden="true">{initials(r.name)}</span><span><strong>{r.name}</strong><small>{r.role}</small></span></figcaption></figure>)}</div>
+      <div class="cx-rating"><span class="cx-stars" aria-hidden="true">★★★★★</span> 5.0 from 12 Google reviews · <a href={GOOGLE_REVIEWS_URL}>Read them in full on Google</a></div>
+    </div>
+  </section>
+  <Section name="cta" />
 </Layout>
-

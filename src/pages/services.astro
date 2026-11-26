@@ -1,6 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sections from '../components/v2/Sections.astro';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
+const detail = [
+  { id: 'websites', title: 'Websites', text: 'Fast, mobile-first websites built around one job: getting the phone to ring. Clear services, real photos, reviews and a quote form on every page. We mock up a free demo before you commit.', points: ['Free demo before you pay', 'Hosting, SSL and updates included', 'Built for speed and Core Web Vitals', 'Live in days, not months'] },
+  { id: 'seo', title: 'Local SEO', text: 'Rank in Google Maps and organic results for the searches your customers make, like "joiner near me" or "gutter cleaning Irvine".', points: ['Google Business Profile optimisation', 'Service pages that rank', 'Review generation strategy', 'Keyword and Search Console tracking'] },
+  { id: 'ads', title: 'Google Ads', text: 'Campaigns and landing pages that bring in enquiries within days, while SEO builds up over the longer term.', points: ['Campaign setup and optimisation', 'Landing page creation', 'Conversion tracking', 'Ongoing ad testing'] },
+  { id: 'tracking', title: 'Lead tracking', text: 'Every form enquiry and tracked call lands in Leadzap, our lead dashboard, so you can see exactly what the work brings in.', points: ['Form and call tracking', 'Spam filtering', 'Monthly lead and ranking reports', 'Search Console monitoring'] },
+];
 ---
 <Layout
   title="Web Design, Local SEO & Google Ads for Trades | CodaPixel"
@@ -8,16 +15,19 @@ import Sections from '../components/v2/Sections.astro';
   canonical="/services"
   ogImage="/C logo.webp"
 >
-  <section class="cp-page-hero">
-    <div class="cp-wrap">
-      <ul class="cp-eyebrow"><li>Services</li></ul>
-      <h1 class="cp-h1">Everything you need to get <span class="cp-hl">found</span></h1>
-      <p class="cp-lead">A website that turns visitors into enquiries, the local SEO to bring them in, and ads when you need leads faster.</p>
+  <PageHero eyebrow="Services" before="Everything you need to get" hl="found" lead="A website that turns visitors into enquiries, the local SEO to bring them in, ads when you need leads faster, and tracking that proves it." />
+  <Section name="marquee" />
+  <section class="cx-sec">
+    <div class="cx-wrap" style="display:grid;gap:20px">
+      {detail.map((d, i) => (
+        <article class="cx-svc cx-svc--wide" id={d.id}>
+          <div style="display:grid;gap:12px;align-content:start"><span class="cx-num">0{i + 1}</span><h2 class="cx-h2" style="font-size:clamp(28px,3vw,40px)">{d.title}</h2><p>{d.text}</p></div>
+          <ul class="cx-ticks">{d.points.map((p) => <li>{p}</li>)}</ul>
+        </article>
+      ))}
     </div>
   </section>
-  <Sections name="services" heading={false} />
-  <Sections name="steps" />
-  <Sections name="stats" />
-  <Sections name="compare" />
-  <Sections name="cta" />
+  <Section name="steps" />
+  <Section name="leads" />
+  <Section name="cta" />
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Sections from '../components/v2/Sections.astro';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
 ---
 <Layout
   title="SEO Case Studies | Real Results | CodaPixel"
@@ -8,14 +9,9 @@ import Sections from '../components/v2/Sections.astro';
   canonical="/case-studies"
   ogImage="/case-studies/jimbos-gsc-graph.png"
 >
-  <section class="cp-page-hero">
-    <div class="cp-wrap">
-      <ul class="cp-eyebrow"><li>Results</li></ul>
-      <h1 class="cp-h1">Real numbers from <span class="cp-hl">real</span> clients</h1>
-      <p class="cp-lead">Search Console data, rankings and lead counts from the businesses we work with.</p>
-    </div>
-  </section>
-  <Sections name="stats" heading={false} />
-  <Sections name="cases" heading={false} />
-  <Sections name="cta" />
+  <PageHero eyebrow="Results" before="Real numbers from" hl="real" after="clients" lead="Search Console data, rankings and lead counts from the businesses we work with." />
+  <Section name="cases" head={false} />
+  <Section name="leads" />
+  <Section name="work" />
+  <Section name="cta" />
 </Layout>

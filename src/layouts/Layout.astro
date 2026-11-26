@@ -1,6 +1,6 @@
 ---
-import SiteHeader from '../components/v2/SiteHeader.astro';
-import SiteFooter from '../components/v2/SiteFooter.astro';
+import SiteHeader from '../components/site/SiteHeader.astro';
+import SiteFooter from '../components/site/SiteFooter.astro';
 
 interface Props {
   title: string;
@@ -40,9 +40,9 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Load fonts asynchronously to prevent render blocking -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Teko:wght@500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Teko:wght@500;600&display=swap" rel="stylesheet">
     </noscript>
     <!-- Fallback script for browsers that don't support preload -->
     <script is:inline>
@@ -231,7 +231,7 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
     <link rel="shortcut icon" href="/favicon.png" />
   </head>
 
-  <body class="cp-body">
+  <body class="cx">
     <SiteHeader />
     <main>
       <slot />
@@ -256,6 +256,6 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
 
 <style is:global>
   @import '../index.css';
-  @import '../styles/v2.css';
+  @import '../styles/site.css';
 </style>
 

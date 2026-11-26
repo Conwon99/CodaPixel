@@ -1,52 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LeadFeed from '../components/v2/LeadFeed.astro';
-import Sections from '../components/v2/Sections.astro';
-import ContactSection from '../components/v2/ContactSection.astro';
-import ReviewsWidget from '../components/ReviewsWidget.astro';
+import Section from '../components/site/Section.astro';
 import { getLeadStats } from '../lib/leadStats';
 const s = await getLeadStats();
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+// Drop the Jimbo's hero video at public/video/jimbos-hero.mp4. Until then the poster shows.
+const HERO_VIDEO = '/video/jimbos-hero.mp4';
+const HERO_POSTER = '/case-studies/jimbos-rank-map.png';
 ---
 <Layout
   title="Web Design & Local SEO for Trades in Scotland | CodaPixel"
-  description="Websites, local SEO and Google Ads for Scottish trade businesses. Every lead tracked. Free website demo before you pay."
+  description="Websites, local SEO and Google Ads for Scottish trade businesses, with every lead tracked. Free website demo before you pay."
   canonical="/"
   ogImage="/C logo.webp"
 >
-  <section class="cp-hero">
-    <div class="cp-wrap">
+  <section class="cx-hero cx-dark">
+    <div class="cx-wrap">
       <div>
-        <ul class="cp-eyebrow"><li>Web design</li><li>Local SEO</li><li>Lead generation</li></ul>
-        <h1 class="cp-h1">Websites that get trades <span class="cp-hl">calls</span></h1>
-        <p class="cp-lead">We build fast websites and get Scottish trade businesses found on Google, then track every enquiry so you know exactly what it brings in.</p>
-        <div class="cp-btns">
-          <a class="cp-btn" href="/contact">Get a free demo <span class="cp-arrow" aria-hidden="true">↗</span></a>
-          <a class="cp-btn cp-btn--ghost" href="/case-studies">See our results</a>
-        </div>
-        <div class="cp-trust">
-          <span class="cp-plus" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0c0e0d" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
-          <span><b>{s.total.toLocaleString('en-GB')} leads generated</b><span>for cleaners, joiners, roofers and fencers</span></span>
+        <div class="cx-tags"><span>Web design</span><span>Local SEO</span><span>Lead generation</span></div>
+        <h1 class="cx-h1">We build<br /> websites that<br /> get trades <span class="cx-hl">calls</span></h1>
+        <p class="cx-lead">Fast websites and local SEO for Scottish trade businesses, with every enquiry tracked so you know exactly what it brings in.</p>
+        <div class="cx-ctas"><a class="cx-btn" href="/contact">Get a free demo <span class="cx-ab" set:html={arrow} /></a><a class="cx-btn-o" href="/case-studies">See our results</a></div>
+        <div class="cx-trust">
+          <span class="cx-plus" aria-hidden="true">5.0</span>
+          <span><b><span class="cx-stars" aria-hidden="true">★★★★★</span> Rated 5.0 on Google</b><small>From 12 reviews by local business owners.</small></span>
         </div>
       </div>
-      <LeadFeed />
+      <div class="cx-media">
+        <video autoplay muted loop playsinline preload="metadata" poster={HERO_POSTER} aria-label="Jimbo's Exterior Cleaning at work">
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
+        <div class="cx-chip"><span class="cx-live" aria-hidden="true"></span><b>{s.total.toLocaleString('en-GB')}</b><span>leads generated for our clients, tracked in Leadzap</span></div>
+      </div>
     </div>
   </section>
 
-  <Sections name="marquee" />
-  <Sections name="stats" />
-  <Sections name="services" />
-  <Sections name="cases" />
-  <Sections name="steps" />
-  <Sections name="compare" />
-  <Sections name="pricing" />
-
-  <section class="cp-band cp-band--alt">
-    <div class="cp-wrap">
-      <div class="cp-sec-head"><h2 class="cp-h2">What clients <span class="cp-hl">say</span></h2></div>
-      <div class="cp-reviews"><ReviewsWidget bordered={false} /></div>
-    </div>
-  </section>
-
-  <Sections name="faq" />
-  <ContactSection />
+  <Section name="marquee" />
+  <Section name="services" />
+  <Section name="why" />
+  <Section name="steps" />
+  <Section name="work" />
+  <Section name="cases" />
+  <Section name="leads" />
+  <Section name="reviews" />
+  <Section name="pricing" />
+  <Section name="faq" />
+  <Section name="contact" />
 </Layout>

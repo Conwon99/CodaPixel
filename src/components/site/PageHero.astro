@@ -1,0 +1,11 @@
+---
+interface Props { eyebrow: string; before: string; hl: string; after?: string; lead: string }
+const { eyebrow, before, hl, after = '', lead } = Astro.props;
+---
+<section class="cx-page cx-dark">
+  <div class="cx-wrap">
+    <div class="cx-tags"><span>{eyebrow}</span></div>
+    <h1 class="cx-h1">{before} <span class="cx-hl">{hl}</span>{after && ` ${after}`}</h1>
+    <p class="cx-lead">{lead}</p>
+  </div>
+</section>

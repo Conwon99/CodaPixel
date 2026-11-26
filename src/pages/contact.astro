@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContactSection from '../components/v2/ContactSection.astro';
-import Sections from '../components/v2/Sections.astro';
+import Section from '../components/site/Section.astro';
 ---
 <Layout
   title="Contact CodaPixel | Free Website Demo"
@@ -9,6 +8,7 @@ import Sections from '../components/v2/Sections.astro';
   canonical="/contact"
   ogImage="/C logo.webp"
 >
-  <ContactSection h1 />
-  <Sections name="steps" />
+  <Section name="contact" h1 />
+  <Section name="steps" />
+  <Section name="reviews" />
 </Layout>
