@@ -239,7 +239,7 @@ html{scroll-padding-top:84px}
 .cx-avs img{width:44px;height:44px;border-radius:50%;background:var(--cx-accent);border:2px solid var(--cx-dark);object-fit:contain;padding:7px}
 .cx-avs img+img{margin-left:-10px}
 .cx-trust .cx-plus{font:700 22px/1 var(--cx-inter)}
-.cx-sound{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(8,13,14,.7);backdrop-filter:blur(8px);color:#fff;font:500 13px var(--cx-inter);cursor:pointer}
+.cx-sound{position:absolute;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(8,13,14,.7);backdrop-filter:blur(8px);color:#fff;font:500 13px var(--cx-inter);cursor:pointer}
 .cx-sound .cx-on{display:none}
 .cx-sound[aria-pressed=true] .cx-on{display:inline}
 .cx-sound[aria-pressed=true] .cx-off{display:none}
