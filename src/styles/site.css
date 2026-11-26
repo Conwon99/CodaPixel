@@ -308,3 +308,5 @@ html{scroll-padding-top:84px}
 .cx-anno{top:calc(12px + (100% - 24px) * .365)}
 .cx-anno-line{left:84px;top:-2px;width:118px}
 @media(max-width:1100px){.cx-phone-wrap{padding-left:0;align-items:center}}
+.cx-anno{top:calc(12px + (100% - 24px) * .335)}
+.cx-anno-line{top:-6px}
