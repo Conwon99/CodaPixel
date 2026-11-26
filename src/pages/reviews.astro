@@ -11,12 +11,12 @@ const initials = (n: string) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join
   canonical="/reviews"
   ogImage="/C logo.webp"
 >
-  <PageHero eyebrow="Reviews" before="Rated" hl="5.0" after="on Google" lead="Twelve reviews, every one five stars. Here's what local business owners say." />
-  <section class="cx-sec cx-dark" style="padding-top:0">
+  <PageHero title="Rated 5.0 On Google" hl="5.0" lead="Twelve reviews, every one five stars. Here's what local business owners say." crumbs={[{ label: 'Reviews' }]} />
+  <section class="cx-sec cx-dark">
     <div class="cx-wrap">
       <div class="cx-g3">{allReviews.map((r) => <figure class="cx-tq"><div><div class="cx-stars" aria-label="5 out of 5 stars">★★★★★</div><blockquote><p>“{r.text}”</p></blockquote></div><figcaption class="cx-who"><span class="cx-av" aria-hidden="true">{initials(r.name)}</span><span><strong>{r.name}</strong><small>{r.role}</small></span></figcaption></figure>)}</div>
       <div class="cx-rating"><span class="cx-stars" aria-hidden="true">★★★★★</span> 5.0 from 12 Google reviews · <a href={GOOGLE_REVIEWS_URL}>Read them in full on Google</a></div>
     </div>
   </section>
-  <Section name="cta" />
+  <Section name="collab" />
 </Layout>

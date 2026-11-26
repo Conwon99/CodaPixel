@@ -2,32 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/site/Section.astro';
 import PageHero from '../components/site/PageHero.astro';
-const detail = [
-  { id: 'websites', title: 'Websites', text: 'Fast, mobile-first websites built around one job: getting the phone to ring. Clear services, real photos, reviews and a quote form on every page. We mock up a free demo before you commit.', points: ['Free demo before you pay', 'Hosting, SSL and updates included', 'Built for speed and Core Web Vitals', 'Live in days, not months'] },
-  { id: 'seo', title: 'Local SEO', text: 'Rank in Google Maps and organic results for the searches your customers make, like "joiner near me" or "gutter cleaning Irvine".', points: ['Google Business Profile optimisation', 'Service pages that rank', 'Review generation strategy', 'Keyword and Search Console tracking'] },
-  { id: 'ads', title: 'Meta Ads', text: 'Facebook and Instagram ads that put your work in front of local homeowners and bring in enquiries within days, while SEO builds up over the longer term.', points: ['Campaign setup and optimisation', 'Lead forms and landing pages', 'Conversion tracking', 'Ongoing ad testing'] },
-  { id: 'google-ads', title: 'Google Ads', text: 'Search campaigns and landing pages that put you at the top of Google when customers are ready to book, with every enquiry tracked in Leadzap.', points: ['Search campaign setup', 'Landing page creation', 'Call and form tracking', 'Monthly lead reports'] },
-];
+import { servicePages } from '../content/site';
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-<Layout
-  title="Web Design, Local SEO & Meta Ads for Trades | CodaPixel"
-  description="Fast websites, local SEO, Google Business Profile optimisation and Meta Ads for trade businesses in Scotland, with every lead tracked."
-  canonical="/services"
-  ogImage="/C logo.webp"
->
-  <PageHero eyebrow="Services" before="Everything you need to get" hl="found" lead="A website that turns visitors into enquiries, the local SEO to bring them in, ads when you need leads faster, and tracking that proves it." />
-  <Section name="marquee" />
-  <section class="cx-sec">
-    <div class="cx-wrap" style="display:grid;gap:20px">
-      {detail.map((d, i) => (
-        <article class="cx-svc cx-svc--wide" id={d.id}>
-          <div style="display:grid;gap:12px;align-content:start"><span class="cx-num">0{i + 1}</span><h2 class="cx-h2" style="font-size:clamp(28px,3vw,40px)">{d.title}</h2><p>{d.text}</p></div>
-          <ul class="cx-ticks">{d.points.map((p) => <li>{p}</li>)}</ul>
-        </article>
-      ))}
+<Layout title="Web Design, Local SEO, Meta & Google Ads for Trades | CodaPixel" description="Websites, local SEO, Meta Ads and Google Ads for Scottish trade businesses, with every lead tracked in Leadzap." canonical="/services" ogImage="/C logo.webp">
+  <PageHero title="Everything You Need To Get Found" hl="Found" lead="Four services. Pick one or combine them all, with every enquiry tracked." crumbs={[{ label: 'Services' }]} />
+  <section class="cx-sec cx-dark">
+    <div class="cx-wrap">
+      <div class="cx-head"><div><div class="cx-eb">Our services</div><h2 class="cx-h2">Pick One Service<br />Or Combine Them All.</h2></div><div class="cx-aside"><p>Most clients start with a website and local SEO, then add ads when they want more work faster.</p></div></div>
+      <div class="cx-srows">
+        {servicePages.map((s) => (
+          <a class="cx-srow" href={`/services/${s.slug}`}>
+            <span class="cx-num">{s.n}</span>
+            <div><h3>{s.title}</h3><p>{s.lead}</p></div>
+            <div class="cx-thumb"><img src={s.image} alt="" loading="lazy" width="480" height="300" /></div>
+            <span class="cx-btn">View service <span class="cx-ab" set:html={arrow} /></span>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
   <Section name="steps" />
   <Section name="leads" />
-  <Section name="cta" />
+  <Section name="faq" />
+  <Section name="collab" />
 </Layout>

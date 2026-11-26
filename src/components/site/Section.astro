@@ -2,7 +2,7 @@
 import { getLeadStats } from '../../lib/leadStats';
 import { services, steps, work, caseStudies, reviews, plans, faqs, clientLogos, GOOGLE_REVIEWS_URL } from '../../content/site';
 
-type Name = 'marquee' | 'services' | 'why' | 'steps' | 'work' | 'cases' | 'leads' | 'reviews' | 'pricing' | 'faq' | 'contact' | 'cta';
+type Name = 'collab' | 'marquee' | 'services' | 'why' | 'steps' | 'work' | 'cases' | 'leads' | 'reviews' | 'pricing' | 'faq' | 'contact' | 'cta';
 interface Props { name: Name; head?: boolean; h1?: boolean }
 const { name, head = true, h1 = false } = Astro.props;
 const s = await getLeadStats();
@@ -11,6 +11,15 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
 const initials = (n: string) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 const top3 = s.clients.slice(0, 3);
 ---
+{name === 'collab' && (
+  <section class="cx-collab">
+    <div class="cx-wrap">
+      <h2>Ready to get more<br /> <span class="cx-hl">calls</span>?</h2>
+      <a class="cx-btn" href="/contact">Get a free quote <span class="cx-ab" set:html={arrow} /></a>
+    </div>
+  </section>
+)}
+
 {name === 'marquee' && (
   <div class="cx-mq" role="region" aria-label="Some of our clients">
     <div class="cx-mq-t">{[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((l, i) => <img src={l.src} alt={i < clientLogos.length ? l.name : ''} aria-hidden={i >= clientLogos.length ? 'true' : undefined} height="46" loading="eager" />)}</div>

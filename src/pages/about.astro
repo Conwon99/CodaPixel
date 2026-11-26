@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
+const tabs = [
+  { id: 'mission', label: 'Our Mission', title: 'Our Mission', text: 'Help Scottish trade businesses win more work online, with websites and marketing that bring in real enquiries, not just traffic.' },
+  { id: 'vision', label: 'Our Vision', title: 'Our Vision', text: 'Every local trade with a website that works as hard as they do, and the numbers to prove it.' },
+  { id: 'values', label: 'Our Values', title: 'Our Values', text: 'Straight talking, no long contracts, and results you can see. You always speak to the person doing the work.' },
+];
+const reasons = [
+  ['01', 'Built for trades', 'We work with cleaners, joiners, roofers, fencers and detailers, so we know what makes the phone ring.'],
+  ['02', 'Free demo first', 'See what your new site would look like before you pay anything.'],
+  ['03', 'Every lead tracked', 'Enquiries and calls land in Leadzap, our lead dashboard, so you see exactly what you get.'],
+  ['04', 'Local and reachable', 'Based in Ayrshire. Call, text or WhatsApp and talk to the person doing the work.'],
+  ['05', 'No big upfront bill', 'Monthly plans spread the cost, with hosting and updates included.'],
+  ['06', 'Proven results', '#1 rankings for Jimbo\'s and RB Joinery, and a 5.0 rating from 12 Google reviews.'],
+];
+---
+<Layout title="About CodaPixel | Web Design & Local SEO for Scottish Trades" description="CodaPixel builds websites and runs local SEO and ads for trade businesses across Scotland, with every lead tracked. Based in Ayrshire." canonical="/about" ogImage="/C logo.webp">
+  <PageHero title="Helping Scottish Trades Win More Work Online" hl="More Work" lead="Websites, local SEO and ads for trade businesses, with every enquiry tracked so you know what it brings in." crumbs={[{ label: 'About' }]} />
+  <section class="cx-sec">
+    <div class="cx-wrap">
+      <div class="cx-head"><div><div class="cx-eb">About us</div><h2 class="cx-h2">Built Around One Thing:<br />Getting You Calls.</h2></div></div>
+      <div class="cx-mission">
+        <div class="cx-tabs" role="tablist" aria-label="About CodaPixel">
+          {tabs.map((t, i) => <button type="button" role="tab" id={`tab-${t.id}`} aria-controls={`panel-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'}>{t.label}</button>)}
+        </div>
+        <div class="cx-photo"><img src="/Portfolio/live/ayrshire-fencing.webp" alt="Ayrshire Fencing Group website built by CodaPixel" loading="lazy" width="1150" height="647" /></div>
+        {tabs.map((t, i) => <div class="cx-tabpanel" role="tabpanel" id={`panel-${t.id}`} aria-labelledby={`tab-${t.id}`} hidden={i !== 0}><span class="cx-num">0{i + 1}</span><h3>{t.title}</h3><p>{t.text}</p></div>)}
+      </div>
+    </div>
+  </section>
+  <Section name="why" />
+  <section class="cx-sec cx-grey">
+    <div class="cx-wrap">
+      <div class="cx-head"><div><div class="cx-eb">Why choose us</div><h2 class="cx-h2">How We Turn Websites<br />Into Booked Jobs.</h2></div></div>
+      <div class="cx-reasons">{reasons.map(([n, t, d]) => <article class="cx-svc"><span class="cx-num">{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
+    </div>
+  </section>
+  <Section name="reviews" />
+  <Section name="collab" />
+</Layout>
+<script is:inline>
+{
+  const tabs = [...document.querySelectorAll('.cx-tabs [role=tab]')];
+  const show = (t) => { tabs.forEach((x) => { const on = x === t; x.setAttribute('aria-selected', String(on)); document.getElementById(x.getAttribute('aria-controls')).hidden = !on; }); };
+  tabs.forEach((t, i) => { t.addEventListener('click', () => show(t)); t.addEventListener('keydown', (e) => { if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); const n = tabs[(i + 1) % tabs.length]; n.focus(); show(n); } if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); const n = tabs[(i - 1 + tabs.length) % tabs.length]; n.focus(); show(n); } }); });
+}
+</script>

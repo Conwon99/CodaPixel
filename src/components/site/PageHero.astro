@@ -1,11 +1,24 @@
 ---
-interface Props { eyebrow: string; before: string; hl: string; after?: string; lead: string }
-const { eyebrow, before, hl, after = '', lead } = Astro.props;
+// Everglow inner-page hero: title left, breadcrumb + lead right with a divider.
+interface Crumb { label: string; href?: string }
+interface Props { title: string; hl?: string; lead: string; crumbs: Crumb[]; eyebrow?: string; before?: string; after?: string }
+const { title, hl, lead, crumbs, before, after } = Astro.props;
+const parts = hl && title.includes(hl) ? title.split(hl) : null;
+const heading = title || [before, hl, after].filter(Boolean).join(' ');
 ---
-<section class="cx-page cx-dark">
+<section class="cx-ph2">
   <div class="cx-wrap">
-    <div class="cx-tags"><span>{eyebrow}</span></div>
-    <h1 class="cx-h1">{before} <span class="cx-hl">{hl}</span>{after && ` ${after}`}</h1>
-    <p class="cx-lead">{lead}</p>
+    <h1>{parts ? <>{parts[0]}<span class="cx-hl">{hl}</span>{parts[1]}</> : heading}</h1>
+    <div class="cx-ph2-side">
+      <nav class="cx-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        {crumbs.map((c, i) => <><span aria-hidden="true">/</span>{c.href && i < crumbs.length - 1 ? <a href={c.href}>{c.label}</a> : <b aria-current="page">{c.label}</b>}</>)}
+      </nav>
+      <p>{lead}</p>
+    </div>
   </div>
 </section>
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [{ name: 'Home', href: '/' }, ...crumbs].map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.label ?? c.name, item: c.href ? `https://codapixel.com${c.href}` : undefined })),
+})} />
