@@ -1,5 +1,5 @@
-# Redirect trailing slashes for consistency
+/pricing    /    301
 /locations    /    301
 /locations/*    /    301
-/services    /services/    301/pricing    /    301
-/pricing/    /    301
+/gallery    /case-studies    301
+/index-static.html    /    301

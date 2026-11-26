@@ -10,13 +10,17 @@ interface Props {
   robots?: string;
 }
 
-const { title, description = "Web design and SEO that generate clients. Fast websites, lead-focused design, Google Business Profile optimization, and transparent analytics.", canonical, ogImage = "/C logo.webp", robots = "index, follow" } = Astro.props;
+const { title, description = "Web design and SEO that generate clients. Fast websites, lead-focused design, Google Business Profile optimization, and transparent analytics.", canonical, ogImage = "/brand/og-codapixel.jpg", robots = "index, follow" } = Astro.props;
 const currentUrl = canonical || Astro.url.pathname;
-const fullUrl = `https://codapixel.com${currentUrl}`;
+const SITE = 'https://codapixel.com';
+const cleanPath = currentUrl === '/' ? '/' : currentUrl.replace(/\/+$/, '');
+const fullUrl = `${SITE}${cleanPath}`;
+const ogAbs = (ogImage === '/C logo.webp' ? '/brand/og-codapixel.jpg' : ogImage).startsWith('http') ? ogImage : SITE + encodeURI(ogImage === '/C logo.webp' ? '/brand/og-codapixel.jpg' : ogImage);
+const isHome = cleanPath === '/';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,14 +32,10 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
     <meta name="author" content="CodaPixel" />
     
     <!-- Preconnect to external resources for faster loading - Early hints -->
-    <link rel="preconnect" href="https://js.stripe.com">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://js.stripe.com">
 
-    <!-- Preload critical font -->
-    <link rel="preload" href="/TTF/THICCCBOI-Bold.ttf" as="font" type="font/ttf" crossorigin>
     
     <!-- Fonts - Optimized for performance (async loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,122 +108,68 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodaPixel" />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:url" content={fullUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogAbs} />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={fullUrl} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={fullUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogAbs} />
 
-    <!-- Professional Service Schema -->
+    <!-- Organisation / LocalBusiness schema (sitewide) -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "CodaPixel",
-      "description": "Professional web design and SEO services in the UK. Fast websites that generate clients, Google Business Profile optimization, and transparent analytics.",
-      "url": "https://codapixel.com",
-      "telephone": "+44 7792 145328",
-      "priceRange": "££",
-      "areaServed": [
+      "@graph": [
         {
-          "@type": "City",
-          "name": "Ayr",
-          "sameAs": "https://en.wikipedia.org/wiki/Ayr"
-        },
-        {
-          "@type": "AdministrativeArea",
-          "name": "Argyll and Bute",
-          "sameAs": "https://en.wikipedia.org/wiki/Argyll_and_Bute"
-        },
-        {
-          "@type": "City",
-          "name": "Prestwick",
-          "sameAs": "https://en.wikipedia.org/wiki/Prestwick"
-        },
-        {
-          "@type": "City",
-          "name": "Troon",
-          "sameAs": "https://en.wikipedia.org/wiki/Troon"
-        },
-        {
-          "@type": "City",
-          "name": "Kilmarnock",
-          "sameAs": "https://en.wikipedia.org/wiki/Kilmarnock"
-        },
-        {
-          "@type": "City",
-          "name": "Irvine",
-          "sameAs": "https://en.wikipedia.org/wiki/Irvine,_North_Ayrshire"
-        },
-        {
-          "@type": "City",
-          "name": "Glasgow",
-          "sameAs": "https://en.wikipedia.org/wiki/Glasgow"
-        }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Ayr",
-        "addressRegion": "Ayrshire",
-        "addressCountry": "GB"
-      },
-      "sameAs": [],
-      "serviceType": [
-        "Web Design",
-        "Web Development",
-        "Website Redesign",
-        "SEO",
-        "On-page SEO",
-        "Google Business Profile Optimization",
-        "Landing Page Design",
-        "Conversion Rate Optimization",
-        "Analytics & Conversion Tracking",
-        "Speed Optimization",
-        "Website Maintenance & Support"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Digital Marketing Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Web Design",
-              "description": "Modern, fast websites built to convert visitors into leads"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Web Development",
-              "description": "Custom website development and web application services"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "SEO",
-              "description": "Rank higher in search and Google Maps to win nearby customers"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Conversion Tracking",
-              "description": "Measure what matters with clean analytics and event tracking"
-            }
+          "@type": "ProfessionalService",
+          "@id": "https://codapixel.com/#business",
+          "name": "CodaPixel",
+          "url": "https://codapixel.com/",
+          "logo": "https://codapixel.com/brand/logo-white.png",
+          "image": "https://codapixel.com/brand/og-codapixel.jpg",
+          "description": "Web design, local SEO, Google Ads and Meta Ads for trade businesses in Ayrshire and across Scotland.",
+          "telephone": "+447792145328",
+          "priceRange": "££",
+          "address": { "@type": "PostalAddress", "addressLocality": "Ayr", "addressRegion": "Ayrshire", "addressCountry": "GB" },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Ayrshire" },
+            { "@type": "City", "name": "Ayr" },
+            { "@type": "City", "name": "Troon" },
+            { "@type": "City", "name": "Prestwick" },
+            { "@type": "City", "name": "Kilmarnock" },
+            { "@type": "City", "name": "Irvine" },
+            { "@type": "City", "name": "Glasgow" },
+            { "@type": "Country", "name": "Scotland" }
+          ],
+          "hasMap": "https://www.google.com/maps?cid=15261828920523268496",
+          "sameAs": ["https://www.google.com/maps?cid=15261828920523268496"],
+          "knowsAbout": ["Web design", "Local SEO", "Google Business Profile", "Google Ads", "Meta Ads", "Lead tracking"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website design", "url": "https://codapixel.com/services/websites" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO", "url": "https://codapixel.com/services/local-seo" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads", "url": "https://codapixel.com/services/meta-ads" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads", "url": "https://codapixel.com/services/google-ads" } }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://codapixel.com/#website",
+          "url": "https://codapixel.com/",
+          "name": "CodaPixel",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://codapixel.com/#business" }
+        }
+      ]
     })} />
 
     <link rel="icon" type="image/png" href="/favicon.png" />

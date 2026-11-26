@@ -29,7 +29,7 @@ const top3 = s.clients.slice(0, 3);
 {name === 'services' && (
   <section class="cx-sec" id="services">
     <div class="cx-wrap">
-      {head && <div class="cx-head"><div><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2></div><div class="cx-aside"><p>Four focused services that take a trade business from invisible to fully booked.</p><a class="cx-btn" href="/contact">Get a free demo <span class="cx-ab" set:html={arrow} /></a></div></div>}
+      {head && <div class="cx-head"><div><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2></div><div class="cx-aside"><p>Web design, local SEO and paid ads for trade businesses in Ayrshire and across Scotland, built to take you from invisible to fully booked.</p><a class="cx-btn" href="/contact">Get a free demo <span class="cx-ab" set:html={arrow} /></a></div></div>}
       <div class="cx-g4">{services.map((v) => <article class="cx-svc"><span class="cx-num">{v.n}</span><h3>{v.title}</h3><p>{v.text}</p><a href={v.href}>View more →</a></article>)}</div>
     </div>
   </section>

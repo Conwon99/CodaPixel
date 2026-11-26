@@ -84,6 +84,7 @@ export const faqs = [
   ['Do I have to pay anything upfront?', 'No. Our monthly plans spread the cost so you get a professional site without a big upfront bill, and we mock up a free demo before you commit.'],
   ['How long until I see leads?', 'Ads can bring enquiries within days. Local SEO usually takes a few months to build; RB Joinery ranked #1 for "joiner near me" in Kilmarnock within three months.'],
   ['Who do you work with?', 'Mostly trade and home-service businesses across Scotland: cleaners, joiners, roofers, fencers, detailers and more.'],
+  ['Where are you based?', 'We are based in Ayrshire and work with businesses in Ayr, Troon, Prestwick, Kilmarnock, Irvine, Glasgow and right across Scotland. Most work is done remotely, and we are happy to meet locally in Ayrshire.'],
   ['How do I know it is working?', 'Every form enquiry and tracked call is logged in Leadzap, our lead dashboard, and you get a monthly report with leads, rankings and Search Console data.'],
   ['Can I make changes to my site?', 'Yes. Updates are included in every plan. Just send what you need changing and we sort it.'],
 ];
@@ -107,7 +108,7 @@ export const servicePages = [
     intro: 'Most trade websites look fine but never ring the phone. We build sites around one job: turning a local search into a call or a quote request. Clear services, real photos of your work, reviews front and centre, and a quote form on every page.',
     overview: 'We start with a free demo so you can see your new site before committing. Once you are happy, we write the copy, build the pages for each service you offer, connect your forms to Leadzap and get you live. Hosting, SSL and updates are included in every plan.',
     deliverables: ['Free design demo before you commit', 'A page for each service you offer', 'Quote forms and click-to-call on every page', 'Hosting, SSL and ongoing updates', 'Every enquiry tracked in Leadzap'],
-    seoTitle: 'Website Design for Trades in Scotland | CodaPixel',
+    seoTitle: 'Website Design Ayrshire & Scotland for Trades | CodaPixel',
     seoDesc: 'Fast, mobile-first websites for Scottish trade businesses, built to turn visitors into enquiries. Free demo before you pay.',
   },
   {
@@ -117,7 +118,7 @@ export const servicePages = [
     intro: 'When someone searches "joiner near me" or "gutter cleaning Irvine", they are ready to book. Local SEO puts you in front of them, in the map pack and the organic results, across the whole area you cover.',
     overview: 'We optimise your Google Business Profile, build service pages that target the searches that bring in work, earn reviews and keep your business details consistent across directories. Rankings are tracked with grid maps, and you see the leads that come from it in Leadzap. RB Joinery went from barely ranking to #1 for "joiner near me" across Kilmarnock in three months.',
     deliverables: ['Google Business Profile optimisation', 'Service pages built around real searches', 'Review generation strategy', 'Local citations and consistency checks', 'Monthly rankings and Search Console reports'],
-    seoTitle: 'Local SEO for Trades in Scotland | CodaPixel',
+    seoTitle: 'Local SEO Ayrshire & Scotland for Trades | CodaPixel',
     seoDesc: 'Rank in Google Maps and organic search for the local searches that bring in work. Google Business Profile, service pages and reviews.',
   },
   {
@@ -127,7 +128,7 @@ export const servicePages = [
     intro: 'SEO takes months to build. Meta Ads can fill the diary this week. We run Facebook and Instagram campaigns aimed at homeowners in the areas you cover, using your real before-and-after work.',
     overview: 'We set up the campaigns, write and design the ads, build lead forms or landing pages and test what works. Every lead is logged in Leadzap, so you know exactly what each pound of ad spend brought in. Ad spend is separate and paid directly to Meta.',
     deliverables: ['Campaign setup and audience targeting', 'Ad creative from your real work', 'Lead forms and landing pages', 'Ongoing testing and optimisation', 'Leads and cost per lead tracked in Leadzap'],
-    seoTitle: 'Meta Ads for Trades | Facebook & Instagram Ads | CodaPixel',
+    seoTitle: 'Facebook & Instagram Ads for Trades, Ayrshire | CodaPixel',
     seoDesc: 'Facebook and Instagram ads for Scottish trade businesses, built to bring in enquiries fast, with every lead tracked.',
   },
   {
@@ -137,7 +138,7 @@ export const servicePages = [
     intro: 'Google Ads puts you above the results for searches like "roof repair Kilmarnock" the moment someone needs it. It is the fastest way to win high-intent jobs while your SEO builds.',
     overview: 'We build tightly targeted search campaigns around your services and areas, write the ads, create landing pages that convert and set up call and form tracking. You get a clear monthly report of leads and cost per lead from Leadzap, not a pile of click charts. Ad spend is separate and paid directly to Google.',
     deliverables: ['Search campaign setup by service and area', 'Ad copy and keyword research', 'Landing pages built to convert', 'Call and form conversion tracking', 'Monthly lead and cost-per-lead reports'],
-    seoTitle: 'Google Ads for Trades in Scotland | CodaPixel',
+    seoTitle: 'Google Ads Management Ayrshire for Trades | CodaPixel',
     seoDesc: 'Google Ads search campaigns and landing pages for Scottish trade businesses, with every call and enquiry tracked.',
   },
 ];

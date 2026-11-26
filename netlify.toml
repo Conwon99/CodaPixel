@@ -22,8 +22,13 @@
   status = 301
 
 [[redirects]]
-  from = "/services"
-  to = "/services/"
+  from = "/gallery"
+  to = "/case-studies"
+  status = 301
+
+[[redirects]]
+  from = "/index-static.html"
+  to = "/"
   status = 301
 
 [[headers]]
