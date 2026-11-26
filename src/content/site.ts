@@ -15,11 +15,11 @@ export const steps = [
 ];
 
 export const work = [
-  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/rbjoinery.webp', href: '/case-studies/rb-joinery' },
-  { name: 'Holistics71 with Ange', tags: 'Website · Branding', image: '/Portfolio/holistics71.webp' },
-  { name: 'Tasse Coffee Co', tags: 'Website', image: '/Portfolio/tassecoffeeco.webp' },
-  { name: 'Dirty Deeds', tags: 'Website · Ads', image: '/Portfolio/dirtydeeds.png' },
-  { name: 'Sparkles', tags: 'Website', image: '/Portfolio/sparklessite.webp' },
+  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/w1200/rbjoinery.webp', href: '/case-studies/rb-joinery' },
+  { name: 'Holistics71 with Ange', tags: 'Website · Branding', image: '/Portfolio/w1200/holistics71.webp' },
+  { name: 'Tasse Coffee Co', tags: 'Website', image: '/Portfolio/w1200/tassecoffeeco.webp' },
+  { name: 'Dirty Deeds', tags: 'Website · Ads', image: '/Portfolio/w1200/dirtydeeds.webp' },
+  { name: 'Sparkles', tags: 'Website', image: '/Portfolio/w1200/sparkles.webp' },
 ];
 
 export const caseStudies = [
