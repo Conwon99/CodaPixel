@@ -201,6 +201,11 @@ html{scroll-padding-top:84px}
 .cx-form textarea{min-height:140px;resize:vertical}
 .cx-form input:focus,.cx-form textarea:focus{border-color:var(--cx-accent);outline:none}
 .cx-form .cx-btn{justify-content:space-between}
+/* white form on dark contact section */
+.cx-form{background:#fff;border-color:#fff;color:var(--cx-ink);box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
+.cx-form input,.cx-form textarea{background:#F4F5F2;border-color:#D9DCD6;color:var(--cx-ink)}
+.cx-form input::placeholder,.cx-form textarea::placeholder{color:#8A9094}
+.cx-form .cx-msg{color:#5B6266}.cx-form .cx-msg[data-state=error]{color:#B91C1C}
 .cx-msg{font-size:14px;color:var(--cx-mute);min-height:1.2em}
 .cx-msg[data-state=error]{color:#fca5a5}
 .cx-hp{position:absolute;left:-9999px}
