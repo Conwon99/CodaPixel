@@ -150,12 +150,12 @@ const Gallery = () => {
                 Let's discuss your project and show you how we can build a website that generates leads and grows your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/contact">
+                <Link to="/contact/">
                   <Button className="bg-cleaning-primary hover:bg-cleaning-primary/90 text-white px-8 py-3">
                     Get Started
                   </Button>
                 </Link>
-                <Link to="/services">
+                <Link to="/services/">
                   <Button variant="outline" className="border-cleaning-primary text-cleaning-primary hover:bg-cleaning-primary hover:text-white px-8 py-3">
                     View Services
                   </Button>

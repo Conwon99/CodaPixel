@@ -198,7 +198,7 @@ const PricingPage = () => {
                       </CardContent>
 
                       {/* CTA Button */}
-                      <a href="/contact" className="mt-auto">
+                      <a href="/contact/" className="mt-auto">
                         <Button className={`w-full font-figtree font-semibold py-4 rounded-xl transition-all duration-300 ${
                           service.popular
                             ? 'bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 shadow-lg hover:shadow-xl'
@@ -233,7 +233,7 @@ const PricingPage = () => {
               <p className="text-gray-300 font-figtree mb-8 max-w-2xl mx-auto">
                 Tell us about your business and where you want to grow. We'll recommend the package that makes the most sense for you - without trying to sell you services you don't need.
               </p>
-              <a href="/contact">
+              <a href="/contact/">
                 <Button
                   onClick={() => trackBookCall('pricing_not_sure')}
                   className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-figtree font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"

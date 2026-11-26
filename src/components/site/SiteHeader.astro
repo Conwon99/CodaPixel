@@ -1,0 +1,30 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/about/', label: 'About' },
+  { href: '/services/', label: 'Services' },
+  { href: '/case-studies/', label: 'Results' },
+  { href: '/reviews/', label: 'Reviews' },
+  { href: '/contact/', label: 'Contact' },
+];
+const cur = (h: string) => (path === h || path.startsWith(h + '/') ? 'page' : undefined);
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+---
+<header class="cx-nav">
+  <div class="cx-wrap">
+    <a class="cx-logo" href="/" aria-label="CodaPixel home"><img src="/brand/logo-white.png" alt="" width="24" height="29" />CodaPixel</a>
+    <nav class="cx-links" aria-label="Main">{links.map((l) => <a href={l.href} aria-current={cur(l.href)}>{l.label}</a>)}</nav>
+    <a class="cx-btn" href="/contact/">Free website demo <span class="cx-ab" set:html={arrow} /></a>
+    <button class="cx-menu" id="cx-menu" type="button" aria-expanded="false" aria-controls="cx-mob" aria-label="Open menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="cx-mob" id="cx-mob" data-open="false">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a class="cx-btn" href="/contact/">Free website demo <span class="cx-ab" set:html={arrow} /></a>
+  </div>
+</header>
+<script is:inline>
+{
+  const b = document.getElementById('cx-menu'), m = document.getElementById('cx-mob');
+  if (b && m) b.addEventListener('click', () => { const o = m.dataset.open !== 'true'; m.dataset.open = String(o); b.setAttribute('aria-expanded', String(o)); });
+}
+</script>

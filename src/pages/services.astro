@@ -1,13 +1,29 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ServicesPage from '../components/pages/ServicesPage';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
+import { servicePages } from '../content/site';
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-
-<Layout
-  title="Web Design & SEO Services | Responsive Web Design for Small Business | CodaPixel"
-  description="Professional web design and SEO services. Responsive web design for small businesses, website design and SEO, professional website design company. Fast, mobile-friendly websites that rank on Google."
-  canonical="/services"
-  ogImage="/C logo.webp"
->
-  <ServicesPage client:visible />
+<Layout title="Web Design, SEO & Ads for Trades in Ayrshire | CodaPixel" description="Websites, local SEO, Meta Ads and Google Ads for Scottish trade businesses, with every lead tracked in Leadzap." canonical="/services/" ogImage="/C logo.webp">
+  <PageHero title="Everything You Need To Get Found" hl="Found" lead="Four services. Pick one or combine them all, with every enquiry tracked." crumbs={[{ label: 'Services' }]} />
+  <section class="cx-sec cx-dark">
+    <div class="cx-wrap">
+      <div class="cx-head"><div><div class="cx-eb">Our services</div><h2 class="cx-h2">Pick One Service<br />Or Combine Them All.</h2></div><div class="cx-aside"><p>Most clients start with a website and local SEO, then add ads when they want more work faster.</p></div></div>
+      <div class="cx-srows">
+        {servicePages.map((s) => (
+          <a class="cx-srow" href={`/services/${s.slug}/`}>
+            <span class="cx-num">{s.n}</span>
+            <div><h3>{s.title}</h3><p>{s.lead}</p></div>
+            <div class="cx-thumb"><img src={s.image} alt="" loading="lazy" width="480" height="300" /></div>
+            <span class="cx-btn">View service <span class="cx-ab" set:html={arrow} /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Section name="steps" />
+  <Section name="leads" />
+  <Section name="faq" />
+  <Section name="collab" />
 </Layout>

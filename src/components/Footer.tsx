@@ -68,7 +68,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/services" className="hover:text-white transition-colors">
+                <a href="/services/" className="hover:text-white transition-colors">
                   Services
                 </a>
               </li>
@@ -78,7 +78,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/reviews" className="hover:text-white transition-colors">
+                <a href="/reviews/" className="hover:text-white transition-colors">
                   Reviews
                 </a>
               </li>
@@ -88,12 +88,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="/case-studies" className="hover:text-white transition-colors">
+                <a href="/case-studies/" className="hover:text-white transition-colors">
                   Case Studies
                 </a>
               </li>
               <li>
-                <a href="/contact" className="hover:text-white transition-colors">
+                <a href="/contact/" className="hover:text-white transition-colors">
                   Contact
                 </a>
               </li>
@@ -130,7 +130,7 @@ const Footer = () => {
               <p className="mt-1">Website Design & Development</p>
             </div>
             <div className="flex items-center space-x-6 text-sm">
-              <a href="/privacy" className="text-gray-300 hover:text-white transition-colors">
+              <a href="/privacy/" className="text-gray-300 hover:text-white transition-colors">
                 Privacy Policy
               </a>
               <a 

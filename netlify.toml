@@ -7,13 +7,28 @@
 
 # Handle trailing slash redirects
 [[redirects]]
-  from = "/locations"
-  to = "/locations/"
+  from = "/pricing"
+  to = "/"
   status = 301
 
 [[redirects]]
-  from = "/services"
-  to = "/services/"
+  from = "/locations"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/locations/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/gallery"
+  to = "/case-studies"
+  status = 301
+
+[[redirects]]
+  from = "/index-static.html"
+  to = "/"
   status = 301
 
 [[headers]]

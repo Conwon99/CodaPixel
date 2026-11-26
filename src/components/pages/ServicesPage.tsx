@@ -129,7 +129,7 @@ const ServicesPage = () => {
                         ))}
                       </ul>
                     </div>
-                    <a href="/contact" className="mt-auto">
+                    <a href="/contact/" className="mt-auto">
                       <Button className={`w-full ${service.popular ? 'bg-black hover:bg-gray-900' : 'bg-blue-600 hover:bg-blue-700'} text-white rounded-lg py-3 font-figtree`}>
                         Get a Quote
                       </Button>
@@ -527,7 +527,7 @@ const ServicesPage = () => {
               Tell us about your business and what you're trying to achieve. We'll show you what it would look like and how we can make it happen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact">
+              <a href="/contact/">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-figtree">
                   Get a Quote
                 </Button>

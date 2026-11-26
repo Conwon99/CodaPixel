@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from './Section.astro';
+import PageHero from './PageHero.astro';
+import { caseDetails, caseStudies, work } from '../../content/site';
+import { getLeadStats } from '../../lib/leadStats';
+interface Props { slug: keyof typeof caseDetails; title: string; description: string; ogImage?: string }
+const { slug, title, description, ogImage } = Astro.props;
+const c = caseDetails[slug];
+const st = await getLeadStats();
+const leads = 'leadsFor' in c && c.leadsFor ? st.clients.find((x) => x.name === c.leadsFor)?.leads : undefined;
+const stats = [...(leads ? [[leads.toLocaleString('en-GB'), 'Leads generated']] : []), ...c.stats];
+const more = caseStudies.filter((x) => x.slug !== slug).slice(0, 2);
+const moreImg = (s: string) => work.find((w) => w.href === `/case-studies/${s}/`)?.image ?? caseStudies.find((x) => x.slug === s)?.image;
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+---
+<Layout title={title} description={description} canonical={`/case-studies/${slug}/`} ogImage={ogImage}>
+  <PageHero title={c.h1} lead={c.lead} crumbs={[{ label: 'Results', href: '/case-studies/' }, { label: c.name }]} />
+  <section class="cx-sec" style="padding-top:clamp(40px,5vw,64px)">
+    <div class="cx-wrap">
+      <div class="cx-lead-img" style="max-width:100%">
+        {'video' in c && c.video ? <video src={c.video} poster={c.poster} controls playsinline preload="metadata" style="max-height:640px;width:100%;background:#000;object-fit:contain" aria-label={`${c.name} client testimonial`}></video> : 'image' in c && c.image ? <img src={c.image} alt={`${c.name} website`} width="1150" height="647" /> : null}
+      </div>
+      <div class="cx-metabar">
+        {c.meta.map(([l, v]) => <div><small>{l}</small><b>{v}</b></div>)}
+        <div><small>Website</small><b><a href={c.url} rel="noopener">{c.urlLabel}</a></b></div>
+      </div>
+      <div class="cx-detail">
+        <article class="cx-prose">
+          <div class="cx-results">{stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
+          {c.sections.map(([h, ps]) => <><h2>{h}</h2>{ps.map((p) => <p>{p}</p>)}</>)}
+          {c.figures.map(([src, cap, txt]) => <figure><img src={src} alt={cap} loading="lazy" /><figcaption><b>{cap}</b>{txt}</figcaption></figure>)}
+        </article>
+        <aside class="cx-side">
+          <div class="cx-sidecard"><h3>Want results like these?</h3><p>Tell us about your business and we'll show you where you stand on Google. Free, no obligation.</p><a class="cx-btn" href="/contact/">Get a free quote <span class="cx-ab" set:html={arrow} /></a></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+  <section class="cx-sec cx-grey">
+    <div class="cx-wrap">
+      <div class="cx-head"><div><div class="cx-eb">More results</div><h2 class="cx-h2">More Case Studies</h2></div><a class="cx-btn-o" href="/case-studies/" style="color:var(--cx-ink)">All case studies</a></div>
+      <div class="cx-r1">{more.map((m) => <a class="cx-proj" href={`/case-studies/${m.slug}/`}><div class="cx-img">{moreImg(m.slug) && <img src={moreImg(m.slug)} alt={`${m.name}`} loading="lazy" />}</div><div class="cx-meta"><h3>{m.name}</h3><small>{m.place}</small></div></a>)}</div>
+    </div>
+  </section>
+  <Section name="reviews" />
+  <Section name="collab" />
+</Layout>
+<script type="application/ld+json" is:inline set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: c.h1, description, author: { '@type': 'Organization', name: 'CodaPixel' }, publisher: { '@type': 'Organization', name: 'CodaPixel', logo: { '@type': 'ImageObject', url: 'https://codapixel.com/C%20logo.webp' } }, about: { '@type': 'LocalBusiness', name: c.name, url: c.url } })} />

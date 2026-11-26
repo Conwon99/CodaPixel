@@ -1,31 +1,66 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero';
-import HomeContact from '../components/HomeContact';
-import ReviewsWidget from '../components/ReviewsWidget.astro';
+import Section from '../components/site/Section.astro';
+const avatars = [
+  { src: '/brand/clients/jimbos-badge.webp', name: "Jimbo's Exterior Cleaning" },
+  { src: '/brand/clients/ayrshire-fencing-badge.webp', name: 'Ayrshire Fencing Group' },
+  { src: '/brand/clients/rb-joinery-badge.webp', name: 'RB Joinery' },
+];
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+// Jimbo's client testimonial (4:5), muted autoplay with a sound toggle.
+const HERO_VIDEO = '/video/jimbos-hero.mp4';
+const HERO_POSTER = '/video/jimbos-hero-poster.jpg';
 ---
-
 <Layout
-  title="Web Design & SEO in Ayrshire | CodaPixel"
-  description="Websites that convert + SEO that ranks. Fast builds, GBP optimization, tracking."
+  title="Web Design & Digital Marketing in Ayrshire | CodaPixel"
+  description="Web design, local SEO and Google Ads for trade businesses in Ayrshire and across Scotland. Every enquiry tracked. Get a free quote today."
   canonical="/"
-  ogImage="/C logo.webp"
 >
-  <Hero client:visible />
+  <section class="cx-hero cx-dark">
+    <div class="cx-wrap">
+      <div>
+        <div class="cx-tags"><span>Web design</span><span>Local SEO</span><span>Ayrshire, Scotland</span></div>
+        <h1 class="cx-h1">Web design that <span class="cx-hl">grows</span> your business</h1>
+        <p class="cx-lead">Web design and SEO that gets your business more customers. Based in Ayrshire, Scotland.</p>
+        <div class="cx-ctas"><a class="cx-btn" href="/contact/">Get a free quote <span class="cx-ab" set:html={arrow} /></a><a class="cx-btn-o" href="/case-studies/">See our results</a></div>
+        <div class="cx-trust">
+          <span class="cx-avs">{avatars.map((a) => <img src={a.src} alt={a.name} title={a.name} width="48" height="48" />)}</span>
+          <span class="cx-plus" aria-hidden="true">+</span>
+          <span><b>Trusted By 20+ Businesses</b><small>From sole traders to growing trade firms.</small></span>
+        </div>
+      </div>
+      <div class="cx-media">
+        <video id="cx-hero-video" autoplay muted loop playsinline preload="metadata" poster={HERO_POSTER} aria-label="Jimbo's Exterior Cleaning client testimonial">
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
+        <button class="cx-sound" id="cx-sound" type="button" aria-pressed="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path class="cx-on" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/><path class="cx-off" d="M22 9l-6 6M16 9l6 6"/></svg>
+          <span>Play with sound</span>
+        </button>
+      </div>
+    </div>
+  </section>
 
-  <ReviewsWidget bordered={false} />
-
-  <HomeContact client:idle />
+  <Section name="marquee" />
+  <Section name="services" />
+  <Section name="why" />
+  <Section name="cases" />
+  <Section name="steps" />
+  <Section name="work" />
+  <Section name="leads" />
+  <Section name="reviews" />
+  <Section name="faq" />
+  <Section name="contact" />
 </Layout>
 
 <script is:inline>
-  // Track page view - will be handled by analytics script in Layout
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', 'page_view', {
-      event_category: 'Navigation',
-      event_label: 'Home Page',
-      timestamp: new Date().toISOString()
-    });
-  }
+{
+  const v = document.getElementById('cx-hero-video'), b = document.getElementById('cx-sound');
+  if (v && b) b.addEventListener('click', () => {
+    v.muted = !v.muted;
+    if (!v.muted) { v.currentTime = 0; v.play().catch(() => {}); }
+    b.setAttribute('aria-pressed', String(!v.muted));
+    b.querySelector('span').textContent = v.muted ? 'Play with sound' : 'Mute';
+  });
+}
 </script>
-

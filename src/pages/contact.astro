@@ -1,14 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HomeContact from '../components/HomeContact';
+import Section from '../components/site/Section.astro';
+import PageHero from '../components/site/PageHero.astro';
+const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
-
-<Layout
-  title="Contact CodaPixel | Free Website Demo"
-  description="Book your free website demo. Fast replies and transparent pricing."
-  canonical="/contact"
-  ogImage="/C logo.webp"
->
-  <HomeContact client:idle />
+<Layout title="Contact CodaPixel | Free Web Design & SEO Quote, Ayrshire" description="Get a free quote for your website, local SEO or ads. Call, text or WhatsApp, or send your details and we'll reply the same day." canonical="/contact/" ogImage="/C logo.webp">
+  <PageHero title="Got Plans? Let’s Turn Them Into More Work" hl="More Work" lead="Tell us about your business. We usually reply the same day." crumbs={[{ label: 'Contact' }]} />
+  <section class="cx-sec">
+    <div class="cx-wrap cx-cmeth">
+      <div class="cx-mlist">
+        <a class="cx-mcard" href="https://wa.me/447792145328"><span class="cx-micon"><img src="/whatsapp.svg" alt="" width="26" height="26" /></span><span><b>WhatsApp us</b><span>Quickest way to reach us</span></span></a>
+        <a class="cx-mcard" href="tel:+447792145328"><span class="cx-micon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.5a1 1 0 01-.5 1.2l-2.26 1.13a11 11 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg></span><span><b>+44 7792 145328</b><span>Call or text</span></span></a>
+        <div class="cx-mcard"><span class="cx-micon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-12a7 7 0 1 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span><b>Based in Ayrshire</b><span>Working with trades across Scotland</span></span></div>
+      </div>
+      <form class="cx-lightform" id="cx-form" novalidate>
+        <h2>Get a free quote</h2>
+        <input class="cx-hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="cx-two"><label>Name *<input name="name" required autocomplete="name" /></label><label>Phone<input name="phone" type="tel" autocomplete="tel" /></label></div>
+        <label>Email *<input name="email" type="email" required autocomplete="email" /></label>
+        <label>Your business and what you need *<textarea name="message" required></textarea></label>
+        <p class="cx-msg" id="cx-msg" role="status" aria-live="polite"></p>
+        <button class="cx-btn" type="submit" id="cx-submit">Send my details <span class="cx-ab" set:html={arrow} /></button>
+      </form>
+    </div>
+  </section>
+  <Section name="faq" />
+  <Section name="collab" />
 </Layout>
-
+<script is:inline>
+{
+  const f = document.getElementById('cx-form'), msg = document.getElementById('cx-msg'), btn = document.getElementById('cx-submit');
+  if (f) f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (f._gotcha.value) return;
+    if (!f.checkValidity()) { msg.dataset.state = 'error'; msg.textContent = 'Please add your name, a valid email and a short message.'; f.reportValidity(); return; }
+    btn.disabled = true; msg.dataset.state = ''; msg.textContent = 'Sending…';
+    const data = Object.fromEntries(new FormData(f)); delete data._gotcha;
+    try {
+      // websiteUrl lets the twilio-webhook handler match this lead to CodaPixel in LeadTrackerCRM.
+      const r = await fetch('https://formspree.io/f/mvzzolqp', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...data, websiteUrl: 'https://codapixel.com', pageUrl: location.href }) });
+      if (!r.ok) throw new Error('failed');
+      try { window.gtag && window.gtag('event', 'form_submit', { event_category: 'CTA', location: 'contact_page' }); } catch (e2) {}
+      f.innerHTML = '<h2>Message sent</h2><p style="color:#8f9596">Thanks. We will be in touch soon, usually the same day.</p>';
+    } catch (err) { btn.disabled = false; msg.dataset.state = 'error'; msg.textContent = 'Something went wrong. Please try again, or WhatsApp or call us instead.'; }
+  });
+}
+</script>

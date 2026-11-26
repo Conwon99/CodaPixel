@@ -16,7 +16,7 @@ const CaseStudyChrisVanPage = () => {
               transition={{ duration: 0.7 }}
             >
               <a
-                href="/case-studies"
+                href="/case-studies/"
                 className="inline-flex items-center gap-1 text-sm text-cleaning-primary hover:text-cleaning-accent mb-6 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" /> Back to Case Studies
@@ -246,12 +246,12 @@ const CaseStudyChrisVanPage = () => {
                   and I'll show you exactly where you stand.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="/contact">
+                  <a href="/contact/">
                     <Button className="bg-cleaning-primary hover:bg-cleaning-primary/90 text-white px-8 py-3">
                       Get Started
                     </Button>
                   </a>
-                  <a href="/case-studies">
+                  <a href="/case-studies/">
                     <Button
                       variant="outline"
                       className="border-cleaning-primary text-cleaning-primary hover:bg-cleaning-primary hover:text-white px-8 py-3"

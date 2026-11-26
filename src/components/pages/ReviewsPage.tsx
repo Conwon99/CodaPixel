@@ -172,12 +172,12 @@ const ReviewsPage = () => {
               If you want a website that actually brings in customers, let's have a chat. See what it would look like first, no pressure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact">
+              <a href="/contact/">
                 <Button className="bg-cleaning-primary hover:bg-cleaning-primary/90 text-white px-8 py-3">
                   Get a Quote
                 </Button>
               </a>
-              <a href="/services">
+              <a href="/services/">
                 <Button variant="outline" className="border-cleaning-primary text-cleaning-primary hover:bg-cleaning-primary hover:text-white px-8 py-3">
                   View Services
                 </Button>
