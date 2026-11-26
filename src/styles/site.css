@@ -426,3 +426,4 @@ html{scroll-padding-top:84px}
 .cx-cs-copy h2{font-size:clamp(28px,3.2vw,42px);line-height:1.12;letter-spacing:-.035em;font-weight:600;color:var(--cx-ink)}
 .cx-cs-copy p{color:var(--cx-mute)}
 .cx-cs-copy .cx-results b{font-size:52px;color:var(--cx-accent)}
+.cx-tabpanel[hidden]{display:none}
