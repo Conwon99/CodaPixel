@@ -75,6 +75,7 @@ const top3 = s.clients.slice(0, 3);
       {head && <div class="cx-head"><div><div class="cx-eb">Recent work</div><h2 class="cx-h2">Built For Local Businesses.<br />Built To Get Calls.</h2></div><div class="cx-aside"><p>A few of the sites we've designed and built for businesses across Scotland.</p><a class="cx-btn" href="/case-studies">See results <span class="cx-ab" set:html={arrow} /></a></div></div>}
       <div class="cx-r1">{work.slice(0, 2).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="800" height="550" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
       <div class="cx-r2">{work.slice(2, 5).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
+      <div class="cx-r2" style="margin-top:40px">{work.slice(5).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
     </div>
   </section>
 )}
@@ -88,30 +89,7 @@ const top3 = s.clients.slice(0, 3);
           <article class="cx-feat" aria-label={`${i + 1} of ${caseStudies.length}`}>
             {c.video ? <div class="cx-img cx-img--video"><video src={c.video} poster={c.poster} controls playsinline preload="none" aria-label={`${c.name} client testimonial`}></video></div> : c.image ? <div class="cx-img"><img src={c.image} alt={`${c.name} results`} loading="lazy" width="520" height="420" /></div> : <div class="cx-img cx-img--empty"><span>SEO audit</span></div>}
             <div>
-              <small>Case study _ 0{i + 1} · {c.place}</small>
-              <h3>{c.title}</h3>
-              <p class="cx-mute">{c.text}</p>
-              <div class="cx-res">{[...(c.leadsFor ? [[fmt(s.clients.find((x) => x.name === c.leadsFor)?.leads ?? 0), 'Leads generated']] : []), ...c.stats].map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
-              <a class="cx-btn" href={`/case-studies/${c.slug}`}>Read the case study <span class="cx-ab" set:html={arrow} /></a>
-            </div>
-          </article>
-        ))}
-      </div>
-<div class="cx-r2" style="margin-top:40px">{work.slice(5).map((w) => <a class="cx-proj" href={w.href ?? '/contact'}><div class="cx-img"><img src={w.image} alt={`${w.name} website`} loading="lazy" width="600" height="450" /></div><div class="cx-meta"><h3>{w.name}</h3><small>{w.tags}</small></div></a>)}</div>
-    </div>
-  </section>
-)}
-
-{name === 'cases' && (
-  <section class="cx-sec cx-dark">
-    <div class="cx-wrap">
-      {head && <div class="cx-head"><div><div class="cx-eb">Case studies</div><h2 class="cx-h2">Real Clients.<br />Real Numbers.</h2></div><div class="cx-aside"><p>Search Console data, rankings and leads from the businesses we work with.</p></div></div>}
-      <div class="cx-slider" id="cx-slider" tabindex="0" aria-label="Case studies">
-        {caseStudies.map((c, i) => (
-          <article class="cx-feat" aria-label={`${i + 1} of ${caseStudies.length}`}>
-            {c.video ? <div class="cx-img cx-img--video"><video src={c.video} poster={c.poster} controls playsinline preload="none" aria-label={`${c.name} client testimonial`}></video></div> : c.image ? <div class="cx-img"><img src={c.image} alt={`${c.name} results`} loading="lazy" width="520" height="420" /></div> : <div class="cx-img cx-img--empty"><span>SEO audit</span></div>}
-            <div>
-              <small>Case study _ 0{i + 1} · {c.place}</small>
+              <small>Case Study - {c.name}</small>
               <h3>{c.title}</h3>
               <p class="cx-mute">{c.text}</p>
               <div class="cx-res">{[...(c.leadsFor ? [[fmt(s.clients.find((x) => x.name === c.leadsFor)?.leads ?? 0), 'Leads generated']] : []), ...c.stats].map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
