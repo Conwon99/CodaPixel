@@ -447,8 +447,8 @@ html{scroll-padding-top:84px}
 .cx-svctxt p{color:var(--cx-mute);font-size:15px;margin:0}
 .cx-svcgo{width:40px;height:40px;border-radius:10px;background:var(--cx-ink);color:#fff;display:grid;place-items:center}
 @media(max-width:520px){.cx-svcrow{grid-template-columns:48px minmax(0,1fr);padding:18px}.cx-svcico{width:48px;height:48px}.cx-svcgo{display:none}}
-.cx-svcphone{margin:0;background:#050B0F;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(8,13,14,.6)}
-.cx-svcphone img{width:100%;height:auto;display:block}
+.cx-svcphone{margin:0;display:flex;justify-content:center}
+.cx-svcphone img{width:100%;max-width:560px;height:auto;display:block;filter:drop-shadow(0 30px 40px rgba(29,78,216,.28))}
 @media(max-width:900px){.cx-svcphone{max-width:520px;margin:8px auto 0}}
 /* why without image */
 .cx-why--noimg{grid-template-columns:minmax(0,1fr);gap:48px}
