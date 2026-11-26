@@ -15,11 +15,14 @@ export const steps = [
 ];
 
 export const work = [
-  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/w1200/rbjoinery.webp', href: '/case-studies/rb-joinery' },
-  { name: 'Holistics71 with Ange', tags: 'Website · Branding', image: '/Portfolio/w1200/holistics71.webp' },
-  { name: 'Tasse Coffee Co', tags: 'Website', image: '/Portfolio/w1200/tassecoffeeco.webp' },
-  { name: 'Dirty Deeds', tags: 'Website · Ads', image: '/Portfolio/w1200/dirtydeeds.webp' },
-  { name: 'Sparkles', tags: 'Website', image: '/Portfolio/w1200/sparkles.webp' },
+  { name: "Jimbo's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/jimbos.webp', href: '/case-studies/jimbos-exterior-cleaning' },
+  { name: 'Ayrshire Fencing Group', tags: 'Website · Local SEO', image: '/Portfolio/live/ayrshire-fencing.webp' },
+  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/live/rb-joinery.webp', href: '/case-studies/rb-joinery' },
+  { name: 'Double O Detailing', tags: 'Website · SEO audit', image: '/Portfolio/live/double-o.webp', href: '/case-studies/double-o-detailing' },
+  { name: 'EK Power Washing', tags: 'Website · Local SEO', image: '/Portfolio/live/ek-power-washing.webp' },
+  { name: "Christie's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/christies.webp' },
+  { name: 'Cutting Edge Landscaping', tags: 'Website', image: '/Portfolio/live/cutting-edge.webp' },
+  { name: 'Remi Roofing Solutions', tags: 'Website', image: '/Portfolio/live/remi-roofing.webp' },
 ];
 
 export const caseStudies = [
