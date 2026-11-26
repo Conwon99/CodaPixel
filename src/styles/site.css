@@ -427,3 +427,4 @@ html{scroll-padding-top:84px}
 .cx-cs-copy p{color:var(--cx-mute)}
 .cx-cs-copy .cx-results b{font-size:52px;color:var(--cx-accent)}
 .cx-tabpanel[hidden]{display:none}
+:root{color-scheme:only light}
