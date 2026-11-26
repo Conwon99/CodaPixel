@@ -85,4 +85,12 @@ export const faqs = [
   ['Can I make changes to my site?', 'Yes. Updates are included in every plan. Just send what you need changing and we sort it.'],
 ];
 
-export const marquee = ['Web Design', 'Local SEO', 'Google Business Profile', 'Google Ads', 'Lead Tracking'];
+export const clientLogos = [
+  { name: 'RB Joinery', src: '/brand/clients/rb-joinery.webp' },
+  { name: 'Remi Roofing Solutions', src: '/brand/clients/remi-roofing.webp' },
+  { name: 'Holistics71 with Ange', src: '/brand/clients/holistics71.webp' },
+  { name: 'RP Build & Landscape', src: '/brand/clients/rp-build.webp' },
+  { name: 'Sparkles Cleaning Service', src: '/brand/clients/sparkles.webp' },
+  { name: 'SC Auto Detailing', src: '/brand/clients/sc-auto.webp' },
+  { name: 'Dirtworks Landscaping', src: '/brand/clients/dirtworks.webp' },
+];

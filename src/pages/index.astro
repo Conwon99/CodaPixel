@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/site/Section.astro';
-import { getLeadStats } from '../lib/leadStats';
-const s = await getLeadStats();
+const avatars = ['/brand/clients/rb-joinery.webp', '/brand/clients/remi-roofing.webp', '/brand/clients/sparkles.webp'];
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-// Drop the Jimbo's hero video at public/video/jimbos-hero.mp4. Until then the poster shows.
+// Jimbo's client testimonial (4:5), muted autoplay with a sound toggle.
 const HERO_VIDEO = '/video/jimbos-hero.mp4';
-const HERO_POSTER = '/case-studies/jimbos-rank-map.png';
+const HERO_POSTER = '/video/jimbos-hero-poster.jpg';
 ---
 <Layout
   title="Web Design & Local SEO for Trades in Scotland | CodaPixel"
@@ -20,17 +19,21 @@ const HERO_POSTER = '/case-studies/jimbos-rank-map.png';
         <div class="cx-tags"><span>Web design</span><span>Local SEO</span><span>Lead generation</span></div>
         <h1 class="cx-h1">Websites that<br /> get trades <span class="cx-hl">calls</span></h1>
         <p class="cx-lead">Fast websites and local SEO for Scottish trade businesses, with every enquiry tracked so you know exactly what it brings in.</p>
-        <div class="cx-ctas"><a class="cx-btn" href="/contact">Get a free demo <span class="cx-ab" set:html={arrow} /></a><a class="cx-btn-o" href="/case-studies">See our results</a></div>
+        <div class="cx-ctas"><a class="cx-btn" href="/contact">Get a free quote <span class="cx-ab" set:html={arrow} /></a><a class="cx-btn-o" href="/case-studies">See our results</a></div>
         <div class="cx-trust">
-          <span class="cx-plus" aria-hidden="true">5.0</span>
-          <span><b><span class="cx-stars" aria-hidden="true">★★★★★</span> Rated 5.0 on Google</b><small>From 12 reviews by local business owners.</small></span>
+          <span class="cx-avs" aria-hidden="true">{avatars.map((a) => <img src={a} alt="" width="44" height="44" />)}</span>
+          <span class="cx-plus" aria-hidden="true">+</span>
+          <span><b>Trusted By 20+ Businesses</b><small>From sole traders to growing trade firms.</small></span>
         </div>
       </div>
       <div class="cx-media">
-        <video autoplay muted loop playsinline preload="metadata" poster={HERO_POSTER} aria-label="Jimbo's Exterior Cleaning at work">
+        <video id="cx-hero-video" autoplay muted loop playsinline preload="metadata" poster={HERO_POSTER} aria-label="Jimbo's Exterior Cleaning client testimonial">
           <source src={HERO_VIDEO} type="video/mp4" />
         </video>
-        <div class="cx-chip"><span class="cx-live" aria-hidden="true"></span><b>{s.total.toLocaleString('en-GB')}</b><span>leads generated for our clients, tracked in Leadzap</span></div>
+        <button class="cx-sound" id="cx-sound" type="button" aria-pressed="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path class="cx-on" d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/><path class="cx-off" d="M22 9l-6 6M16 9l6 6"/></svg>
+          <span>Play with sound</span>
+        </button>
       </div>
     </div>
   </section>
@@ -47,3 +50,15 @@ const HERO_POSTER = '/case-studies/jimbos-rank-map.png';
   <Section name="faq" />
   <Section name="contact" />
 </Layout>
+
+<script is:inline>
+{
+  const v = document.getElementById('cx-hero-video'), b = document.getElementById('cx-sound');
+  if (v && b) b.addEventListener('click', () => {
+    v.muted = !v.muted;
+    if (!v.muted) { v.currentTime = 0; v.play().catch(() => {}); }
+    b.setAttribute('aria-pressed', String(!v.muted));
+    b.querySelector('span').textContent = v.muted ? 'Play with sound' : 'Mute';
+  });
+}
+</script>

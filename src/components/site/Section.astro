@@ -1,6 +1,6 @@
 ---
 import { getLeadStats } from '../../lib/leadStats';
-import { services, steps, work, caseStudies, reviews, plans, faqs, marquee, GOOGLE_REVIEWS_URL } from '../../content/site';
+import { services, steps, work, caseStudies, reviews, plans, faqs, clientLogos, GOOGLE_REVIEWS_URL } from '../../content/site';
 
 type Name = 'marquee' | 'services' | 'why' | 'steps' | 'work' | 'cases' | 'leads' | 'reviews' | 'pricing' | 'faq' | 'contact' | 'cta';
 interface Props { name: Name; head?: boolean; h1?: boolean }
@@ -12,7 +12,9 @@ const initials = (n: string) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join
 const top3 = s.clients.slice(0, 3);
 ---
 {name === 'marquee' && (
-  <div class="cx-mq" aria-hidden="true"><div class="cx-mq-t">{[...marquee, ...marquee, ...marquee, ...marquee].map((m) => <span>{m}</span>)}</div></div>
+  <div class="cx-mq" role="region" aria-label="Some of our clients">
+    <div class="cx-mq-t">{[...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos].map((l, i) => <img src={l.src} alt={i < clientLogos.length ? l.name : ''} aria-hidden={i >= clientLogos.length ? 'true' : undefined} height="46" loading="eager" />)}</div>
+  </div>
 )}
 
 {name === 'services' && (

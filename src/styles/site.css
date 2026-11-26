@@ -234,3 +234,17 @@ html{scroll-padding-top:84px}
 .cx-ticks li{display:flex;gap:10px;align-items:center}
 .cx-ticks li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:var(--cx-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l3.8 3.8L18 8.5'/%3E%3C/svg%3E") center/12px no-repeat}
 .cx-legacy{background:var(--cx-cream);color:var(--cx-body)}
+.cx-media{aspect-ratio:4/5}
+.cx-avs{display:flex}
+.cx-avs img{width:44px;height:44px;border-radius:50%;background:var(--cx-accent);border:2px solid var(--cx-dark);object-fit:contain;padding:7px}
+.cx-avs img+img{margin-left:-10px}
+.cx-trust .cx-plus{font:700 22px/1 var(--cx-inter)}
+.cx-sound{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(8,13,14,.7);backdrop-filter:blur(8px);color:#fff;font:500 13px var(--cx-inter);cursor:pointer}
+.cx-sound .cx-on{display:none}
+.cx-sound[aria-pressed=true] .cx-on{display:inline}
+.cx-sound[aria-pressed=true] .cx-off{display:none}
+/* client logo marquee */
+.cx-mq{padding:22px 0}
+.cx-mq-t{gap:64px;animation-duration:40s}
+.cx-mq-t img{height:46px;width:auto;max-width:180px;object-fit:contain;flex:none;opacity:.95}
+@media(max-width:600px){.cx-mq-t img{height:34px}.cx-mq-t{gap:44px}}
