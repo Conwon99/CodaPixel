@@ -132,7 +132,7 @@ export const servicePages = [
   {
     slug: 'local-seo', n: '02', title: 'Local SEO', h1: 'Get Found First When Locals Search.',
     lead: 'Show up on Google Maps and Google search when locals look for your trade.',
-    image: '/case-studies/jimbos-mappack.webp', imageCaption: ['Jimbo\'s on Google Maps for "gutter cleaning"', 'Each dot is a spot around Irvine. The number is where Jimbo\'s appears when someone searches from there. Every dot is a 1: top of the list.'], caseSlug: 'jimbos-exterior-cleaning',
+    image: '/case-studies/jimbos-mappack.webp', imageCaption: ['Jimbo\'s on Google Maps for "gutter cleaning"', 'Each dot is a spot around Irvine. The number is where Jimbo\'s appears when someone searches from there. Every dot is a 1: top of the list.'],
     intro: 'When someone searches "joiner near me" or "gutter cleaning Irvine", they are ready to book. Local SEO puts you in front of them, in the map pack and the organic results, across the whole area you cover.',
     overview: 'We optimise your Google Business Profile, build service pages that target the searches that bring in work, earn reviews and keep your business details consistent across directories. We track where you show on Google Maps right across your area, and you see every lead it brings in through Leadzap. Jimbo\'s Exterior Cleaning now comes up first on Google Maps across Irvine for gutter, roof and driveway cleaning.',
     deliverables: ['Google Business Profile optimisation', 'Service pages built around real searches', 'Review generation strategy', 'Local citations and consistency checks', 'Monthly report: where you rank on Maps and the enquiries it brought in'],

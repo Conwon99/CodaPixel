@@ -3,10 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/site/Section.astro';
 import PageHero from '../../components/site/PageHero.astro';
 import { servicePages, caseStudies } from '../../content/site';
+import { serviceExtras } from '../../content/serviceExtras';
 export function getStaticPaths() { return servicePages.map((s) => ({ params: { slug: s.slug }, props: { s } })); }
 const { s } = Astro.props;
 const others = servicePages.filter((o) => o.slug !== s.slug);
-const cs = 'caseSlug' in s && s.caseSlug ? caseStudies.find((c) => c.slug === s.caseSlug) : undefined;
+const x = serviceExtras[s.slug];
+const cases = x.cases.map((slug) => caseStudies.find((c) => c.slug === slug)).filter(Boolean) as (typeof caseStudies)[number][];
+const cs = cases[0];
+const moreCases = cases.slice(1);
 const cap = 'imageCaption' in s ? s.imageCaption : undefined;
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
@@ -18,6 +22,8 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
         {cap ? <figure><img src={s.image} alt={cap[0]} width="852" height="852" /><figcaption><b>{cap[0]}</b>{cap[1]}</figcaption></figure> : <div class="cx-lead-img"><img src={s.image} alt={`${s.title} by CodaPixel`} width="1150" height="647" /></div>}
         <h2>{s.title} for trade businesses</h2>
         <p>{s.intro}</p>
+        <h2>Is this for you?</h2>
+        <ul class="cx-ticks">{x.forWho.map((d) => <li>{d}</li>)}</ul>
         <h2>How it works</h2>
         <p>{s.overview}</p>
         <h2>What you get</h2>
@@ -29,6 +35,7 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
             <p>{cs.text}</p>
             <div class="cx-results">{cs.stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
             {'video' in cs && cs.video && <video src={cs.video} poster={cs.poster} controls playsinline preload="metadata" aria-label={`${cs.name} client testimonial`}></video>}
+            {!('video' in cs && cs.video) && cs.image && <img src={cs.image} alt={cs.name} loading="lazy" style="width:100%;border-radius:14px" />}
             <a class="cx-btn" href={`/case-studies/${cs.slug}/`}>Read the full case study <span class="cx-ab" set:html={arrow} /></a>
           </div>
         )}
@@ -41,6 +48,27 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
   </section>
   <section class="cx-sec cx-grey">
     <div class="cx-wrap">
+      <div class="cx-head"><div><div class="cx-eb">Our process</div><h2 class="cx-h2">How We Get You Results</h2></div></div>
+      <div class="cx-g4">{x.process.map(([t, d], i) => <article class="cx-step"><small>Step {i + 1}</small><h3>{t}</h3><p>{d}</p></article>)}</div>
+    </div>
+  </section>
+  {moreCases.length > 0 && (
+    <section class="cx-sec">
+      <div class="cx-wrap">
+        <div class="cx-head"><div><div class="cx-eb">More results</div><h2 class="cx-h2">More {s.title} Case Studies</h2></div><a class="cx-btn-o" href="/case-studies/" style="color:var(--cx-ink)">All case studies</a></div>
+        <div class="cx-r1">{moreCases.map((m) => <a class="cx-proj" href={`/case-studies/${m.slug}/`}><div class="cx-img">{m.image && <img src={m.image} alt={m.name} loading="lazy" />}</div><div class="cx-meta"><h3>{m.title}</h3><small>{m.name} · {m.place}</small></div></a>)}</div>
+      </div>
+    </section>
+  )}
+  <section class="cx-sec cx-whitebg">
+    <div class="cx-wrap cx-faq">
+      <div class="cx-intro"><div><div class="cx-eb">FAQs</div><h2 class="cx-h2">{s.title} Questions</h2></div><p class="cx-mute">Straight answers, no jargon.</p><div class="cx-help"><strong>Still have questions?</strong><span class="cx-mute">Message us on WhatsApp or call.</span><a class="cx-btn" href="https://wa.me/447792145328">WhatsApp us <span class="cx-ab" set:html={arrow} /></a></div></div>
+      <div>{x.faqs.map(([q, a], i) => <details open={i === 0}><summary><span><em>//0{i + 1}.</em>{q}</span></summary><p>{a}</p></details>)}</div>
+    </div>
+  </section>
+  <Section name="reviews" />
+  <section class="cx-sec cx-grey">
+    <div class="cx-wrap">
       <div class="cx-head"><div><div class="cx-eb">More services</div><h2 class="cx-h2">Explore Our Other Services</h2></div></div>
       <div class="cx-g3">{others.map((o) => <article class="cx-svc"><span class="cx-num">{o.n}</span><h3>{o.title}</h3><p>{o.lead}</p><a href={`/services/${o.slug}/`}>View more →</a></article>)}</div>
     </div>
@@ -48,3 +76,4 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
   <Section name="collab" />
 </Layout>
 <script type="application/ld+json" is:inline set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Service', name: s.title, serviceType: s.title, description: s.seoDesc, areaServed: { '@type': 'Country', name: 'Scotland' }, provider: { '@type': 'ProfessionalService', name: 'CodaPixel', url: 'https://codapixel.com' } })} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: x.faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) })} />
