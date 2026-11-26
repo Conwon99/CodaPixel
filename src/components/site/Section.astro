@@ -10,6 +10,13 @@ const fmt = (n: number) => n.toLocaleString('en-GB');
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const initials = (n: string) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
 const top3 = s.clients.slice(0, 3);
+const ic = (d: string) => `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const svcIcons: Record<string, string> = {
+  '01': ic('<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>'),
+  '02': ic('<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'),
+  '03': ic('<path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/>'),
+  '04': ic('<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>'),
+};
 ---
 {name === 'collab' && (
   <section class="cx-collab">
@@ -28,29 +35,38 @@ const top3 = s.clients.slice(0, 3);
 
 {name === 'services' && (
   <section class="cx-sec" id="services">
-    <div class="cx-wrap">
-      {head && <div class="cx-head"><div><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2></div><div class="cx-aside"><p>Web design, local SEO and paid ads for trade businesses in Ayrshire and across Scotland, built to take you from invisible to fully booked.</p><a class="cx-btn" href="/contact/">Get a free demo <span class="cx-ab" set:html={arrow} /></a></div></div>}
-      <div class="cx-g4">{services.map((v) => <article class="cx-svc"><span class="cx-num">{v.n}</span><h3>{v.title}</h3><p>{v.text}</p><a href={v.href}>View more →</a></article>)}</div>
+    <div class="cx-wrap cx-svcsplit">
+      <div>
+        {head && <div class="cx-svchead"><div class="cx-eb">What we do</div><h2 class="cx-h2">Everything You Need<br />To Get Found Online.</h2><p>Web design, local SEO and paid ads for trade businesses in Ayrshire and across Scotland, built to take you from invisible to fully booked.</p></div>}
+        <div class="cx-svcstack">{services.map((v) => (
+          <a class="cx-svcrow" href={v.href}>
+            <span class="cx-svcico" set:html={svcIcons[v.n]} />
+            <span class="cx-svctxt"><h3>{v.title}</h3><p>{v.text}</p></span>
+            <span class="cx-svcgo" set:html={arrow} />
+          </a>
+        ))}</div>
+        {head && <a class="cx-btn" href="/contact/" style="margin-top:28px">Get a free demo <span class="cx-ab" set:html={arrow} /></a>}
+      </div>
+      <figure class="cx-svcphone">
+        <img src="/brand/leadzap-phone-annotated.webp" alt="Leadzap dashboard for EK Power Washing on a phone: 28 leads this month" width="1000" height="1250" loading="lazy" />
+      </figure>
     </div>
   </section>
 )}
 
 {name === 'why' && (
   <section class="cx-sec cx-dark">
-    <div class="cx-wrap cx-why">
+    <div class="cx-wrap cx-why cx-why--noimg">
       <div>
         <div class="cx-eb">Why CodaPixel</div>
         <p class="cx-big">Websites that bring in <em>leads</em>. Every one tracked.</p>
         <p class="cx-mute" style="max-width:440px">Every enquiry lands in Leadzap, our lead dashboard, so you see exactly what your website brings in.</p>
-        <div class="cx-why-stats">
+      </div>
+      <div class="cx-why-stats">
           <div class="cx-stat"><b>{fmt(s.total)}</b><strong>Leads generated</strong></div>
           <div class="cx-stat"><b>5.0★</b><strong>Google rating</strong></div>
           <div class="cx-stat"><b>#1</b><strong>Google Rankings</strong><p>We consistently rank businesses #1 on Google and AI.</p></div>
         </div>
-      </div>
-      <figure class="cx-lzimg">
-        <img src="/brand/leadzap-phone-annotated.webp" alt="Leadzap dashboard for EK Power Washing on a phone, annotated: 28 leads this month" width="1000" height="1250" loading="lazy" />
-      </figure>
     </div>
   </section>
 )}

@@ -433,3 +433,25 @@ html{scroll-padding-top:84px}
 .cx-cs-copy .cx-results b{font-size:52px;color:var(--cx-accent)}
 .cx-tabpanel[hidden]{display:none}
 :root{color-scheme:only light}
+
+/* services: stacked cards + phone */
+.cx-svcsplit{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center}
+@media(max-width:900px){.cx-svcsplit{grid-template-columns:minmax(0,1fr)}}
+.cx-svchead{margin-bottom:32px}
+.cx-svchead p{color:var(--cx-mute);max-width:520px;margin-top:16px}
+.cx-svcstack{display:grid;gap:14px}
+.cx-svcrow{display:grid;grid-template-columns:56px minmax(0,1fr) 40px;gap:18px;align-items:center;background:var(--cx-white);border:1px solid var(--cx-light);border-radius:18px;padding:20px 22px;text-decoration:none;color:var(--cx-ink);transition:transform .15s,border-color .15s,box-shadow .15s}
+.cx-svcrow:hover{transform:translateX(4px);border-color:var(--cx-accent);box-shadow:0 14px 30px -20px rgba(29,78,216,.5)}
+.cx-svcico{width:56px;height:56px;border-radius:14px;background:rgba(59,130,246,.1);color:var(--cx-accent-d);display:grid;place-items:center}
+.cx-svctxt h3{font-size:20px;letter-spacing:-.03em;font-weight:600;margin:0 0 4px}
+.cx-svctxt p{color:var(--cx-mute);font-size:15px;margin:0}
+.cx-svcgo{width:40px;height:40px;border-radius:10px;background:var(--cx-ink);color:#fff;display:grid;place-items:center}
+@media(max-width:520px){.cx-svcrow{grid-template-columns:48px minmax(0,1fr);padding:18px}.cx-svcico{width:48px;height:48px}.cx-svcgo{display:none}}
+.cx-svcphone{margin:0;background:#050B0F;border-radius:28px;overflow:hidden;box-shadow:0 40px 80px -40px rgba(8,13,14,.6)}
+.cx-svcphone img{width:100%;height:auto;display:block}
+@media(max-width:900px){.cx-svcphone{max-width:520px;margin:8px auto 0}}
+/* why without image */
+.cx-why--noimg{align-items:end}
+.cx-why--noimg .cx-why-stats{grid-template-columns:minmax(0,1fr);margin-top:0;gap:28px}
+@media(max-width:900px){.cx-why--noimg .cx-why-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:24px}}
+@media(max-width:520px){.cx-why--noimg .cx-why-stats{grid-template-columns:minmax(0,1fr)}}
