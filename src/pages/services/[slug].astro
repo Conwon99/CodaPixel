@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/site/Section.astro';
 import PageHero from '../../components/site/PageHero.astro';
-import { servicePages, caseStudies } from '../../content/site';
+import { servicePages, caseStudies, work } from '../../content/site';
 import { serviceExtras } from '../../content/serviceExtras';
 export function getStaticPaths() { return servicePages.map((s) => ({ params: { slug: s.slug }, props: { s } })); }
 const { s } = Astro.props;
@@ -11,6 +11,8 @@ const x = serviceExtras[s.slug];
 const cases = x.cases.map((slug) => caseStudies.find((c) => c.slug === slug)).filter(Boolean) as (typeof caseStudies)[number][];
 const cs = cases[0];
 const moreCases = cases.slice(1);
+const siteShot = (slug: string) => work.find((w) => w.href === `/case-studies/${slug}/`)?.image;
+const csImg = cs ? (s.slug === 'websites' ? siteShot(cs.slug) ?? cs.image : cs.image) : undefined;
 const cap = 'imageCaption' in s ? s.imageCaption : undefined;
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 ---
@@ -35,7 +37,7 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
             <p>{cs.text}</p>
             <div class="cx-results">{cs.stats.map(([v, l]) => <div><b>{v}</b><span>{l}</span></div>)}</div>
             {'video' in cs && cs.video && <video src={cs.video} poster={cs.poster} controls playsinline preload="metadata" aria-label={`${cs.name} client testimonial`}></video>}
-            {!('video' in cs && cs.video) && cs.image && <img src={cs.image} alt={cs.name} loading="lazy" style="width:100%;border-radius:14px" />}
+            {!('video' in cs && cs.video) && csImg && <img src={csImg} alt={s.slug === 'websites' ? `${cs.name} website` : cs.name} loading="lazy" style="width:100%;border-radius:14px;border:1px solid var(--cx-light)" />}
             <a class="cx-btn" href={`/case-studies/${cs.slug}/`}>Read the full case study <span class="cx-ab" set:html={arrow} /></a>
           </div>
         )}
@@ -55,8 +57,8 @@ const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-
   {moreCases.length > 0 && (
     <section class="cx-sec">
       <div class="cx-wrap">
-        <div class="cx-head"><div><div class="cx-eb">More results</div><h2 class="cx-h2">More {s.title} Case Studies</h2></div><a class="cx-btn-o" href="/case-studies/" style="color:var(--cx-ink)">All case studies</a></div>
-        <div class="cx-r1">{moreCases.map((m) => <a class="cx-proj" href={`/case-studies/${m.slug}/`}><div class="cx-img">{m.image && <img src={m.image} alt={m.name} loading="lazy" />}</div><div class="cx-meta"><h3>{m.title}</h3><small>{m.name} · {m.place}</small></div></a>)}</div>
+        <div class="cx-head"><div><div class="cx-eb">More results</div><h2 class="cx-h2">More Results Like This</h2></div><a class="cx-btn-o" href="/case-studies/" style="color:var(--cx-ink)">All case studies</a></div>
+        <div class="cx-r1">{moreCases.map((m) => <a class="cx-proj" href={`/case-studies/${m.slug}/`}><div class="cx-img">{m.image && <img src={(s.slug === 'websites' ? siteShot(m.slug) : undefined) ?? m.image} alt={m.name} loading="lazy" />}</div><div class="cx-meta"><h3>{m.title}</h3><small>{m.name} · {m.place}</small></div></a>)}</div>
       </div>
     </section>
   )}
