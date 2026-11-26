@@ -451,7 +451,6 @@ html{scroll-padding-top:84px}
 .cx-svcphone img{width:100%;height:auto;display:block}
 @media(max-width:900px){.cx-svcphone{max-width:520px;margin:8px auto 0}}
 /* why without image */
-.cx-why--noimg{align-items:end}
-.cx-why--noimg .cx-why-stats{grid-template-columns:minmax(0,1fr);margin-top:0;gap:28px}
-@media(max-width:900px){.cx-why--noimg .cx-why-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:24px}}
+.cx-why--noimg{grid-template-columns:minmax(0,1fr);gap:48px}
+.cx-why--noimg .cx-why-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:0}
 @media(max-width:520px){.cx-why--noimg .cx-why-stats{grid-template-columns:minmax(0,1fr)}}
