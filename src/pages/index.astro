@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/site/Section.astro';
-const avatars = ['/brand/clients/rb-joinery.webp', '/brand/clients/remi-roofing.webp', '/brand/clients/sparkles.webp'];
+const avatars = [
+  { src: '/brand/clients/jimbos-badge.webp', name: "Jimbo's Exterior Cleaning" },
+  { src: '/brand/clients/ayrshire-fencing-badge.webp', name: 'Ayrshire Fencing Group' },
+  { src: '/brand/clients/rb-joinery-badge.webp', name: 'RB Joinery' },
+];
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 // Jimbo's client testimonial (4:5), muted autoplay with a sound toggle.
 const HERO_VIDEO = '/video/jimbos-hero.mp4';
@@ -21,7 +25,7 @@ const HERO_POSTER = '/video/jimbos-hero-poster.jpg';
         <p class="cx-lead">Fast websites and local SEO for Scottish trade businesses, with every enquiry tracked so you know exactly what it brings in.</p>
         <div class="cx-ctas"><a class="cx-btn" href="/contact">Get a free quote <span class="cx-ab" set:html={arrow} /></a><a class="cx-btn-o" href="/case-studies">See our results</a></div>
         <div class="cx-trust">
-          <span class="cx-avs" aria-hidden="true">{avatars.map((a) => <img src={a} alt="" width="44" height="44" />)}</span>
+          <span class="cx-avs">{avatars.map((a) => <img src={a.src} alt={a.name} title={a.name} width="48" height="48" />)}</span>
           <span class="cx-plus" aria-hidden="true">+</span>
           <span><b>Trusted By 20+ Businesses</b><small>From sole traders to growing trade firms.</small></span>
         </div>

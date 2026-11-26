@@ -28,14 +28,34 @@ const top3 = s.clients.slice(0, 3);
 
 {name === 'why' && (
   <section class="cx-sec cx-dark">
-    <div class="cx-wrap">
-      <div class="cx-eb">Why CodaPixel</div>
-      <p class="cx-big">We build websites that bring in <em>leads</em>, then prove it with every enquiry tracked.</p>
-      <div class="cx-g3">
-        <div class="cx-stat"><b>{fmt(s.total)}</b><strong>Leads generated</strong><p>Website enquiries for our clients, logged in Leadzap with spam removed.</p></div>
-        <div class="cx-stat"><b>5.0★</b><strong>Google rating</strong><p>From 12 reviews on Google, every one of them five stars.</p></div>
-        <div class="cx-stat"><b>#1</b><strong>Google Rankings</strong><p>We consistently rank businesses #1 on Google and AI.</p></div>
+    <div class="cx-wrap cx-why">
+      <div>
+        <div class="cx-eb">Why CodaPixel</div>
+        <p class="cx-big">Websites that bring in <em>leads</em>. Every one tracked.</p>
+        <p class="cx-mute" style="max-width:440px">Every enquiry lands in Leadzap, our lead dashboard, so you see exactly what your website brings in.</p>
+        <div class="cx-why-stats">
+          <div class="cx-stat"><b>{fmt(s.total)}</b><strong>Leads generated</strong></div>
+          <div class="cx-stat"><b>5.0★</b><strong>Google rating</strong></div>
+          <div class="cx-stat"><b>#1</b><strong>Google Rankings</strong><p>We consistently rank businesses #1 on Google and AI.</p></div>
+        </div>
       </div>
+      <figure class="cx-lz" aria-label="Leadzap dashboard showing leads by client">
+        <div class="cx-lz-bar"><i></i><i></i><i></i><span>leadzap.co.uk</span></div>
+        <div class="cx-lz-body">
+          <div class="cx-lz-top"><strong>Leadzap</strong><span class="cx-lz-live"><span class="cx-live" aria-hidden="true"></span>Live</span></div>
+          <div class="cx-lz-kpis">
+            <div><small>Total leads</small><b>{fmt(s.total)}</b></div>
+            <div><small>Top client</small><b>{fmt(s.clients[0].leads)}</b><small>{s.clients[0].name}</small></div>
+          </div>
+          <small class="cx-lz-h">Leads by client</small>
+          <div class="cx-lz-rows">
+            {s.clients.map((c) => (
+              <div class="cx-lz-row"><span>{c.name}</span><b>{fmt(c.leads)}</b><div class="cx-lz-track"><i style={`width:${Math.round((c.leads / s.clients[0].leads) * 100)}%`}></i></div></div>
+            ))}
+          </div>
+          <small class="cx-lz-foot">Website enquiries, spam removed.</small>
+        </div>
+      </figure>
     </div>
   </section>
 )}
