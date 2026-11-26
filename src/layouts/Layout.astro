@@ -236,6 +236,14 @@ const fullUrl = `https://codapixel.com${currentUrl}`;
       <slot />
     </main>
     <SiteFooter />
+    <script is:inline>
+      // Netlify's deploy-preview toolbar is blocked by our CSP and shows as a blank bar. Remove it on preview hosts only.
+      if (location.hostname.endsWith('netlify.app')) {
+        const kill = () => document.querySelectorAll('iframe[src*="app.netlify.com"]').forEach((f) => (f.closest('body > div:not(main)') || f).remove());
+        new MutationObserver(kill).observe(document.documentElement, { childList: true, subtree: true });
+        kill();
+      }
+    </script>
     <a class="cx-wa" href="https://wa.me/447792145328" aria-label="Message us on WhatsApp" onclick="try{window.gtag&&gtag('event','whatsapp_click',{event_category:'CTA',location:'sticky'})}catch(e){}"><img src="/whatsapp.svg" alt="" width="28" height="28" /><span>WhatsApp us</span></a>
 
     <!-- Tawk.to chat widget -->
