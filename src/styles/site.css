@@ -310,3 +310,6 @@ html{scroll-padding-top:84px}
 @media(max-width:1100px){.cx-phone-wrap{padding-left:0;align-items:center}}
 .cx-anno{top:calc(12px + (100% - 24px) * .335)}
 .cx-anno-line{top:-6px}
+.cx-lzimg{margin:0;display:flex;justify-content:center}
+.cx-lzimg img{width:100%;max-width:560px;height:auto;display:block}
+.cx-lzimg img{-webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 80%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 80%,transparent 100%)}
