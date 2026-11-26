@@ -2,7 +2,7 @@
 
 export const services = [
   { n: '01', title: 'Websites', text: 'Fast, mobile-first sites built to get the phone ringing. Free demo before you pay.', href: '/services/websites/' },
-  { n: '02', title: 'Local SEO', text: 'Rank in Google Maps and organic results for the searches your customers make.', href: '/services/local-seo/' },
+  { n: '02', title: 'Local SEO', text: 'Show up on Google Maps and Google search when locals look for your trade.', href: '/services/local-seo/' },
   { n: '03', title: 'Meta Ads', text: 'Facebook and Instagram ads that put your work in front of local homeowners and bring in enquiries fast.', href: '/services/meta-ads/' },
   { n: '04', title: 'Google Ads', text: 'Search campaigns and landing pages that put you at the top of Google when customers are ready to book.', href: '/services/google-ads/' },
 ];
@@ -29,7 +29,7 @@ export const caseStudies = [
   {
     slug: 'jimbos-exterior-cleaning', name: "Jimbo's Exterior Cleaning", place: 'Irvine, Ayrshire',
     title: '#1 On Google, Getting 2–3 Jobs A Week.',
-    text: 'Local SEO built to win the map pack and organic rankings for high-intent cleaning searches.',
+    text: 'A website and local SEO that put Jimbo\'s at the top of Google Maps when people in Irvine search for a cleaner.',
     image: '/case-studies/jimbos-rank-map.png', video: '/video/jimbos-hero.mp4', poster: '/video/jimbos-hero-poster.jpg', leadsFor: "Jimbo's Cleaning", stats: [['#1', 'On Google Maps across Irvine'], ['1 in 6', 'Website visitors get in touch']],
   },
   {
@@ -59,7 +59,7 @@ export const caseStudies = [
   {
     slug: 'chris-your-man-with-a-van', name: 'Your Man With A Van', place: 'Mauchline, Ayrshire',
     title: 'Search Visibility That Turned Into Real Bookings.',
-    text: 'Local SEO for a removals business that grew organic clicks 700% and filled the diary.',
+    text: 'Local SEO for a removals business that got 700% more visits from Google and filled the diary.',
     image: '/case-studies/chris-gsc-graph.png', stats: [['+700%', 'More visits from Google'], ['36k', 'Times seen on Google']],
   },
   {
@@ -131,7 +131,7 @@ export const servicePages = [
   },
   {
     slug: 'local-seo', n: '02', title: 'Local SEO', h1: 'Get Found First When Locals Search.',
-    lead: 'Rank in Google Maps and organic results for the searches your customers actually make.',
+    lead: 'Show up on Google Maps and Google search when locals look for your trade.',
     image: '/case-studies/rbjoinery-rankmap-after.png',
     intro: 'When someone searches "joiner near me" or "gutter cleaning Irvine", they are ready to book. Local SEO puts you in front of them, in the map pack and the organic results, across the whole area you cover.',
     overview: 'We optimise your Google Business Profile, build service pages that target the searches that bring in work, earn reviews and keep your business details consistent across directories. Rankings are tracked with grid maps, and you see the leads that come from it in Leadzap. RB Joinery went from barely ranking to #1 for "joiner near me" across Kilmarnock in three months.',
@@ -172,7 +172,7 @@ export const caseDetails = {
     sections: [
       ['The Challenge', ["Jimbo's Exterior Cleaning offers roof cleaning, gutter cleaning and exterior washing across Irvine and the wider Ayrshire area. Like a lot of local tradespeople, the business relied almost entirely on word of mouth and repeat customers. The website wasn't bringing in new enquiries because it wasn't being found for the searches that mattered.", "The goal was straightforward: get Jimbo's showing up on Google for the exact terms local homeowners were typing in, and turn that visibility into real, trackable clicks and calls."]],
       ['The Strategy', ['Local keyword targeting: on-page SEO built around the exact service and location searches Jimbo\'s customers use, instead of generic industry terms nobody was searching for.', 'Local map coverage: Google Business Profile optimisation and location signals to build consistent visibility across Irvine and the surrounding towns, not just a single postcode.', 'Technical and content foundations: a fast, mobile-friendly site with clear service pages, so traffic from search actually converted into enquiries.']],
-      ['The Results', ['Organic traffic grew 29x, and Jimbo\'s now ranks #1 on Google for "roof cleaner Irvine" and "gutter cleaner Irvine", the two highest-intent searches in the local market.', 'Search for gutter, roof or driveway cleaning anywhere in Irvine and Jimbo\'s comes up first on Google Maps. For window cleaning it\'s first across most of the town and second or third on the western edge.', 'In the last month, 78 people found the website on Google and 13 of them sent an enquiry. That\'s about 1 in 6 visitors turning into a potential job, and "roof cleaning ayrshire" moved up from 6th to 3rd on Google.']],
+      ['The Results', ['Visits from Google grew 29x, and Jimbo\'s now ranks #1 on Google for "roof cleaner Irvine" and "gutter cleaner Irvine", the two highest-intent searches in the local market.', 'Search for gutter, roof or driveway cleaning anywhere in Irvine and Jimbo\'s comes up first on Google Maps. For window cleaning it\'s first across most of the town and second or third on the western edge.', 'In the last month, 78 people found the website on Google and 13 of them sent an enquiry. That\'s about 1 in 6 visitors turning into a potential job, and "roof cleaning ayrshire" moved up from 6th to 3rd on Google.']],
     ],
     figures: [['/case-studies/jimbos-mappack.webp', 'Where Jimbo\'s shows on Google Maps for "gutter cleaning"', 'Each dot is a spot around Irvine. The number is where Jimbo\'s appears when someone searches from there. Every dot is a 1: top of the list.'], ['/case-studies/jimbos-gsc-graph.png', 'Visits from Google, week by week', 'Weekly clicks and impressions climbing steadily as rankings improved.']],
   },
@@ -224,13 +224,13 @@ export const caseDetails = {
     sections: [
       ['The Challenge', ['RB Joinery is a joinery and carpentry business serving Kilmarnock and the surrounding Ayrshire villages. Before this campaign the site barely showed up on Google: almost every point on the local rank map came back outside the top 20, with the business only visible right on its own doorstep.', 'For a trade business, that is the difference between the phone ringing and it staying silent, especially for a term like "joiner near me", which is exactly what homeowners type when they need work done now.']],
       ['The Strategy', ['Local service page SEO: dedicated pages around the joinery and carpentry services people search for locally, with "joiner near me" as the primary target, instead of one generic page trying to rank for everything.', 'Google Business Profile and map pack optimisation: categories, service areas and consistent citations rebuilt so the business showed up across Kilmarnock, not just at its exact address.', 'On-page and technical fixes: site speed, structure and SEO fundamentals cleaned up so Google could crawl and rank the site properly.']],
-      ['The Results', ['Organic traffic grew 5x, and within three months RB Joinery went from nowhere on the map to ranking #1 for "joiner near me" across Kilmarnock and the surrounding villages.']],
+      ['The Results', ['Visits from Google grew 5x, and within three months RB Joinery went from nowhere on the map to ranking #1 for "joiner near me" across Kilmarnock and the surrounding villages.']],
     ],
     figures: [['/case-studies/rbjoinery-rankmap-before.png', 'Before: barely ranking', 'Almost every point came back 20+ for "joiner near me".'], ['/case-studies/rbjoinery-rankmap-after.png', 'After 3 months: area-wide coverage', 'Top-8 rankings across almost the entire grid, with #1–#3 around Kilmarnock.'], ['/case-studies/rbjoinery-gsc-graph.png', 'Visits from Google, week by week', 'Clicks and impressions trending upward alongside the rank map improvement.']],
   },
   'chris-your-man-with-a-van': {
-    name: 'Your Man With A Van', h1: 'Organic Clicks Up 700% For A Local Removals Business.', url: 'https://chrisyourmanwithavan.com', urlLabel: 'chrisyourmanwithavan.com',
-    lead: 'How a man-with-a-van removals business near Mauchline grew organic clicks by 700%, turning search visibility into real bookings.',
+    name: 'Your Man With A Van', h1: '700% More Visits From Google For A Local Removals Business.', url: 'https://chrisyourmanwithavan.com', urlLabel: 'chrisyourmanwithavan.com',
+    lead: 'How a man-with-a-van removals business near Mauchline got 700% more visits from Google, turning them into real bookings.',
     meta: [['Client', 'Chris – Your Man With A Van'], ['Location', 'Mauchline, Ayrshire'], ['Trade', 'Removals'], ['Services', 'Local SEO']],
     stats: [['+700%', 'More visits from Google'], ['36k', 'Times seen on Google'], ['958', 'Visits from Google']],
     sections: [
