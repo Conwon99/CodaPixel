@@ -3,7 +3,7 @@
 export const services = [
   { n: '01', title: 'Websites', text: 'Fast, mobile-first sites built to get the phone ringing. Free demo before you pay.', href: '/services#websites' },
   { n: '02', title: 'Local SEO', text: 'Rank in Google Maps and organic results for the searches your customers make.', href: '/services#seo' },
-  { n: '03', title: 'Google Ads', text: 'Campaigns and landing pages that bring in enquiries while SEO builds.', href: '/services#ads' },
+  { n: '03', title: 'Meta Ads', text: 'Facebook and Instagram ads that put your work in front of local homeowners and bring in enquiries fast.', href: '/services#ads' },
   { n: '04', title: 'Lead tracking', text: 'Every form and call logged in Leadzap, so you see exactly what you get.', href: '/services#tracking' },
 ];
 
@@ -27,7 +27,7 @@ export const caseStudies = [
     slug: 'jimbos-exterior-cleaning', name: "Jimbo's Exterior Cleaning", place: 'Irvine, Ayrshire',
     title: 'From Invisible To Winning The Map Pack In Irvine.',
     text: 'Local SEO built to win the map pack and organic rankings for high-intent cleaning searches.',
-    image: '/case-studies/jimbos-rank-map.png', stats: [['29x', 'Organic traffic'], ['#1', 'Google ranking']],
+    image: '/case-studies/jimbos-rank-map.png', video: '/video/jimbos-hero.mp4', poster: '/video/jimbos-hero-poster.jpg', leadsFor: "Jimbo's Cleaning", stats: [['29x', 'Organic traffic'], ['#1', 'Google ranking']],
   },
   {
     slug: 'rb-joinery', name: 'RB Joinery', place: 'Kilmarnock, Ayrshire',

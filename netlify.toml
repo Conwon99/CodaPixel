@@ -7,6 +7,11 @@
 
 # Handle trailing slash redirects
 [[redirects]]
+  from = "/pricing"
+  to = "/"
+  status = 301
+
+[[redirects]]
   from = "/locations"
   to = "/"
   status = 301
