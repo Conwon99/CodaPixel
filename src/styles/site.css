@@ -459,3 +459,7 @@ html{scroll-padding-top:84px}
 .cx-svccase h2{margin:0}
 .cx-svccase video{width:100%;max-height:560px;background:#000;border-radius:14px;object-fit:contain}
 .cx-svccase .cx-btn{justify-self:start}
+
+.cx-wstats{display:flex;gap:10px;flex-wrap:wrap;margin-top:-4px}
+.cx-wstats span{display:inline-flex;align-items:baseline;gap:6px;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid var(--cx-light);font-size:13px;color:var(--cx-mute)}
+.cx-wstats b{font-family:var(--cx-teko);font-size:22px;line-height:1;font-weight:600;color:var(--cx-accent-d)}

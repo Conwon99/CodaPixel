@@ -14,15 +14,16 @@ export const steps = [
   { title: 'Track', text: 'Enquiries land in Leadzap and you get a monthly report on leads and rankings.', tags: ['Leadzap', 'Monthly report'] },
 ];
 
+// leads: all-time Leadzap leads (spam excluded); conv: leads ÷ Google visits, last 90 days. Snapshot 27 Nov 2026.
 export const work = [
-  { name: "Jimbo's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/jimbos.webp', href: '/case-studies/jimbos-exterior-cleaning/' },
-  { name: 'Ayrshire Fencing Group', tags: 'Website · Local SEO', image: '/Portfolio/live/ayrshire-fencing.webp' },
-  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/live/rb-joinery.webp', href: '/case-studies/rb-joinery/' },
-  { name: 'Double O Detailing', tags: 'Website · SEO audit', image: '/Portfolio/live/double-o.webp', href: '/case-studies/double-o-detailing/' },
-  { name: 'EK Power Washing', tags: 'Website · Local SEO', image: '/Portfolio/live/ek-power-washing.webp', href: '/case-studies/ek-power-washing/' },
-  { name: "Christie's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/christies.webp', href: '/case-studies/christies-exterior-cleaning/' },
-  { name: 'Cutting Edge Landscaping', tags: 'Website', image: '/Portfolio/live/cutting-edge.webp' },
-  { name: 'Remi Roofing Solutions', tags: 'Website', image: '/Portfolio/live/remi-roofing.webp' },
+  { name: "Jimbo's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/jimbos.webp', href: '/case-studies/jimbos-exterior-cleaning/' , leads: 144, conv: 18 },
+  { name: 'Ayrshire Fencing Group', tags: 'Website · Local SEO', image: '/Portfolio/live/ayrshire-fencing.webp' , leads: 100, conv: 31 },
+  { name: 'RB Joinery', tags: 'Website · Local SEO', image: '/Portfolio/live/rb-joinery.webp', href: '/case-studies/rb-joinery/' , leads: 50, conv: 9 },
+  { name: 'Double O Detailing', tags: 'Website · SEO audit', image: '/Portfolio/live/double-o.webp', href: '/case-studies/double-o-detailing/' , leads: 52, conv: 4 },
+  { name: 'EK Power Washing', tags: 'Website · Local SEO', image: '/Portfolio/live/ek-power-washing.webp', href: '/case-studies/ek-power-washing/' , leads: 36, conv: 37 },
+  { name: "Christie's Exterior Cleaning", tags: 'Website · Local SEO', image: '/Portfolio/live/christies.webp', href: '/case-studies/christies-exterior-cleaning/' , leads: 21, conv: 15 },
+  { name: 'Cutting Edge Landscaping', tags: 'Website', image: '/Portfolio/live/cutting-edge.webp' , leads: 36, conv: 29 },
+  { name: 'Remi Roofing Solutions', tags: 'Website', image: '/Portfolio/live/remi-roofing.webp' , leads: 21, conv: 15 },
 ];
 
 export const caseStudies = [
